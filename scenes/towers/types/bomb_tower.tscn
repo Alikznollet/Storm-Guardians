@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjsgdd4ajr755"]
+
+[ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_og5q5"]
+[ext_resource type="Script" path="res://scenes/towers/types/bomb_tower.gd" id="2_84kma"]
+
+[node name="BombTower" instance=ExtResource("1_og5q5")]
+script = ExtResource("2_84kma")
+
+[node name="Label" parent="." index="1"]
+text = "bomb"

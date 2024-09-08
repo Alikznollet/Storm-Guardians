@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhxc0vare5rua"]
+
+[ext_resource type="Script" path="res://generic/projectiles/spear.gd" id="1_68sps"]
+[ext_resource type="Texture2D" uid="uid://cwv6s72gq1l7e" path="res://assets/projectiles/spearph.png" id="2_b0ieb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xohxy"]
+size = Vector2(10, 4)
+
+[node name="Spear" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_68sps")
+damage = 5
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xohxy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b0ieb")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

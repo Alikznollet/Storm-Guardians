@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsvxdv7bfndbx"]
+
+[ext_resource type="Script" path="res://scenes/towers/base_tower.gd" id="1_niony"]
+[ext_resource type="Texture2D" uid="uid://cvefqdvqskkkh" path="res://assets/UI/toweruiplaceholder.png" id="1_vruef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ffp0f"]
+font_size = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjw5f"]
+radius = 50.0
+
+[node name="BaseTower" type="Node2D"]
+script = ExtResource("1_niony")
+
+[node name="ThrowTimer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vruef")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -7.0
+text = "base"
+label_settings = SubResource("LabelSettings_ffp0f")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_yjw5f")

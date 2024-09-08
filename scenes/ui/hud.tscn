@@ -1,0 +1,238 @@
+[gd_scene load_steps=17 format=4 uid="uid://w0sm6xpyscnt"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_84mrw"]
+[ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_itmgn"]
+[ext_resource type="PackedScene" uid="uid://c4srcc524xt8x" path="res://scenes/ui/tower_button.tscn" id="3_1mreq"]
+[ext_resource type="Texture2D" uid="uid://dfkkndoiwgjmn" path="res://assets/UI/toweruispear_ph.png" id="4_4hx8m"]
+[ext_resource type="PackedScene" uid="uid://bh1wl6c05pluf" path="res://scenes/towers/types/spear_tower.tscn" id="5_64q8l"]
+[ext_resource type="Texture2D" uid="uid://qqpahbwjqvbf" path="res://assets/UI/toweruibomb_ph.png" id="6_fn25d"]
+[ext_resource type="Texture2D" uid="uid://qqdv847mcdot" path="res://assets/UI/toweruifire_ph.png" id="7_4507i"]
+[ext_resource type="PackedScene" uid="uid://bjsgdd4ajr755" path="res://scenes/towers/types/bomb_tower.tscn" id="7_pwo0p"]
+[ext_resource type="Texture2D" uid="uid://ca6o8fsom0wdh" path="res://assets/UI/toweruielectric_ph.png" id="8_en6hk"]
+[ext_resource type="PackedScene" uid="uid://b0molxwt10pmg" path="res://scenes/towers/types/fire_tower.tscn" id="9_ri6sn"]
+[ext_resource type="PackedScene" uid="uid://u408jl0ireji" path="res://scenes/towers/types/electric_tower.tscn" id="11_eur2l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bmdf"]
+font_size = 14
+
+[sub_resource type="Animation" id="Animation_6jotv"]
+resource_name = "GraceOpen"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 16), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buy:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 32), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveName:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_ugpk3"]
+resource_name = "GraceClose"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buy:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveName:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 16), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dfcr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveName:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gk3vg"]
+_data = {
+"GraceClose": SubResource("Animation_ugpk3"),
+"GraceOpen": SubResource("Animation_6jotv"),
+"RESET": SubResource("Animation_dfcr6")
+}
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_84mrw")
+
+[node name="Timer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAhABQAAAASAA0AAAAhABUAAAASAA4AAAAhABYAAAASAA4AAAAiABQAAAATAA0AAAAiABUAAAATAA4AAAAiABYAAAATAA4AAAAjABQAAAATAA0AAAAjABUAAAATAA4AAAAjABYAAAATAA4AAAAkABQAAAATAA0AAAAkABUAAAATAA4AAAAkABYAAAATAA4AAAAlABQAAAATAA0AAAAlABUAAAATAA4AAAAlABYAAAATAA4AAAAmABQAAAAUAA0AAAAmABUAAAAUAA4AAAAmABYAAAAUAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+
+[node name="TimerLable" type="Label" parent="Timer"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = 161.0
+offset_right = 311.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "00.00"
+label_settings = SubResource("LabelSettings_6bmdf")
+horizontal_alignment = 1
+
+[node name="Buy" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BuyBG" type="TileMapLayer" parent="Buy"]
+tile_map_data = PackedByteArray("AAAfABQAAAAUAA4AAAAeABQAAAATAA4AAAAdABQAAAATAA4AAAAcABQAAAATAA4AAAAbABQAAAATAA4AAAAaABQAAAATAA4AAAAZABQAAAATAA4AAAAYABQAAAATAA4AAAAXABQAAAATAA4AAAAWABQAAAATAA4AAAAVABQAAAATAA4AAAAUABQAAAATAA4AAAATABQAAAATAA4AAAASABQAAAATAA4AAAARABQAAAATAA4AAAAQABQAAAASAA4AAAAQABYAAAASAA4AAAAQABUAAAASAA4AAAAfABUAAAAUAA4AAAAfABYAAAAUAA4AAAAeABUAAAATAA4AAAAeABYAAAATAA4AAAAdABYAAAATAA4AAAAcABYAAAATAA4AAAAbABYAAAATAA4AAAAaABYAAAATAA4AAAAZABYAAAATAA4AAAAYABYAAAATAA4AAAAXABYAAAATAA4AAAAWABYAAAATAA4AAAAVABYAAAATAA4AAAAUABYAAAATAA4AAAATABYAAAATAA4AAAASABYAAAATAA4AAAARABYAAAATAA4AAAARABUAAAATAA4AAAASABUAAAATAA4AAAATABUAAAATAA4AAAAUABUAAAATAA4AAAAVABUAAAATAA4AAAAWABUAAAATAA4AAAAXABUAAAATAA4AAAAYABUAAAATAA4AAAAZABUAAAATAA4AAAAaABUAAAATAA4AAAAbABUAAAATAA4AAAAcABUAAAATAA4AAAAdABUAAAATAA4AAAAQABIAAAASAA0AAAAfABIAAAAUAA0AAAAfABMAAAAUAA4AAAAeABIAAAATAA0AAAAdABIAAAATAA0AAAAcABIAAAATAA0AAAAbABIAAAATAA0AAAAaABIAAAATAA0AAAAZABIAAAATAA0AAAAYABIAAAATAA0AAAAXABIAAAATAA0AAAAWABIAAAATAA0AAAAVABIAAAATAA0AAAAUABIAAAATAA0AAAATABIAAAATAA0AAAASABIAAAATAA0AAAARABIAAAATAA0AAAAQABMAAAASAA4AAAARABMAAAATAA4AAAASABMAAAATAA4AAAATABMAAAATAA4AAAAUABMAAAATAA4AAAAVABMAAAATAA4AAAAWABMAAAATAA4AAAAXABMAAAATAA4AAAAYABMAAAATAA4AAAAZABMAAAATAA4AAAAaABMAAAATAA4AAAAbABMAAAATAA4AAAAcABMAAAATAA4AAAAdABMAAAATAA4AAAAeABMAAAATAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+
+[node name="BuyButtons" type="TileMapLayer" parent="Buy"]
+tile_map_data = PackedByteArray("AAAQABIAAAAVAA0AAAARABIAAAAWAA0AAAASABIAAAAWAA0AAAATABIAAAAXAA0AAAAQABMAAAAVAA4AAAAQABQAAAAVAA4AAAATABMAAAAXAA4AAAATABQAAAAXAA4AAAATABUAAAAXAA4AAAASABUAAAAWAA4AAAARABUAAAAWAA4AAAAQABUAAAAVAA4AAAARABMAAAAWAA4AAAARABQAAAAWAA4AAAASABQAAAAWAA4AAAASABMAAAAWAA4AAAAQABYAAAAVAA8AAAATABYAAAAXAA8AAAASABYAAAAWAA8AAAARABYAAAAWAA8AAAAUABIAAAAVAA0AAAAUABMAAAAVAA4AAAAUABQAAAAVAA4AAAAUABUAAAAVAA4AAAAUABYAAAAVAA8AAAAVABIAAAAWAA0AAAAVABMAAAAWAA4AAAAVABQAAAAWAA4AAAAVABUAAAAWAA4AAAAVABYAAAAWAA8AAAAWABIAAAAWAA0AAAAWABMAAAAWAA4AAAAWABQAAAAWAA4AAAAWABUAAAAWAA4AAAAWABYAAAAWAA8AAAAXABIAAAAXAA0AAAAXABMAAAAXAA4AAAAXABQAAAAXAA4AAAAXABUAAAAXAA4AAAAXABYAAAAXAA8AAAAYABIAAAAVAA0AAAAYABMAAAAVAA4AAAAYABQAAAAVAA4AAAAYABUAAAAVAA4AAAAYABYAAAAVAA8AAAAZABIAAAAWAA0AAAAZABMAAAAWAA4AAAAZABQAAAAWAA4AAAAZABUAAAAWAA4AAAAZABYAAAAWAA8AAAAaABIAAAAWAA0AAAAaABMAAAAWAA4AAAAaABQAAAAWAA4AAAAaABUAAAAWAA4AAAAaABYAAAAWAA8AAAAbABIAAAAXAA0AAAAbABMAAAAXAA4AAAAbABQAAAAXAA4AAAAbABUAAAAXAA4AAAAbABYAAAAXAA8AAAAcABIAAAAVAA0AAAAcABMAAAAVAA4AAAAcABQAAAAVAA4AAAAcABUAAAAVAA4AAAAcABYAAAAVAA8AAAAdABIAAAAWAA0AAAAdABMAAAAWAA4AAAAdABQAAAAWAA4AAAAdABUAAAAWAA4AAAAdABYAAAAWAA8AAAAeABIAAAAWAA0AAAAeABMAAAAWAA4AAAAeABQAAAAWAA4AAAAeABUAAAAWAA4AAAAeABYAAAAWAA8AAAAfABIAAAAXAA0AAAAfABMAAAAXAA4AAAAfABQAAAAXAA4AAAAfABUAAAAXAA4AAAAfABYAAAAXAA8AAAA=")
+tile_set = ExtResource("2_itmgn")
+
+[node name="Spear" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
+offset_left = 130.0
+offset_top = 147.0
+offset_right = 158.0
+offset_bottom = 179.0
+texture_normal = ExtResource("4_4hx8m")
+tower = ExtResource("5_64q8l")
+
+[node name="Bomb" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
+offset_left = 162.0
+offset_top = 147.0
+offset_right = 190.0
+offset_bottom = 179.0
+texture_normal = ExtResource("6_fn25d")
+tower = ExtResource("7_pwo0p")
+
+[node name="Fire" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
+offset_left = 194.0
+offset_top = 147.0
+offset_right = 222.0
+offset_bottom = 179.0
+texture_normal = ExtResource("7_4507i")
+tower = ExtResource("9_ri6sn")
+
+[node name="Electric" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
+offset_left = 226.0
+offset_top = 147.0
+offset_right = 254.0
+offset_bottom = 179.0
+texture_normal = ExtResource("8_en6hk")
+tower = ExtResource("11_eur2l")
+
+[node name="WaveName" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAOABQAAAAUAA0AAAANABQAAAATAA0AAAAMABQAAAATAA0AAAALABQAAAATAA0AAAAKABQAAAATAA0AAAAJABQAAAATAA0AAAAIABQAAAATAA0AAAAHABQAAAATAA0AAAAGABQAAAATAA0AAAAFABQAAAATAA0AAAAEABQAAAATAA0AAAADABQAAAATAA0AAAACABQAAAATAA0AAAABABQAAAASAA0AAAABABUAAAASAA4AAAABABYAAAASAA4AAAAOABUAAAAUAA4AAAAOABYAAAAUAA4AAAANABUAAAATAA4AAAANABYAAAATAA4AAAAMABYAAAATAA4AAAALABYAAAATAA4AAAAKABYAAAATAA4AAAAJABYAAAATAA4AAAAIABYAAAATAA4AAAAIABUAAAATAA4AAAAHABUAAAATAA4AAAAGABUAAAATAA4AAAAGABYAAAATAA4AAAAFABYAAAATAA4AAAAEABYAAAATAA4AAAAEABUAAAATAA4AAAADABUAAAATAA4AAAACABUAAAATAA4AAAACABYAAAATAA4AAAADABYAAAATAA4AAAAFABUAAAATAA4AAAAHABYAAAATAA4AAAAJABUAAAATAA4AAAAKABUAAAATAA4AAAALABUAAAATAA4AAAAMABUAAAATAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+
+[node name="WaveLable" type="Label" parent="WaveName"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 161.0
+offset_right = 119.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "wave 1"
+label_settings = SubResource("LabelSettings_6bmdf")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gk3vg")
+}

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0molxwt10pmg"]
+
+[ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_aubeo"]
+[ext_resource type="Script" path="res://scenes/towers/types/fire_tower.gd" id="2_hps0l"]
+
+[node name="FireTower" instance=ExtResource("1_aubeo")]
+script = ExtResource("2_hps0l")
+
+[node name="Label" parent="." index="2"]
+text = "fire"

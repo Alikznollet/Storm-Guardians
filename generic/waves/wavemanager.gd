@@ -9,26 +9,35 @@ func _ready() -> void:
 		if wave is WaveSettings:
 			waves.append(wave)
 			
-	start_wave()
+	_start_grace()
 			
 			
 func start_wave() -> void:
 	current_wave = waves.pop_front()
 	var current_enemy: Enemy = current_wave.get_next_enemy()
 	
+	GameState.current_wave = current_wave.name
+	GameState.wave_starting.emit()
+	
 	while current_enemy:
 		%Path.add_child(current_enemy)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(current_wave.spawn_time).timeout
 		current_enemy = current_wave.get_next_enemy()
 		
 	await %Path.wave_over
-	_start_grace()
+	
+	if waves.is_empty():
+		_end_game()
+	else:
+		_start_grace()
 	
 func _start_grace() -> void:
-	print('grace')
 	%GraceTimer.start()
 
 func _on_grace_timer_timeout() -> void:
-	if not waves.is_empty():
-		print(waves)
-		start_wave()
+	start_wave()
+		
+func _end_game():
+	print("you won")
+		
+		

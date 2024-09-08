@@ -4,6 +4,10 @@ class_name WaveSettings
 @export var enemies: Array[PackedScene]
 @export var amounts: Array[int]
 
+@export_group("MULTIPLIERS")
+@export var health_multiplier: float = 1.00
+@export var spawn_time: float = 1.00
+
 func get_next_enemy() -> Enemy:
 	if amounts.size() != 0:
 		var enemypacked: PackedScene = enemies.front()

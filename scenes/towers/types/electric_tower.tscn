@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://u408jl0ireji"]
+
+[ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_nb343"]
+[ext_resource type="Script" path="res://scenes/towers/types/electric_tower.gd" id="2_xthut"]
+
+[node name="ElectricTower" instance=ExtResource("1_nb343")]
+script = ExtResource("2_xthut")
+
+[node name="Label" parent="." index="2"]
+text = "electric"
