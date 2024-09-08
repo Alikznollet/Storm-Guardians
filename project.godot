@@ -11,5 +11,31 @@ config_version=5
 [application]
 
 config/name="Storm Guardians"
+run/main_scene="res://scenes/levels/level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://generic/": "teal",
+"res://scenes/": "orange"
+}
+
+[layer_names]
+
+2d_physics/layer_1="Tower"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Projectile "
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

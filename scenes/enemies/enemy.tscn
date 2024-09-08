@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb3u3xq7t7dab"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_iayif"]
+[ext_resource type="Texture2D" uid="uid://fotbnwio7bdo" path="res://assets/free-field-enemies-pixel-art-for-tower-defense/2/D_Walk.png" id="2_mf6nk"]
+
+[node name="Enemy" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_iayif")
+speed = 50
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mf6nk")
+hframes = 6
