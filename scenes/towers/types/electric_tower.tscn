@@ -1,10 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://u408jl0ireji"]
+[gd_scene load_steps=6 format=3 uid="uid://u408jl0ireji"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_nb343"]
 [ext_resource type="Script" path="res://scenes/towers/types/electric_tower.gd" id="2_xthut"]
+[ext_resource type="PackedScene" uid="uid://cgbgrgqksyqg2" path="res://generic/projectiles/lightning.tscn" id="3_2p058"]
+[ext_resource type="Script" path="res://generic/components/range_component.gd" id="3_54ky8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olcyu"]
+size = Vector2(500, 500)
 
 [node name="ElectricTower" instance=ExtResource("1_nb343")]
 script = ExtResource("2_xthut")
+projectile = ExtResource("3_2p058")
+
+[node name="ThrowTimer" parent="." index="0"]
+wait_time = 3.0
+one_shot = true
 
 [node name="Label" parent="." index="2"]
 text = "electric"
+
+[node name="RangeComponent" type="Area2D" parent="." index="3"]
+collision_mask = 2
+script = ExtResource("3_54ky8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_olcyu")
+debug_color = Color(1, 1, 1, 0.192157)
+
+[connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
