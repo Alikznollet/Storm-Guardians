@@ -18,9 +18,11 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
+	print(area)
 	if area is Projectile:
 		_damage(area.damage)
 	
 func _damage(amount: int) -> void:
 	health -= amount
+	$HealthPH.text = str(health)
 	

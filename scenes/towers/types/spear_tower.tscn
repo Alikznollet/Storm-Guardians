@@ -1,25 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh1wl6c05pluf"]
+[gd_scene load_steps=7 format=3 uid="uid://bh1wl6c05pluf"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_b5gfy"]
 [ext_resource type="Script" path="res://scenes/towers/types/spear_tower.gd" id="2_eypgc"]
 [ext_resource type="PackedScene" uid="uid://bhxc0vare5rua" path="res://generic/projectiles/spear.tscn" id="3_ftg6y"]
 [ext_resource type="Texture2D" uid="uid://cwv6s72gq1l7e" path="res://assets/projectiles/spearph.png" id="4_4lft7"]
+[ext_resource type="Script" path="res://generic/components/range_component.gd" id="5_iuv6b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq1ks"]
+radius = 103.019
 
 [node name="SpearTower" instance=ExtResource("1_b5gfy")]
 script = ExtResource("2_eypgc")
-spear = ExtResource("3_ftg6y")
+projectile = ExtResource("3_ftg6y")
+
+[node name="ThrowTimer" parent="." index="0"]
+one_shot = true
 
 [node name="Weapon" type="Sprite2D" parent="." index="2"]
-position = Vector2(5, 0)
 texture = ExtResource("4_4lft7")
+offset = Vector2(5, 0)
 
 [node name="Label" parent="." index="3"]
 text = "spear"
 
-[node name="Range" parent="." index="4"]
+[node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+script = ExtResource("5_iuv6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
+shape = SubResource("CircleShape2D_aq1ks")
 
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
-[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
