@@ -12,6 +12,7 @@ radius = 103.019
 [node name="SpearTower" instance=ExtResource("1_b5gfy")]
 script = ExtResource("2_eypgc")
 projectile = ExtResource("3_ftg6y")
+price = 200
 
 [node name="ThrowTimer" parent="." index="0"]
 one_shot = true

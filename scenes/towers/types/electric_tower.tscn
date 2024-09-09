@@ -11,6 +11,7 @@ size = Vector2(500, 500)
 [node name="ElectricTower" instance=ExtResource("1_nb343")]
 script = ExtResource("2_xthut")
 projectile = ExtResource("3_2p058")
+price = 700
 
 [node name="ThrowTimer" parent="." index="0"]
 wait_time = 3.0

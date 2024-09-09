@@ -12,6 +12,7 @@ radius = 69.1158
 [node name="BombTower" instance=ExtResource("1_og5q5")]
 script = ExtResource("2_84kma")
 projectile = ExtResource("3_bwvu8")
+price = 300
 
 [node name="ThrowTimer" parent="." index="0"]
 wait_time = 3.0

@@ -30,5 +30,6 @@ func _on_area_exited(_area: Area2D) -> void:
 func _place_tower():
 	var tower: BaseTower = body_inside.tower.instantiate()
 	add_child(tower)
+	GameState.current_balance -= tower.price
 	available = false
 	body_inside.stop_showing_visual()

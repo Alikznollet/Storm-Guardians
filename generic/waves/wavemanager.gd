@@ -4,6 +4,8 @@ class_name WaveManager
 var waves: Array[WaveSettings]
 var current_wave: WaveSettings
 
+signal wave_over()
+
 func _ready() -> void:
 	for wave in get_children():
 		if wave is WaveSettings:
@@ -25,6 +27,8 @@ func start_wave() -> void:
 		current_enemy = current_wave.get_next_enemy()
 		
 	await %Path.wave_over
+	print("wave over")
+	wave_over.emit()
 	
 	if waves.is_empty():
 		_end_game()

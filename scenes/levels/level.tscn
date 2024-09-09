@@ -155,3 +155,4 @@ amounts = Array[int]([2])
 [connection signal="timeout" from="GraceTimer" to="Hud" method="_on_grace_timer_timeout"]
 [connection signal="child_entered_tree" from="Path" to="Path" method="_on_child_entered_tree"]
 [connection signal="wave_over" from="Path" to="Hud" method="_on_path_wave_over"]
+[connection signal="wave_over" from="WaveManager" to="Hud" method="_on_wave_manager_wave_over"]
