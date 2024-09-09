@@ -141,7 +141,7 @@ script = ExtResource("3_nm12d")
 [node name="TestWave" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
 enemies = Array[PackedScene]([ExtResource("2_5i606")])
-amounts = Array[int]([1])
+amounts = Array[int]([15])
 spawn_time = 0.1
 
 [node name="TestWave 2" type="Node" parent="WaveManager"]

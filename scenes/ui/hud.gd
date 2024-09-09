@@ -4,6 +4,7 @@ func _ready() -> void:
 	_grace_show()
 	GameState.money_label = $Balance/Money
 	GameState.interest_label = $Balance/Interest
+	GameState.health_label = $Health/HealthLabel
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -1,6 +1,6 @@
 extends BaseTower
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	target = $RangeComponent.get_target()
 	
 	if target:

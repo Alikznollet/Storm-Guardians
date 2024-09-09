@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	progress += speed * delta
 	
 	if progress_ratio == 1:
+		GameState.current_health -= damage_on_base
 		queue_free()
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
@@ -26,4 +27,5 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func _damage(amount: int) -> void:
 	health -= amount
 	$HealthPH.text = str(health)
+	
 	

@@ -1,7 +1,7 @@
 extends BaseTower
 
-func _physics_process(delta: float) -> void:
-	var target: Enemy = $RangeComponent.get_target()
+func _physics_process(_delta: float) -> void:
+	target = $RangeComponent.get_target()
 	
 	if target and can_throw:
 		var fire_projectile: Fire = projectile.instantiate()

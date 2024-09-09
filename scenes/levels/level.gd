@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	GameState.grace_timer = %GraceTimer
+	GameState.game_started()
 	
 	for buybutton in get_tree().get_nodes_in_group("BuyButtons"):
 		buybutton.connect("tower_selected", _tower_to_cursor)
