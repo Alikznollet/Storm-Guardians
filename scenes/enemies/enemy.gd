@@ -6,7 +6,7 @@ class_name Enemy
 @export var health: int:
 	set(newValue):
 		health = newValue
-		if health < 0:
+		if health <= 0:
 			queue_free()
 	get:
 		return health

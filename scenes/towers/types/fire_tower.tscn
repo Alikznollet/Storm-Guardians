@@ -11,10 +11,9 @@ radius = 45.0
 [node name="FireTower" instance=ExtResource("1_aubeo")]
 script = ExtResource("2_hps0l")
 projectile = ExtResource("3_3g86m")
-price = 400
+price = 500
 
 [node name="ThrowTimer" parent="." index="0"]
-wait_time = 2.0
 one_shot = true
 
 [node name="Label" parent="." index="2"]

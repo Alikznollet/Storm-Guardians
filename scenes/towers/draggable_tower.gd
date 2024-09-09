@@ -5,7 +5,7 @@ var snapped: bool = false
 var tower: PackedScene
 
 func _ready() -> void:
-	GameState.connect("wave_starting", stop_showing_visual)
+	GameState.connect("grace_exited", stop_showing_visual)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

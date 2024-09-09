@@ -15,11 +15,12 @@ func _ready() -> void:
 			
 			
 func start_wave() -> void:
+	GameState.grace_period = false
 	current_wave = waves.pop_front()
 	var current_enemy: Enemy = current_wave.get_next_enemy()
 	
 	GameState.current_wave = current_wave.name
-	GameState.wave_starting.emit()
+	# GameState.wave_starting.emit()
 	
 	while current_enemy:
 		%Path.add_child(current_enemy)
@@ -34,6 +35,7 @@ func start_wave() -> void:
 		_end_game()
 	else:
 		_start_grace()
+		GameState.grace_period = true
 	
 func _start_grace() -> void:
 	%GraceTimer.start()
