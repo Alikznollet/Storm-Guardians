@@ -15,6 +15,23 @@ func _process(_delta: float) -> void:
 	%WaveLable.text = GameState.current_wave
 	%TimerLable.text = "%.2f" % GameState.grace_timer.get_time_left()
 	
+	if GameState.current_balance < int(%SpearPrice.text):
+		%SpearPrice.modulate = Color.RED
+	else:
+		%SpearPrice.modulate = Color.WHITE
+	if GameState.current_balance < int(%Bombprice.text):
+		%Bombprice.modulate = Color.RED
+	else:
+		%Bombprice.modulate = Color.WHITE
+	if GameState.current_balance < int(%FirePrice.text):
+		%FirePrice.modulate = Color.RED
+	else:
+		%FirePrice.modulate = Color.WHITE
+	if GameState.current_balance < int(%MagePrice.text):
+		%MagePrice.modulate = Color.RED
+	else:
+		%MagePrice.modulate = Color.WHITE
+	
 func _on_grace_timer_timeout() -> void:
 	_grace_hide()
 	

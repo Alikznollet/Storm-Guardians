@@ -140,17 +140,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ascwr"]
 size = Vector2(12, 16)
 
-[node name="HastyCloud" type="PathFollow2D"]
+[node name="HastyCloud" type="PathFollow2D" node_paths=PackedStringArray("marker")]
 rotates = false
 loop = false
 script = ExtResource("1_fobii")
 speed = 70
+money_given = 2
+marker = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_rjwwi")
 animation = &"hover"
-frame_progress = 0.42008
+frame_progress = 0.535576
+metadata/_edit_lock_ = true
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_label")]
 collision_layer = 2
@@ -158,6 +164,8 @@ collision_mask = 4
 script = ExtResource("4_v4dih")
 health_label = NodePath("../Label")
 health = 30
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -1)
@@ -175,6 +183,7 @@ text = "0"
 label_settings = ExtResource("6_fvqk6")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
 [connection signal="died" from="HitboxComponent" to="." method="_on_hitbox_component_died"]

@@ -112,17 +112,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riv4r"]
 size = Vector2(6, 15)
 
-[node name="WaterBubble" type="PathFollow2D"]
+[node name="WaterBubble" type="PathFollow2D" node_paths=PackedStringArray("marker")]
 rotates = false
 loop = false
 script = ExtResource("2_qt2uk")
 speed = 40
+money_given = 2
+marker = NodePath("TargetingMarker")
+
+[node name="TargetingMarker" type="Marker2D" parent="."]
+position = Vector2(0, -2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_tkjy7")
 animation = &"hover"
-frame_progress = 0.866965
+frame_progress = 0.539735
+metadata/_edit_lock_ = true
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_label")]
 collision_layer = 2
@@ -130,6 +136,8 @@ collision_mask = 4
 script = ExtResource("3_sc76e")
 health_label = NodePath("../Label")
 health = 50
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -1.5)

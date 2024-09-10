@@ -11,7 +11,7 @@ func _physics_process(_delta: float) -> void:
 		if can_throw:
 			$Thrower.play("throw")
 			var bomb_projectile: Bomb = projectile.instantiate()
-			bomb_projectile.explo_position = target.global_position
+			bomb_projectile.explo_position = target.marker.global_position
 			add_child(bomb_projectile)
 			can_throw = false
 			$ThrowTimer.start()

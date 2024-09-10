@@ -208,7 +208,8 @@ tile_map_data = PackedByteArray("AAAQABAAAAAVAA0AAAARABAAAAAWAA0AAAASABAAAAAWAA0
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_lock_ = true
 
-[node name="Label7" type="Label" parent="Buy/Prices/PriceSpear"]
+[node name="SpearPrice" type="Label" parent="Buy/Prices/PriceSpear"]
+unique_name_in_owner = true
 offset_left = 132.0
 offset_top = 133.0
 offset_right = 158.0
@@ -223,7 +224,8 @@ tile_map_data = PackedByteArray("AAAUABAAAAAVAA0AAAAUABEAAAAVAA4AAAAVABAAAAAWAA0
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_lock_ = true
 
-[node name="Label6" type="Label" parent="Buy/Prices/PriceBomb"]
+[node name="Bombprice" type="Label" parent="Buy/Prices/PriceBomb"]
+unique_name_in_owner = true
 offset_left = 164.0
 offset_top = 133.0
 offset_right = 190.0
@@ -238,7 +240,8 @@ tile_map_data = PackedByteArray("AAAYABAAAAAVAA0AAAAYABEAAAAVAA4AAAAZABAAAAAWAA0
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_lock_ = true
 
-[node name="Label5" type="Label" parent="Buy/Prices/PriceFire"]
+[node name="FirePrice" type="Label" parent="Buy/Prices/PriceFire"]
+unique_name_in_owner = true
 offset_left = 196.0
 offset_top = 133.0
 offset_right = 222.0
@@ -253,7 +256,8 @@ tile_map_data = PackedByteArray("AAAcABAAAAAVAA0AAAAcABEAAAAVAA4AAAAdABAAAAAWAA0
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_lock_ = true
 
-[node name="Label4" type="Label" parent="Buy/Prices/PriceMage"]
+[node name="MagePrice" type="Label" parent="Buy/Prices/PriceMage"]
+unique_name_in_owner = true
 offset_left = 227.0
 offset_top = 133.0
 offset_right = 253.0
@@ -279,6 +283,7 @@ offset_bottom = 179.0
 texture_normal = ExtResource("5_hdfx4")
 stretch_mode = 3
 tower = ExtResource("5_64q8l")
+price = 200
 
 [node name="Bomb" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
 offset_left = 162.0
@@ -288,6 +293,7 @@ offset_bottom = 179.0
 texture_normal = ExtResource("7_nki3j")
 stretch_mode = 3
 tower = ExtResource("7_pwo0p")
+price = 400
 
 [node name="Fire" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
 offset_left = 194.0
@@ -297,6 +303,7 @@ offset_bottom = 179.0
 texture_normal = ExtResource("9_qqti8")
 stretch_mode = 3
 tower = ExtResource("9_ri6sn")
+price = 500
 
 [node name="Electric" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
 offset_left = 226.0
@@ -306,6 +313,7 @@ offset_bottom = 179.0
 texture_normal = ExtResource("11_2asy0")
 stretch_mode = 3
 tower = ExtResource("11_eur2l")
+price = 700
 
 [node name="WaveName" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAOABQAAAAUAA0AAAANABQAAAATAA0AAAAMABQAAAATAA0AAAALABQAAAATAA0AAAAKABQAAAATAA0AAAAJABQAAAATAA0AAAAIABQAAAATAA0AAAAOABUAAAAUAA4AAAAOABYAAAAUAA4AAAANABUAAAATAA4AAAANABYAAAATAA4AAAAMABYAAAATAA4AAAALABYAAAATAA4AAAAKABYAAAATAA4AAAAJABYAAAATAA4AAAAIABYAAAATAA4AAAAIABUAAAATAA4AAAAJABUAAAATAA4AAAAKABUAAAATAA4AAAALABUAAAATAA4AAAAMABUAAAATAA4AAAA=")
