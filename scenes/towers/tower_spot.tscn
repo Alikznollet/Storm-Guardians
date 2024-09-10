@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://beafduixkdcu0"]
 
-[ext_resource type="Texture2D" uid="uid://ipjnvj1ouods" path="res://assets/towers/towerplacespot.png" id="1_w0e11"]
 [ext_resource type="Script" path="res://scenes/towers/tower_spot.gd" id="1_wlugs"]
+[ext_resource type="Texture2D" uid="uid://de6ft85bmruok" path="res://assets/world/towers/spots/tower_spot.png" id="2_ne4jy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcd1"]
-size = Vector2(22, 22)
+size = Vector2(16, 16)
 
 [node name="TowerSpot" type="Area2D"]
 collision_layer = 8
@@ -12,7 +12,8 @@ collision_mask = 16
 script = ExtResource("1_wlugs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_w0e11")
+position = Vector2(0, 1)
+texture = ExtResource("2_ne4jy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rmcd1")

@@ -4,10 +4,10 @@
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_itmgn"]
 [ext_resource type="PackedScene" uid="uid://c4srcc524xt8x" path="res://scenes/ui/tower_button.tscn" id="3_1mreq"]
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="3_7q3s8"]
-[ext_resource type="Texture2D" uid="uid://dfkkndoiwgjmn" path="res://assets/UI/toweruispear_ph.png" id="4_4hx8m"]
 [ext_resource type="PackedScene" uid="uid://bh1wl6c05pluf" path="res://scenes/towers/types/spear_tower.tscn" id="5_64q8l"]
-[ext_resource type="Texture2D" uid="uid://qqpahbwjqvbf" path="res://assets/UI/toweruibomb_ph.png" id="6_fn25d"]
+[ext_resource type="Texture2D" uid="uid://do7qcr7bc56f7" path="res://assets/world/towers/spear/spear_icon.png" id="5_hdfx4"]
 [ext_resource type="Texture2D" uid="uid://qqdv847mcdot" path="res://assets/UI/toweruifire_ph.png" id="7_4507i"]
+[ext_resource type="Texture2D" uid="uid://buva6h73rrev0" path="res://assets/world/towers/bomb/bomb_icon.png" id="7_nki3j"]
 [ext_resource type="PackedScene" uid="uid://bjsgdd4ajr755" path="res://scenes/towers/types/bomb_tower.tscn" id="7_pwo0p"]
 [ext_resource type="Texture2D" uid="uid://ca6o8fsom0wdh" path="res://assets/UI/toweruielectric_ph.png" id="8_en6hk"]
 [ext_resource type="PackedScene" uid="uid://b0molxwt10pmg" path="res://scenes/towers/types/fire_tower.tscn" id="9_ri6sn"]
@@ -237,7 +237,8 @@ offset_left = 130.0
 offset_top = 147.0
 offset_right = 158.0
 offset_bottom = 179.0
-texture_normal = ExtResource("4_4hx8m")
+texture_normal = ExtResource("5_hdfx4")
+stretch_mode = 3
 tower = ExtResource("5_64q8l")
 
 [node name="Bomb" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
@@ -245,7 +246,8 @@ offset_left = 162.0
 offset_top = 147.0
 offset_right = 190.0
 offset_bottom = 179.0
-texture_normal = ExtResource("6_fn25d")
+texture_normal = ExtResource("7_nki3j")
+stretch_mode = 3
 tower = ExtResource("7_pwo0p")
 
 [node name="Fire" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]

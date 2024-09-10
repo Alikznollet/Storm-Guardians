@@ -32,4 +32,5 @@ func _place_tower():
 	add_child(tower)
 	GameState.current_balance -= tower.price
 	available = false
+	$Sprite2D.visible = false
 	body_inside.stop_showing_visual()
