@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 var settings: Settings = Settings.new()
-var save_manager: SaveManager = SaveManager.new()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
@@ -14,11 +13,9 @@ func _on_options_pressed() -> void:
 
 
 func _on_select_level_pressed() -> void:
-	# for now this will just load the first level
-	$AnimationPlayer.play("toSaveScreen")
+	# NOTE: no need for saving/loading saves because it's a jam
 	
-	# SaveManager.get_save()
-	# Transition.change_scene("res://scenes/levels/level.tscn")
+	Transition.change_scene("res://scenes/levels/level.tscn")
 
 
 func _on_return_pressed() -> void:

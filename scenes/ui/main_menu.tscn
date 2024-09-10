@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://mmidqx2cwf8l"]
+[gd_scene load_steps=23 format=4 uid="uid://mmidqx2cwf8l"]
 
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="1_4jywj"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_xnh1i"]
@@ -15,13 +15,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30lb2"]
 shader = ExtResource("2_5efyl")
 shader_parameter/speed = 0.02
-
-[sub_resource type="Gradient" id="Gradient_u36ap"]
-offsets = PackedFloat32Array(0.992806)
-colors = PackedColorArray(1, 0.329412, 0.262745, 0.407843)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j5pbe"]
-gradient = SubResource("Gradient_u36ap")
 
 [sub_resource type="LabelSettings" id="LabelSettings_kutdc"]
 font = ExtResource("4_yxss7")
@@ -114,11 +107,6 @@ texture = ExtResource("3_h6ojc")
 region_enabled = true
 region_rect = Rect2(0, -747.512, 1191.54, 939.512)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(160, -90)
-scale = Vector2(5, 2.8125)
-texture = SubResource("GradientTexture2D_j5pbe")
-
 [node name="GameTitle" type="Label" parent="."]
 offset_left = 47.0
 offset_right = 277.0
@@ -175,18 +163,18 @@ label_settings = ExtResource("3_0qhfd")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Select Level" type="TextureButton" parent="Buttons/MainMenuScreen"]
+[node name="Play Game" type="TextureButton" parent="Buttons/MainMenuScreen"]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 116.0
 offset_right = 223.0
 offset_bottom = 129.0
 
-[node name="SelectLevelLabel" type="Label" parent="Buttons/MainMenuScreen/Select Level"]
+[node name="SelectLevelLabel" type="Label" parent="Buttons/MainMenuScreen/Play Game"]
 layout_mode = 0
 offset_right = 126.0
 offset_bottom = 14.0
-text = "Select Level"
+text = "Play Game"
 label_settings = ExtResource("3_0qhfd")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -257,24 +245,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Save" type="Control" parent="Buttons"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Continue" type="TileMapLayer" parent="Buttons/Save"]
-tile_map_data = PackedByteArray("AAAbAPL/AAAXAA0AAAAbAPT/AAAXAA8AAAAbAPP/AAAXAA4AAAAaAPT/AAAWAA8AAAAZAPT/AAAVAA8AAAAZAPP/AAAVAA4AAAAZAPL/AAAVAA0AAAAaAPL/AAAWAA0AAAAaAPP/AAAWAA4AAAA=")
-tile_set = ExtResource("1_4jywj")
-
-[node name="Restart" type="TileMapLayer" parent="Buttons/Save"]
-tile_map_data = PackedByteArray("AAAYAPL/AAAXAA0AAAAXAPL/AAAWAA0AAAAWAPL/AAAVAA0AAAAWAPT/AAAVAA8AAAAXAPT/AAAWAA8AAAAYAPT/AAAXAA8AAAAYAPP/AAAXAA4AAAAWAPP/AAAVAA4AAAAXAPP/AAAWAA4AAAA=")
-tile_set = ExtResource("1_4jywj")
-
-[node name="New Game" type="TileMapLayer" parent="Buttons/Save"]
-tile_map_data = PackedByteArray("AAAMAPL/AAAVAA0AAAANAPL/AAAWAA0AAAAOAPL/AAAWAA0AAAAPAPL/AAAWAA0AAAAQAPL/AAAWAA0AAAARAPL/AAAWAA0AAAASAPL/AAAWAA0AAAATAPL/AAAWAA0AAAAUAPL/AAAWAA0AAAAVAPL/AAAWAA0AAAAWAPL/AAAWAA0AAAAXAPL/AAAWAA0AAAAYAPL/AAAWAA0AAAAZAPL/AAAWAA0AAAAaAPL/AAAWAA0AAAAbAPL/AAAXAA0AAAAbAPP/AAAXAA4AAAAbAPT/AAAXAA8AAAAaAPT/AAAWAA8AAAAZAPT/AAAWAA8AAAAYAPT/AAAWAA8AAAAXAPT/AAAWAA8AAAAWAPT/AAAWAA8AAAAVAPT/AAAWAA8AAAAUAPT/AAAWAA8AAAATAPT/AAAWAA8AAAASAPT/AAAWAA8AAAARAPT/AAAWAA8AAAAQAPT/AAAWAA8AAAAPAPT/AAAWAA8AAAAOAPT/AAAWAA8AAAANAPT/AAAWAA8AAAAMAPT/AAAVAA8AAAAMAPP/AAAVAA4AAAAaAPP/AAAWAA4AAAAZAPP/AAAWAA4AAAAYAPP/AAAWAA4AAAAXAPP/AAAWAA4AAAAWAPP/AAAWAA4AAAAVAPP/AAAWAA4AAAAUAPP/AAAWAA4AAAATAPP/AAAWAA4AAAASAPP/AAAWAA4AAAARAPP/AAAWAA4AAAAQAPP/AAAWAA4AAAAPAPP/AAAWAA4AAAAOAPP/AAAWAA4AAAANAPP/AAAWAA4AAAA=")
-tile_set = ExtResource("1_4jywj")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lqtdj")
@@ -282,7 +252,7 @@ libraries = {
 
 [connection signal="pressed" from="Buttons/MainMenuScreen/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Buttons/MainMenuScreen/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Buttons/MainMenuScreen/Select Level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="Buttons/MainMenuScreen/Play Game" to="." method="_on_select_level_pressed"]
 [connection signal="toggled" from="Buttons/Options/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="drag_ended" from="Buttons/Options/HSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="Buttons/Options/HSlider" to="." method="_on_h_slider_value_changed"]
