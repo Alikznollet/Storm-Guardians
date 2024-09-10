@@ -17,6 +17,10 @@ var grace_period: bool:
 		grace_period = grace
 		if grace:
 			grace_entered.emit()
+			print(money_gained)
+			current_balance += money_gained
+			money_gained = 0
+			print(money_gained)
 		else:
 			grace_exited.emit()
 	get:
@@ -28,6 +32,7 @@ var current_balance: int = 1000: # this value is temporary
 	set(new):
 		current_balance = new
 		money_label.text = str(new)
+		current_interest = current_balance / 100
 	get:
 		return current_balance
 		
@@ -49,6 +54,8 @@ var current_health: int = 50: # this value is temporary
 			get_tree().quit()
 	get:
 		return current_health
+		
+var money_gained: int
 		
 var money_label: Label
 var interest_label: Label

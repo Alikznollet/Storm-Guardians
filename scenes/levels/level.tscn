@@ -18,6 +18,8 @@ point_count = 17
 [node name="Level" type="Node2D"]
 script = ExtResource("1_84apw")
 
+[node name="Hud" parent="." instance=ExtResource("7_lyf5f")]
+
 [node name="GraceTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 10.0
@@ -45,6 +47,12 @@ position = Vector2(85, 38)
 [node name="TowerSpot2" parent="TowerSpots" instance=ExtResource("4_shn85")]
 position = Vector2(128, 19)
 
+[node name="TowerSpot3" parent="TowerSpots" instance=ExtResource("4_shn85")]
+position = Vector2(15, 86)
+
+[node name="TowerSpot4" parent="TowerSpots" instance=ExtResource("4_shn85")]
+position = Vector2(63, 86)
+
 [node name="TowerVisuals" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -54,13 +62,23 @@ script = ExtResource("3_nm12d")
 [node name="TestWave" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
 enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
-amounts = Array[int]([1])
-spawn_time = 0.1
+amounts = Array[int]([10])
+spawn_time = 0.2
 
-[node name="Hud" parent="." instance=ExtResource("7_lyf5f")]
+[node name="TestWave3" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
+amounts = Array[int]([10])
+spawn_time = 0.2
 
-[connection signal="timeout" from="GraceTimer" to="WaveManager" method="_on_grace_timer_timeout"]
+[node name="TestWave4" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
+amounts = Array[int]([10])
+spawn_time = 0.2
+
 [connection signal="timeout" from="GraceTimer" to="Hud" method="_on_grace_timer_timeout"]
+[connection signal="timeout" from="GraceTimer" to="WaveManager" method="_on_grace_timer_timeout"]
 [connection signal="child_entered_tree" from="Path" to="Path" method="_on_child_entered_tree"]
 [connection signal="wave_over" from="Path" to="Hud" method="_on_path_wave_over"]
 [connection signal="wave_over" from="WaveManager" to="Hud" method="_on_wave_manager_wave_over"]

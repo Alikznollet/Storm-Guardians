@@ -1,7 +1,7 @@
 extends Area2D
 class_name HitboxComponent
 
-@export var health_label: Label # optional when you wnat to display health
+@export var health_label: Label # optional when you want to display health
 
 @export var health: int:
 	set(new):
