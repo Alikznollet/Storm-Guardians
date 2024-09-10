@@ -1,0 +1,152 @@
+[gd_scene load_steps=21 format=3 uid="uid://cvui7y0o1asn"]
+
+[ext_resource type="Texture2D" uid="uid://bdeh0ou3nf6d1" path="res://assets/enemies/water_bubble_pop.png" id="2_jr7jw"]
+[ext_resource type="Script" path="res://scenes/enemies/water_bubble.gd" id="2_qt2uk"]
+[ext_resource type="Texture2D" uid="uid://rg1w8gqvfngd" path="res://assets/enemies/water_bubble_hover.png" id="3_8xhnd"]
+[ext_resource type="Script" path="res://generic/components/hitbox_component.gd" id="3_sc76e"]
+[ext_resource type="Script" path="res://generic/components/pathfollow_component.gd" id="4_kxx5g"]
+[ext_resource type="LabelSettings" uid="uid://dxyu4wwedjkag" path="res://generic/other/prices.tres" id="6_e1vje"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgmnd"]
+atlas = ExtResource("2_jr7jw")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxupi"]
+atlas = ExtResource("2_jr7jw")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lutn"]
+atlas = ExtResource("2_jr7jw")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k47a"]
+atlas = ExtResource("2_jr7jw")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11owe"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qlkg"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hdov"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk0cc"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af0tq"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se0r2"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85lqq"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wq3f"]
+atlas = ExtResource("3_8xhnd")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkjy7"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgmnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxupi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lutn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k47a")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11owe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qlkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hdov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk0cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af0tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se0r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85lqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wq3f")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riv4r"]
+size = Vector2(6, 12)
+
+[node name="WaterBubble" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("2_qt2uk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_tkjy7")
+animation = &"hover"
+frame = 3
+frame_progress = 0.391878
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_label")]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_sc76e")
+health_label = NodePath("../Label")
+health = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_riv4r")
+
+[node name="PathFollowComponent" type="Node" parent="." node_paths=PackedStringArray("controller")]
+script = ExtResource("4_kxx5g")
+controller = NodePath("..")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = -6.0
+text = "0"
+label_settings = ExtResource("6_e1vje")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
+[connection signal="died" from="HitboxComponent" to="." method="_on_hitbox_component_died"]

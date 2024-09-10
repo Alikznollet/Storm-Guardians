@@ -1,9 +1,72 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0molxwt10pmg"]
+[gd_scene load_steps=15 format=3 uid="uid://b0molxwt10pmg"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_aubeo"]
 [ext_resource type="Script" path="res://scenes/towers/types/fire_tower.gd" id="2_hps0l"]
 [ext_resource type="PackedScene" uid="uid://doa7uhcrjxnwv" path="res://generic/projectiles/fire.tscn" id="3_3g86m"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="3_mes0s"]
+[ext_resource type="Texture2D" uid="uid://mlqknaqsi85s" path="res://assets/world/towers/fire/fire_attack.png" id="4_7pybk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw6q5"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(0, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7pgt"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(40, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3dlf"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(80, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omkdn"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(120, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cdpc"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(160, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h313p"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(200, 0, 40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj2cd"]
+atlas = ExtResource("4_7pybk")
+region = Rect2(240, 0, 40, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wsbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw6q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7pgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3dlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omkdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cdpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h313p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj2cd")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 14.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xda5g"]
 radius = 45.0
@@ -16,12 +79,24 @@ price = 500
 [node name="ThrowTimer" parent="." index="0"]
 one_shot = true
 
-[node name="Label" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+
+[node name="FireTowerSprite" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_5wsbl")
+animation = &"attack"
+
+[node name="Label" parent="." index="3"]
+offset_top = -36.0
+offset_bottom = -13.0
 text = "fire"
 
-[node name="RangeComponent" type="Area2D" parent="." index="3"]
+[node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2
 script = ExtResource("3_mes0s")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_xda5g")

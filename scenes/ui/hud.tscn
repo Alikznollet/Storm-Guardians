@@ -1,16 +1,17 @@
-[gd_scene load_steps=24 format=4 uid="uid://w0sm6xpyscnt"]
+[gd_scene load_steps=25 format=4 uid="uid://w0sm6xpyscnt"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_84mrw"]
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_itmgn"]
 [ext_resource type="PackedScene" uid="uid://c4srcc524xt8x" path="res://scenes/ui/tower_button.tscn" id="3_1mreq"]
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="3_7q3s8"]
+[ext_resource type="LabelSettings" uid="uid://dxyu4wwedjkag" path="res://generic/other/prices.tres" id="4_fom0d"]
 [ext_resource type="PackedScene" uid="uid://bh1wl6c05pluf" path="res://scenes/towers/types/spear_tower.tscn" id="5_64q8l"]
 [ext_resource type="Texture2D" uid="uid://do7qcr7bc56f7" path="res://assets/world/towers/spear/spear_icon.png" id="5_hdfx4"]
-[ext_resource type="Texture2D" uid="uid://qqdv847mcdot" path="res://assets/UI/toweruifire_ph.png" id="7_4507i"]
 [ext_resource type="Texture2D" uid="uid://buva6h73rrev0" path="res://assets/world/towers/bomb/bomb_icon.png" id="7_nki3j"]
 [ext_resource type="PackedScene" uid="uid://bjsgdd4ajr755" path="res://scenes/towers/types/bomb_tower.tscn" id="7_pwo0p"]
-[ext_resource type="Texture2D" uid="uid://ca6o8fsom0wdh" path="res://assets/UI/toweruielectric_ph.png" id="8_en6hk"]
+[ext_resource type="Texture2D" uid="uid://jyee3vbgq4qo" path="res://assets/world/towers/fire/fire_icon.png" id="9_qqti8"]
 [ext_resource type="PackedScene" uid="uid://b0molxwt10pmg" path="res://scenes/towers/types/fire_tower.tscn" id="9_ri6sn"]
+[ext_resource type="Texture2D" uid="uid://di6sup44a4luk" path="res://assets/world/towers/electric/electric_icon.png" id="11_2asy0"]
 [ext_resource type="PackedScene" uid="uid://u408jl0ireji" path="res://scenes/towers/types/electric_tower.tscn" id="11_eur2l"]
 [ext_resource type="Texture2D" uid="uid://bhfocd2grayan" path="res://assets/UI/moneyicon.png" id="13_xs00y"]
 [ext_resource type="Texture2D" uid="uid://dmch2bqdf76x" path="res://assets/UI/interesticon.png" id="14_6608h"]
@@ -160,30 +161,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WaveName:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Balance:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gk3vg"]
 _data = {
@@ -220,9 +197,71 @@ vertical_alignment = 1
 [node name="Buy" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 32.0
 offset_right = 40.0
-offset_bottom = 72.0
+offset_bottom = 40.0
+
+[node name="Prices" type="Control" parent="Buy"]
+anchors_preset = 0
+
+[node name="PriceSpear" type="TileMapLayer" parent="Buy/Prices"]
+tile_map_data = PackedByteArray("AAAQABAAAAAVAA0AAAARABAAAAAWAA0AAAASABAAAAAWAA0AAAATABAAAAAXAA0AAAATABEAAAAXAA4AAAAQABEAAAAVAA4AAAARABEAAAAWAA4AAAASABEAAAAWAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+metadata/_edit_lock_ = true
+
+[node name="Label7" type="Label" parent="Buy/Prices/PriceSpear"]
+offset_left = 132.0
+offset_top = 133.0
+offset_right = 158.0
+offset_bottom = 144.0
+text = "200"
+label_settings = ExtResource("4_fom0d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceBomb" type="TileMapLayer" parent="Buy/Prices"]
+tile_map_data = PackedByteArray("AAAUABAAAAAVAA0AAAAUABEAAAAVAA4AAAAVABAAAAAWAA0AAAAVABEAAAAWAA4AAAAWABAAAAAWAA0AAAAWABEAAAAWAA4AAAAXABAAAAAXAA0AAAAXABEAAAAXAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+metadata/_edit_lock_ = true
+
+[node name="Label6" type="Label" parent="Buy/Prices/PriceBomb"]
+offset_left = 164.0
+offset_top = 133.0
+offset_right = 190.0
+offset_bottom = 144.0
+text = "400"
+label_settings = ExtResource("4_fom0d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceFire" type="TileMapLayer" parent="Buy/Prices"]
+tile_map_data = PackedByteArray("AAAYABAAAAAVAA0AAAAYABEAAAAVAA4AAAAZABAAAAAWAA0AAAAZABEAAAAWAA4AAAAaABAAAAAWAA0AAAAaABEAAAAWAA4AAAAbABAAAAAXAA0AAAAbABEAAAAXAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+metadata/_edit_lock_ = true
+
+[node name="Label5" type="Label" parent="Buy/Prices/PriceFire"]
+offset_left = 196.0
+offset_top = 133.0
+offset_right = 222.0
+offset_bottom = 144.0
+text = "500"
+label_settings = ExtResource("4_fom0d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceMage" type="TileMapLayer" parent="Buy/Prices"]
+tile_map_data = PackedByteArray("AAAcABAAAAAVAA0AAAAcABEAAAAVAA4AAAAdABAAAAAWAA0AAAAdABEAAAAWAA4AAAAeABAAAAAWAA0AAAAeABEAAAAWAA4AAAAfABAAAAAXAA0AAAAfABEAAAAXAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+metadata/_edit_lock_ = true
+
+[node name="Label4" type="Label" parent="Buy/Prices/PriceMage"]
+offset_left = 227.0
+offset_top = 133.0
+offset_right = 253.0
+offset_bottom = 144.0
+text = "700"
+label_settings = ExtResource("4_fom0d")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BuyBG" type="TileMapLayer" parent="Buy"]
 tile_map_data = PackedByteArray("AAAfABQAAAAUAA4AAAAeABQAAAATAA4AAAAdABQAAAATAA4AAAAcABQAAAATAA4AAAAbABQAAAATAA4AAAAaABQAAAATAA4AAAAZABQAAAATAA4AAAAYABQAAAATAA4AAAAXABQAAAATAA4AAAAWABQAAAATAA4AAAAVABQAAAATAA4AAAAUABQAAAATAA4AAAATABQAAAATAA4AAAASABQAAAATAA4AAAARABQAAAATAA4AAAAQABQAAAASAA4AAAAQABYAAAASAA4AAAAQABUAAAASAA4AAAAfABUAAAAUAA4AAAAfABYAAAAUAA4AAAAeABUAAAATAA4AAAAeABYAAAATAA4AAAAdABYAAAATAA4AAAAcABYAAAATAA4AAAAbABYAAAATAA4AAAAaABYAAAATAA4AAAAZABYAAAATAA4AAAAYABYAAAATAA4AAAAXABYAAAATAA4AAAAWABYAAAATAA4AAAAVABYAAAATAA4AAAAUABYAAAATAA4AAAATABYAAAATAA4AAAASABYAAAATAA4AAAARABYAAAATAA4AAAARABUAAAATAA4AAAASABUAAAATAA4AAAATABUAAAATAA4AAAAUABUAAAATAA4AAAAVABUAAAATAA4AAAAWABUAAAATAA4AAAAXABUAAAATAA4AAAAYABUAAAATAA4AAAAZABUAAAATAA4AAAAaABUAAAATAA4AAAAbABUAAAATAA4AAAAcABUAAAATAA4AAAAdABUAAAATAA4AAAAQABIAAAASAA0AAAAfABIAAAAUAA0AAAAfABMAAAAUAA4AAAAeABIAAAATAA0AAAAdABIAAAATAA0AAAAcABIAAAATAA0AAAAbABIAAAATAA0AAAAaABIAAAATAA0AAAAZABIAAAATAA0AAAAYABIAAAATAA0AAAAXABIAAAATAA0AAAAWABIAAAATAA0AAAAVABIAAAATAA0AAAAUABIAAAATAA0AAAATABIAAAATAA0AAAASABIAAAATAA0AAAARABIAAAATAA0AAAAQABMAAAASAA4AAAARABMAAAATAA4AAAASABMAAAATAA4AAAATABMAAAATAA4AAAAUABMAAAATAA4AAAAVABMAAAATAA4AAAAWABMAAAATAA4AAAAXABMAAAATAA4AAAAYABMAAAATAA4AAAAZABMAAAATAA4AAAAaABMAAAATAA4AAAAbABMAAAATAA4AAAAcABMAAAATAA4AAAAdABMAAAATAA4AAAAeABMAAAATAA4AAAA=")
@@ -255,7 +294,8 @@ offset_left = 194.0
 offset_top = 147.0
 offset_right = 222.0
 offset_bottom = 179.0
-texture_normal = ExtResource("7_4507i")
+texture_normal = ExtResource("9_qqti8")
+stretch_mode = 3
 tower = ExtResource("9_ri6sn")
 
 [node name="Electric" parent="Buy/BuyButtons" instance=ExtResource("3_1mreq")]
@@ -263,7 +303,8 @@ offset_left = 226.0
 offset_top = 147.0
 offset_right = 254.0
 offset_bottom = 179.0
-texture_normal = ExtResource("8_en6hk")
+texture_normal = ExtResource("11_2asy0")
+stretch_mode = 3
 tower = ExtResource("11_eur2l")
 
 [node name="WaveName" type="TileMapLayer" parent="."]
@@ -351,3 +392,12 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_gk3vg")
 }
+
+[connection signal="mouse_entered" from="Buy/BuyButtons/Spear" to="." method="_on_spear_mouse_entered"]
+[connection signal="mouse_exited" from="Buy/BuyButtons/Spear" to="." method="_on_spear_mouse_exited"]
+[connection signal="mouse_entered" from="Buy/BuyButtons/Bomb" to="." method="_on_bomb_mouse_entered"]
+[connection signal="mouse_exited" from="Buy/BuyButtons/Bomb" to="." method="_on_bomb_mouse_exited"]
+[connection signal="mouse_entered" from="Buy/BuyButtons/Fire" to="." method="_on_fire_mouse_entered"]
+[connection signal="mouse_exited" from="Buy/BuyButtons/Fire" to="." method="_on_fire_mouse_exited"]
+[connection signal="mouse_entered" from="Buy/BuyButtons/Electric" to="." method="_on_electric_mouse_entered"]
+[connection signal="mouse_exited" from="Buy/BuyButtons/Electric" to="." method="_on_electric_mouse_exited"]

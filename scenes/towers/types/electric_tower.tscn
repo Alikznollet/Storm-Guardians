@@ -1,9 +1,72 @@
-[gd_scene load_steps=6 format=3 uid="uid://u408jl0ireji"]
+[gd_scene load_steps=15 format=3 uid="uid://u408jl0ireji"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_nb343"]
 [ext_resource type="Script" path="res://scenes/towers/types/electric_tower.gd" id="2_xthut"]
 [ext_resource type="PackedScene" uid="uid://cgbgrgqksyqg2" path="res://generic/projectiles/lightning.tscn" id="3_2p058"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="3_54ky8"]
+[ext_resource type="Texture2D" uid="uid://drfqpbfwisyak" path="res://assets/world/towers/electric/electric_attack.png" id="4_d453t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exy8e"]
+atlas = ExtResource("4_d453t")
+region = Rect2(0, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65b2d"]
+atlas = ExtResource("4_d453t")
+region = Rect2(16, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o7h2"]
+atlas = ExtResource("4_d453t")
+region = Rect2(32, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sad7g"]
+atlas = ExtResource("4_d453t")
+region = Rect2(48, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bm2i"]
+atlas = ExtResource("4_d453t")
+region = Rect2(64, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t8xt"]
+atlas = ExtResource("4_d453t")
+region = Rect2(80, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wycpt"]
+atlas = ExtResource("4_d453t")
+region = Rect2(96, 0, 16, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xte0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exy8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65b2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o7h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sad7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bm2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t8xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wycpt")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 14.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcyu"]
 size = Vector2(500, 500)
@@ -17,12 +80,26 @@ price = 700
 wait_time = 3.0
 one_shot = true
 
-[node name="Label" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+
+[node name="ElectricSprite" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_xte0v")
+animation = &"attack"
+frame = 6
+frame_progress = 1.0
+
+[node name="Label" parent="." index="3"]
+offset_top = -34.0
+offset_bottom = -11.0
 text = "electric"
 
-[node name="RangeComponent" type="Area2D" parent="." index="3"]
+[node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2
 script = ExtResource("3_54ky8")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 position = Vector2(-0.5, 0.5)

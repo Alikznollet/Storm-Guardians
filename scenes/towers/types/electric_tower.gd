@@ -4,6 +4,7 @@ func _physics_process(_delta: float) -> void:
 	target = $RangeComponent.get_target()
 	
 	if target and can_throw:
+		$ElectricSprite.play("attack")
 		var lightning_projectile: Lightning = projectile.instantiate()
 		lightning_projectile.target_pos = target.global_position
 		add_child(lightning_projectile)

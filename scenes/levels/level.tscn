@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_84apw"]
 [ext_resource type="Script" path="res://generic/waves/path.gd" id="2_0c63k"]
-[ext_resource type="PackedScene" uid="uid://bb3u3xq7t7dab" path="res://scenes/enemies/enemy.tscn" id="2_5i606"]
 [ext_resource type="TileSet" uid="uid://bfvqoixicrhwo" path="res://generic/other/terrain.tres" id="2_goysy"]
 [ext_resource type="Script" path="res://generic/waves/wavemanager.gd" id="3_nm12d"]
 [ext_resource type="Script" path="res://generic/waves/wavesettings.gd" id="4_2p31x"]
 [ext_resource type="PackedScene" uid="uid://beafduixkdcu0" path="res://scenes/towers/tower_spot.tscn" id="4_shn85"]
+[ext_resource type="PackedScene" uid="uid://cvui7y0o1asn" path="res://scenes/enemies/water_bubble.tscn" id="7_7i1a0"]
 [ext_resource type="PackedScene" uid="uid://w0sm6xpyscnt" path="res://scenes/ui/hud.tscn" id="7_lyf5f"]
 
 [sub_resource type="Curve2D" id="Curve2D_p5cak"]
@@ -53,14 +53,9 @@ script = ExtResource("3_nm12d")
 
 [node name="TestWave" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("2_5i606")])
-amounts = Array[int]([15])
+enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
+amounts = Array[int]([1])
 spawn_time = 0.1
-
-[node name="TestWave 2" type="Node" parent="WaveManager"]
-script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("2_5i606")])
-amounts = Array[int]([2])
 
 [node name="Hud" parent="." instance=ExtResource("7_lyf5f")]
 

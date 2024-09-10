@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb3u3xq7t7dab"]
+[gd_scene load_steps=4 format=3 uid="uid://bb3u3xq7t7dab"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_iayif"]
-[ext_resource type="Texture2D" uid="uid://fotbnwio7bdo" path="res://assets/free-field-enemies-pixel-art-for-tower-defense/2/D_Walk.png" id="2_mf6nk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qg3cn"]
 size = Vector2(16, 22)
@@ -14,7 +13,6 @@ rotates = false
 loop = false
 script = ExtResource("1_iayif")
 speed = 70
-health = 50
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
@@ -22,11 +20,6 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_qg3cn")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
-texture = ExtResource("2_mf6nk")
-hframes = 6
 
 [node name="HealthPH" type="Label" parent="."]
 offset_left = -20.0

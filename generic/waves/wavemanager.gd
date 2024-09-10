@@ -35,9 +35,9 @@ func start_wave() -> void:
 		_end_game()
 	else:
 		_start_grace()
-		GameState.grace_period = true
 	
 func _start_grace() -> void:
+	GameState.grace_period = true
 	%GraceTimer.start()
 
 func _on_grace_timer_timeout() -> void:

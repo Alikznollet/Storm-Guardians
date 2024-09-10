@@ -148,7 +148,6 @@ texture = ExtResource("4_vp5ch")
 [node name="Thrower" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_gfto2")
-animation = &"grab"
 
 [node name="Label" parent="." index="3"]
 offset_top = -36.0
