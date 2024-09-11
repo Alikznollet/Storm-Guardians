@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://w0sm6xpyscnt"]
+[gd_scene load_steps=30 format=4 uid="uid://w0sm6xpyscnt"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_84mrw"]
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_itmgn"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bhfocd2grayan" path="res://assets/UI/moneyicon.png" id="13_xs00y"]
 [ext_resource type="Texture2D" uid="uid://dmch2bqdf76x" path="res://assets/UI/interesticon.png" id="14_6608h"]
 [ext_resource type="Texture2D" uid="uid://db7088v7llo4e" path="res://assets/UI/healthicon.png" id="15_fboio"]
+[ext_resource type="LabelSettings" uid="uid://dm0xx5p44xyip" path="res://scenes/ui/button_settings_bale.tres" id="17_lc34k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bmdf"]
 font = ExtResource("3_7q3s8")
@@ -165,10 +166,23 @@ _data = {
 "RESET": SubResource("Animation_dfcr6")
 }
 
+[sub_resource type="Gradient" id="Gradient_tfjpp"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.0901961)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w7mnq"]
+gradient = SubResource("Gradient_tfjpp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0efc3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eegjr"]
+
 [node name="Hud" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_84mrw")
 
 [node name="Timer" type="Control" parent="."]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -225,6 +239,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buy" type="Control" parent="."]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -352,6 +367,7 @@ tower = ExtResource("11_eur2l")
 price = 700
 
 [node name="WaveName" type="TileMapLayer" parent="."]
+process_mode = 1
 position = Vector2(-56, 0)
 tile_map_data = PackedByteArray("AAAOABQAAAAUAA0AAAANABQAAAATAA0AAAAMABQAAAATAA0AAAALABQAAAATAA0AAAAKABQAAAATAA0AAAAJABQAAAATAA0AAAAIABQAAAATAA0AAAAOABUAAAAUAA4AAAAOABYAAAAUAA4AAAANABUAAAATAA4AAAANABYAAAATAA4AAAAMABYAAAATAA4AAAALABYAAAATAA4AAAAKABYAAAATAA4AAAAJABYAAAATAA4AAAAIABYAAAATAA4AAAAIABUAAAATAA4AAAAJABUAAAATAA4AAAAKABUAAAATAA4AAAALABUAAAATAA4AAAAMABUAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
@@ -377,6 +393,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Balance" type="TileMapLayer" parent="."]
+process_mode = 1
 tile_map_data = PackedByteArray("AAAjAAAAAAATAA4AAAAjAAEAAAATAA4AAAAkAAAAAAATAA4AAAAkAAEAAAATAA4AAAAlAAAAAAATAA4AAAAlAAEAAAATAA4AAAAmAAAAAAAUAA4AAAAmAAEAAAAUAA4AAAAmAAIAAAAUAA8AAAAlAAIAAAATAA8AAAAkAAIAAAATAA8AAAAjAAIAAAATAA8AAAAiAAIAAAATAA8AAAAiAAAAAAATAA4AAAAiAAEAAAATAA4AAAAhAAIAAAASAA8AAAAhAAAAAAASAA4AAAAhAAEAAAASAA4AAAAgAAEAAAATAA8AAAAeAAEAAAASAA8AAAAfAAEAAAATAA8AAAAeAAAAAAASAA4AAAAfAAAAAAATAA4AAAAgAAAAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_group_ = true
@@ -416,6 +433,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Health" type="TileMapLayer" parent="."]
+process_mode = 1
 tile_map_data = PackedByteArray("AAABABQAAAASAA4AAAACABQAAAATAA4AAAADABQAAAATAA4AAAAEABQAAAATAA4AAAAFABQAAAATAA4AAAAGABQAAAATAA4AAAABABUAAAASAA4AAAACABUAAAATAA4AAAADABUAAAATAA4AAAAEABUAAAATAA4AAAAFABUAAAATAA4AAAAGABUAAAATAA4AAAAGABYAAAATAA4AAAABABYAAAASAA4AAAACABYAAAATAA4AAAADABYAAAATAA4AAAAEABYAAAATAA4AAAAFABYAAAATAA4AAAABABMAAAASAA0AAAAGABMAAAATAA0AAAAFABMAAAATAA0AAAAEABMAAAATAA0AAAADABMAAAATAA0AAAACABMAAAATAA0AAAAHABMAAAAUAA0AAAAHABQAAAAUAA4AAAAHABUAAAAUAA4AAAAHABYAAAAUAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_group_ = true
@@ -444,6 +462,57 @@ libraries = {
 "": SubResource("AnimationLibrary_gk3vg")
 }
 
+[node name="PauseMenu" type="TileMapLayer" parent="."]
+process_mode = 3
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAATAAcAAAATAA0AAAAUAAcAAAATAA0AAAATAAgAAAATAA8AAAAUAAgAAAATAA8AAAATAAoAAAATAA0AAAAUAAoAAAATAA0AAAAUAAsAAAATAA8AAAATAAsAAAATAA8AAAAPAAsAAAASAA8AAAAYAAsAAAAUAA8AAAAXAAsAAAATAA8AAAAWAAsAAAATAA8AAAAVAAsAAAATAA8AAAASAAsAAAATAA8AAAARAAsAAAATAA8AAAAQAAsAAAATAA8AAAAPAAoAAAASAA0AAAAYAAoAAAAUAA0AAAAQAAoAAAATAA0AAAARAAoAAAATAA0AAAASAAoAAAATAA0AAAAVAAoAAAATAA0AAAAWAAoAAAATAA0AAAAXAAoAAAATAA0AAAAPAAgAAAASAA8AAAAQAAgAAAATAA8AAAARAAgAAAATAA8AAAASAAgAAAATAA8AAAAVAAgAAAATAA8AAAAWAAgAAAATAA8AAAAXAAgAAAATAA8AAAAYAAgAAAAUAA8AAAAYAAcAAAAUAA0AAAAXAAcAAAATAA0AAAAWAAcAAAATAA0AAAAVAAcAAAATAA0AAAASAAcAAAATAA0AAAARAAcAAAATAA0AAAAQAAcAAAATAA0AAAAPAAcAAAASAA0AAAA=")
+tile_set = ExtResource("2_itmgn")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu"]
+offset_top = -8.0
+offset_right = 320.0
+offset_bottom = 172.0
+texture = SubResource("GradientTexture2D_w7mnq")
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+offset_left = 120.0
+offset_top = 56.0
+offset_right = 200.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("3_7q3s8")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0efc3")
+flat = true
+
+[node name="Label" type="Label" parent="PauseMenu/Resume"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 80.0
+offset_bottom = 14.0
+text = "Resume"
+label_settings = ExtResource("17_lc34k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit Game" type="Button" parent="PauseMenu"]
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 96.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eegjr")
+flat = true
+
+[node name="Label2" type="Label" parent="PauseMenu/Quit Game"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 80.0
+offset_bottom = 14.0
+text = "Quit Game"
+label_settings = ExtResource("17_lc34k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Timer/Confirm/SkipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="toggled" from="Timer/Timer/TimerButton" to="." method="_on_timer_button_toggled"]
 [connection signal="mouse_entered" from="Buy/BuyButtons/Spear" to="." method="_on_spear_mouse_entered"]
@@ -454,3 +523,5 @@ libraries = {
 [connection signal="mouse_exited" from="Buy/BuyButtons/Fire" to="." method="_on_fire_mouse_exited"]
 [connection signal="mouse_entered" from="Buy/BuyButtons/Electric" to="." method="_on_electric_mouse_entered"]
 [connection signal="mouse_exited" from="Buy/BuyButtons/Electric" to="." method="_on_electric_mouse_exited"]
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Quit Game" to="." method="_on_quit_game_pressed"]

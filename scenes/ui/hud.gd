@@ -9,6 +9,7 @@ func _ready() -> void:
 	_handle_fire(false)
 	_handle_bomb(false)
 	_handle_mage(false)
+	$PauseMenu.visible = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -31,6 +32,15 @@ func _process(_delta: float) -> void:
 		%MagePrice.modulate = Color.RED
 	else:
 		%MagePrice.modulate = Color.WHITE
+	
+	# check here wether player wants the game paused or not
+	if Input.is_action_just_pressed("escape") and !get_tree().paused:
+		get_tree().paused = true
+		$PauseMenu.show()
+		print("paused")
+	elif Input.is_action_just_pressed("escape") and get_tree().paused:
+		$PauseMenu.hide()
+		get_tree().paused = false
 	
 func _on_grace_timer_timeout() -> void:
 	_grace_hide()
@@ -133,3 +143,11 @@ func _on_timer_button_toggled(toggled_on: bool) -> void:
 func _on_skip_button_pressed() -> void:
 	GameState.grace_timer.stop()
 	GameState.grace_timer.timeout.emit()
+
+func _on_resume_pressed() -> void:
+	$PauseMenu.visible = false
+	get_tree().paused = false
+
+func _on_quit_game_pressed() -> void:
+	get_tree().paused = false
+	Transition.change_scene("res://scenes/ui/main_menu.tscn")
