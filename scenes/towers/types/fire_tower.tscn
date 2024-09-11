@@ -71,7 +71,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_xda5g"]
 radius = 45.0
 
-[node name="FireTower" instance=ExtResource("1_aubeo")]
+[node name="FireTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_aubeo")]
 script = ExtResource("2_hps0l")
 projectile = ExtResource("3_3g86m")
 price = 500
@@ -79,6 +79,7 @@ upgrade1_price = 200
 upgrade2_price = 300
 upgrade3_price = 300
 upgrade4_price = 400
+range_component = NodePath("RangeComponent")
 
 [node name="ThrowTimer" parent="." index="0"]
 one_shot = true

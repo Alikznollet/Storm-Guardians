@@ -140,13 +140,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6crex"]
 size = Vector2(14, 24)
 
-[node name="StormGiant" type="PathFollow2D" node_paths=PackedStringArray("marker")]
+[node name="StormGiant" type="PathFollow2D" node_paths=PackedStringArray("marker", "hitbox_component")]
 rotates = false
 loop = false
 script = ExtResource("1_2viq0")
 damage_on_base = 25
 money_given = 5
 marker = NodePath("Marker2D")
+hitbox_component = NodePath("HitboxComponent")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -6)

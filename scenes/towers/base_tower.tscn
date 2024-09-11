@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bsvxdv7bfndbx"]
+[gd_scene load_steps=16 format=4 uid="uid://bsvxdv7bfndbx"]
 
 [ext_resource type="Script" path="res://scenes/towers/base_tower.gd" id="1_niony"]
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_bp77l"]
@@ -28,6 +28,14 @@ shadow_offset = Vector2(0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0vpq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwm47"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhh2u"]
+font = ExtResource("4_2wn4e")
+font_size = 9
+shadow_color = Color(0.180392, 0.180392, 0.180392, 0.705882)
+shadow_offset = Vector2(0, 1)
 
 [node name="BaseTower" type="Node2D"]
 script = ExtResource("1_niony")
@@ -131,7 +139,7 @@ vertical_alignment = 1
 
 [node name="UpgradeMenu" type="TileMapLayer" parent="UpgradeMenuMain"]
 position = Vector2(38, -42)
-tile_map_data = PackedByteArray("AAD+/wIAAAATAA0AAAABAAIAAAATAA0AAAD//wIAAAATAA0AAAAAAAIAAAATAA0AAAD//wMAAAATAA4AAAD//wQAAAATAA4AAAD//wUAAAATAA4AAAD//wYAAAATAA4AAAAAAAMAAAATAA4AAAAAAAQAAAATAA4AAAAAAAUAAAATAA4AAAAAAAYAAAATAA4AAAD+/wMAAAATAA4AAAD+/wUAAAATAA4AAAD+/wYAAAATAA4AAAABAAMAAAATAA4AAAABAAQAAAATAA4AAAABAAUAAAATAA4AAAABAAYAAAATAA4AAAABAAcAAAATAA8AAAAAAAcAAAATAA8AAAD//wcAAAATAA8AAAD+/wcAAAATAA8AAAD9/wIAAAASAA0AAAACAAIAAAAUAA0AAAD9/wcAAAASAA8AAAACAAcAAAAUAA8AAAACAAMAAAAUAA4AAAACAAQAAAAUAA4AAAACAAUAAAAUAA4AAAACAAYAAAAUAA4AAAD9/wMAAAASAA4AAAD9/wQAAAASAA4AAAD9/wUAAAASAA4AAAD9/wYAAAASAA4AAAABAAgAAAAVAA4AAAABAAkAAAAVAA8AAAACAAgAAAAXAA4AAAACAAkAAAAXAA8AAAD+/wQAAAATAA4AAAA=")
+tile_map_data = PackedByteArray("AAD+/wIAAAATAA0AAAABAAIAAAATAA0AAAD//wIAAAATAA0AAAAAAAIAAAATAA0AAAD//wMAAAATAA4AAAD//wQAAAATAA4AAAD//wUAAAATAA4AAAD//wYAAAATAA4AAAAAAAMAAAATAA4AAAAAAAQAAAATAA4AAAAAAAUAAAATAA4AAAAAAAYAAAATAA4AAAD+/wMAAAATAA4AAAD+/wUAAAATAA4AAAD+/wYAAAATAA4AAAABAAMAAAATAA4AAAABAAQAAAATAA4AAAABAAUAAAATAA4AAAABAAYAAAATAA4AAAABAAcAAAATAA8AAAAAAAcAAAATAA8AAAD//wcAAAATAA8AAAD+/wcAAAATAA8AAAD9/wIAAAASAA0AAAACAAIAAAAUAA0AAAD9/wcAAAASAA8AAAACAAcAAAAUAA8AAAACAAMAAAAUAA4AAAACAAQAAAAUAA4AAAACAAUAAAAUAA4AAAACAAYAAAAUAA4AAAD9/wMAAAASAA4AAAD9/wQAAAASAA4AAAD9/wUAAAASAA4AAAD9/wYAAAASAA4AAAABAAgAAAAVAA4AAAABAAkAAAAVAA8AAAACAAgAAAAXAA4AAAACAAkAAAAXAA8AAAD+/wQAAAATAA4AAAAAAAkAAAAXAA8AAAD9/wkAAAAVAA8AAAD9/wgAAAAVAA4AAAD+/wkAAAAWAA8AAAD//wkAAAAWAA8AAAAAAAgAAAAXAA4AAAD//wgAAAAWAA4AAAD+/wgAAAAWAA4AAAA=")
 tile_set = ExtResource("2_bp77l")
 
 [node name="Upgrade1" type="TextureRect" parent="UpgradeMenuMain/UpgradeMenu"]
@@ -244,5 +252,24 @@ offset_right = 22.0
 offset_bottom = 75.0
 texture_normal = ExtResource("6_6nrra")
 
+[node name="Targeting" type="Button" parent="UpgradeMenuMain/UpgradeMenu"]
+offset_left = -22.0
+offset_top = 64.0
+offset_right = 6.0
+offset_bottom = 75.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwm47")
+flat = true
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Targeting"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 10.0
+pivot_offset = Vector2(5.29353, 5)
+text = "first"
+label_settings = SubResource("LabelSettings_mhh2u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="toggled" from="TowerButton" to="." method="_on_tower_button_toggled"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Targeting" to="." method="_on_targeting_pressed"]

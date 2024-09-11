@@ -133,7 +133,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hd1sk"]
 radius = 69.1158
 
-[node name="BombTower" instance=ExtResource("1_og5q5")]
+[node name="BombTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_og5q5")]
 script = ExtResource("2_84kma")
 projectile = ExtResource("3_bwvu8")
 price = 400
@@ -141,6 +141,7 @@ upgrade1_price = 150
 upgrade2_price = 200
 upgrade3_price = 200
 upgrade4_price = 250
+range_component = NodePath("RangeComponent")
 
 [node name="ThrowTimer" parent="." index="0"]
 wait_time = 3.0

@@ -146,3 +146,13 @@ func unlocku4() -> bool:
 		$UpgradeMenuMain/Price4.visible = false
 		return true 
 	return false
+	
+@export var range_component: RangeComponent
+
+func _on_targeting_pressed() -> void:
+	var new_method: String = range_component.cycle_targeting_method()
+	if new_method == "strongest":
+		$UpgradeMenuMain/UpgradeMenu/Targeting/Label.scale = Vector2(0.6,0.6)
+	else:
+		$UpgradeMenuMain/UpgradeMenu/Targeting/Label.scale = Vector2.ONE
+	$UpgradeMenuMain/UpgradeMenu/Targeting/Label.text = new_method

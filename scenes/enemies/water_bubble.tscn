@@ -112,13 +112,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riv4r"]
 size = Vector2(6, 15)
 
-[node name="WaterBubble" type="PathFollow2D" node_paths=PackedStringArray("marker")]
+[node name="WaterBubble" type="PathFollow2D" node_paths=PackedStringArray("marker", "hitbox_component")]
 rotates = false
 loop = false
 script = ExtResource("2_qt2uk")
 speed = 40
 money_given = 2
 marker = NodePath("TargetingMarker")
+hitbox_component = NodePath("HitboxComponent")
 
 [node name="TargetingMarker" type="Marker2D" parent="."]
 position = Vector2(0, -2)

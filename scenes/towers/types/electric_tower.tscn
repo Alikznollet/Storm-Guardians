@@ -71,7 +71,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olcyu"]
 size = Vector2(500, 500)
 
-[node name="ElectricTower" instance=ExtResource("1_nb343")]
+[node name="ElectricTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_nb343")]
 script = ExtResource("2_xthut")
 projectile = ExtResource("3_2p058")
 price = 700
@@ -79,6 +79,7 @@ upgrade1_price = 200
 upgrade2_price = 300
 upgrade3_price = 400
 upgrade4_price = 500
+range_component = NodePath("RangeComponent")
 
 [node name="ThrowTimer" parent="." index="0"]
 wait_time = 3.0

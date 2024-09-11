@@ -6,6 +6,7 @@ var dead: bool = false
 @export var damage_on_base: int = 5
 @export var money_given: int = 1
 @export var marker: Marker2D
+@export var hitbox_component: HitboxComponent
 
 func _notification(what):
 	if (what == NOTIFICATION_PREDELETE):
