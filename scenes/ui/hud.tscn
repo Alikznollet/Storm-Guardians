@@ -19,17 +19,25 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bmdf"]
 font = ExtResource("3_7q3s8")
-font_size = 13
+font_size = 18
+shadow_color = Color(0.203922, 0.203922, 0.203922, 0.537255)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bet5i"]
 font = ExtResource("3_7q3s8")
+shadow_color = Color(0.219608, 0.219608, 0.219608, 0.462745)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lorle"]
 font = ExtResource("3_7q3s8")
 font_size = 8
+shadow_color = Color(0.227451, 0.227451, 0.227451, 0.482353)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_g5cy7"]
 font = ExtResource("3_7q3s8")
+shadow_color = Color(0.168627, 0.168627, 0.168627, 0.513726)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="Animation" id="Animation_ugpk3"]
 resource_name = "GraceClose"
@@ -37,50 +45,50 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Timer:position")
+tracks/0/path = NodePath("Buy:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 16)]
+"values": [Vector2(0, 0), Vector2(0, 32)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Buy:position")
+tracks/1/path = NodePath("WaveName:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 32)]
+"values": [Vector2(-56, 0), Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("WaveName:position")
+tracks/2/path = NodePath("Balance:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-56, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -20)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Balance:position")
-tracks/3/interp = 1
+tracks/3/path = NodePath("Timer:position")
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -20)]
+"values": [Vector2(0, 0), Vector2(0, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_6jotv"]
@@ -89,50 +97,50 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Timer:position")
+tracks/0/path = NodePath("Buy:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 16), Vector2(0, 0)]
+"values": [Vector2(0, 32), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Buy:position")
+tracks/1/path = NodePath("WaveName:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 32), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(-56, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("WaveName:position")
+tracks/2/path = NodePath("Balance:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-56, 0)]
+"values": [Vector2(0, -20), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Balance:position")
+tracks/3/path = NodePath("Timer:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -20), Vector2(0, 0)]
+"values": [Vector2(0, 16), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_dfcr6"]
@@ -149,18 +157,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buy:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gk3vg"]
 _data = {
@@ -172,24 +168,58 @@ _data = {
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_84mrw")
 
-[node name="Timer" type="TileMapLayer" parent="."]
+[node name="Timer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Confirm" type="TileMapLayer" parent="Timer"]
+position = Vector2(0, 16)
+tile_map_data = PackedByteArray("AAAiABIAAAAVAA0AAAAlABIAAAAXAA0AAAAjABIAAAAWAA0AAAAkABIAAAAWAA0AAAAiABMAAAAVAA4AAAAlABMAAAAXAA4AAAAkABMAAAAWAA4AAAAjABMAAAAWAA4AAAA=")
+tile_set = ExtResource("2_itmgn")
+
+[node name="Label" type="Label" parent="Timer/Confirm"]
+offset_left = 274.0
+offset_top = 147.0
+offset_right = 303.0
+offset_bottom = 162.0
+text = "skip"
+label_settings = ExtResource("4_fom0d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkipButton" type="TextureButton" parent="Timer/Confirm"]
+offset_left = 274.0
+offset_top = 147.0
+offset_right = 302.0
+offset_bottom = 160.0
+
+[node name="Timer" type="TileMapLayer" parent="Timer"]
 tile_map_data = PackedByteArray("AAAhABQAAAASAA0AAAAhABUAAAASAA4AAAAhABYAAAASAA4AAAAiABQAAAATAA0AAAAiABUAAAATAA4AAAAiABYAAAATAA4AAAAjABQAAAATAA0AAAAjABUAAAATAA4AAAAjABYAAAATAA4AAAAkABQAAAATAA0AAAAkABUAAAATAA4AAAAkABYAAAATAA4AAAAlABQAAAATAA0AAAAlABUAAAATAA4AAAAlABYAAAATAA4AAAAmABQAAAAUAA0AAAAmABUAAAAUAA4AAAAmABYAAAAUAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
 
-[node name="TimerLable" type="Label" parent="Timer"]
+[node name="TimerButton" type="TextureButton" parent="Timer/Timer"]
+offset_left = 264.0
+offset_top = 160.0
+offset_right = 312.0
+offset_bottom = 184.0
+toggle_mode = true
+
+[node name="TimerLable" type="Label" parent="Timer/Timer"]
 unique_name_in_owner = true
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 265.0
+offset_left = 266.0
 offset_top = 161.0
-offset_right = 311.0
+offset_right = 312.0
 offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "00.00"
+text = "00"
 label_settings = SubResource("LabelSettings_6bmdf")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -199,6 +229,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Prices" type="Control" parent="Buy"]
 anchors_preset = 0
@@ -320,8 +352,11 @@ tower = ExtResource("11_eur2l")
 price = 700
 
 [node name="WaveName" type="TileMapLayer" parent="."]
+position = Vector2(-56, 0)
 tile_map_data = PackedByteArray("AAAOABQAAAAUAA0AAAANABQAAAATAA0AAAAMABQAAAATAA0AAAALABQAAAATAA0AAAAKABQAAAATAA0AAAAJABQAAAATAA0AAAAIABQAAAATAA0AAAAOABUAAAAUAA4AAAAOABYAAAAUAA4AAAANABUAAAATAA4AAAANABYAAAATAA4AAAAMABYAAAATAA4AAAALABYAAAATAA4AAAAKABYAAAATAA4AAAAJABYAAAATAA4AAAAIABYAAAATAA4AAAAIABUAAAATAA4AAAAJABUAAAATAA4AAAAKABUAAAATAA4AAAALABUAAAATAA4AAAAMABUAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="WaveLable" type="Label" parent="WaveName"]
 unique_name_in_owner = true
@@ -344,6 +379,8 @@ vertical_alignment = 1
 [node name="Balance" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAjAAAAAAATAA4AAAAjAAEAAAATAA4AAAAkAAAAAAATAA4AAAAkAAEAAAATAA4AAAAlAAAAAAATAA4AAAAlAAEAAAATAA4AAAAmAAAAAAAUAA4AAAAmAAEAAAAUAA4AAAAmAAIAAAAUAA8AAAAlAAIAAAATAA8AAAAkAAIAAAATAA8AAAAjAAIAAAATAA8AAAAiAAIAAAATAA8AAAAiAAAAAAATAA4AAAAiAAEAAAATAA4AAAAhAAIAAAASAA8AAAAhAAAAAAASAA4AAAAhAAEAAAASAA4AAAAgAAEAAAATAA8AAAAeAAEAAAASAA8AAAAfAAEAAAATAA8AAAAeAAAAAAASAA4AAAAfAAAAAAATAA4AAAAgAAAAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="MoneyIcon" type="TextureRect" parent="Balance"]
 offset_left = 264.0
@@ -381,6 +418,8 @@ vertical_alignment = 1
 [node name="Health" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABABQAAAASAA4AAAACABQAAAATAA4AAAADABQAAAATAA4AAAAEABQAAAATAA4AAAAFABQAAAATAA4AAAAGABQAAAATAA4AAAABABUAAAASAA4AAAACABUAAAATAA4AAAADABUAAAATAA4AAAAEABUAAAATAA4AAAAFABUAAAATAA4AAAAGABUAAAATAA4AAAAGABYAAAATAA4AAAABABYAAAASAA4AAAACABYAAAATAA4AAAADABYAAAATAA4AAAAEABYAAAATAA4AAAAFABYAAAATAA4AAAABABMAAAASAA0AAAAGABMAAAATAA0AAAAFABMAAAATAA0AAAAEABMAAAATAA0AAAADABMAAAATAA0AAAACABMAAAATAA0AAAAHABMAAAAUAA0AAAAHABQAAAAUAA4AAAAHABUAAAAUAA4AAAAHABYAAAAUAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Health"]
 offset_left = 8.0
@@ -405,6 +444,8 @@ libraries = {
 "": SubResource("AnimationLibrary_gk3vg")
 }
 
+[connection signal="pressed" from="Timer/Confirm/SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="toggled" from="Timer/Timer/TimerButton" to="." method="_on_timer_button_toggled"]
 [connection signal="mouse_entered" from="Buy/BuyButtons/Spear" to="." method="_on_spear_mouse_entered"]
 [connection signal="mouse_exited" from="Buy/BuyButtons/Spear" to="." method="_on_spear_mouse_exited"]
 [connection signal="mouse_entered" from="Buy/BuyButtons/Bomb" to="." method="_on_bomb_mouse_entered"]

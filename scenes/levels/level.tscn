@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beafduixkdcu0" path="res://scenes/towers/tower_spot.tscn" id="4_shn85"]
 [ext_resource type="PackedScene" uid="uid://cvui7y0o1asn" path="res://scenes/enemies/water_bubble.tscn" id="7_7i1a0"]
 [ext_resource type="PackedScene" uid="uid://w0sm6xpyscnt" path="res://scenes/ui/hud.tscn" id="7_lyf5f"]
-[ext_resource type="PackedScene" uid="uid://rrlmw1lyan8w" path="res://scenes/enemies/storm_giant.tscn" id="8_3n01g"]
+[ext_resource type="PackedScene" uid="uid://bc8f35gquu73l" path="res://scenes/enemies/hasty_cloud.tscn" id="8_86v1t"]
 
 [sub_resource type="Curve2D" id="Curve2D_p5cak"]
 _data = {
@@ -23,7 +23,8 @@ script = ExtResource("1_84apw")
 
 [node name="GraceTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 90.0
+process_callback = 0
+wait_time = 12.0
 one_shot = true
 
 [node name="Lower" type="TileMapLayer" parent="."]
@@ -80,8 +81,8 @@ script = ExtResource("3_nm12d")
 
 [node name="TestWave" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("8_3n01g")])
-amounts = Array[int]([15])
+enemies = Array[PackedScene]([ExtResource("8_86v1t")])
+amounts = Array[int]([1])
 spawn_time = 0.5
 
 [node name="TestWave3" type="Node" parent="WaveManager"]
