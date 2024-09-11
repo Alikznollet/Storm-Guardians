@@ -1,5 +1,7 @@
 extends BaseTower
 
+var extra_pierce: int = 0
+
 func _physics_process(_delta: float) -> void:
 	target = $RangeComponent.get_target()
 	
@@ -14,6 +16,8 @@ func _physics_process(_delta: float) -> void:
 			var spear_projectile: Spear = projectile.instantiate()
 			spear_projectile.direction = (target.marker.global_position - global_position).normalized()
 			spear_projectile.rotation = spear_projectile.direction.angle()
+			spear_projectile.damage = spear_projectile.damage * projectile_damage_modifier
+			spear_projectile.pierce += extra_pierce
 			add_child(spear_projectile)
 			$ThrowTimer.start()
 
@@ -24,16 +28,16 @@ func _on_throw_timer_timeout() -> void:
 
 func _on_button_1_pressed() -> void:
 	if unlocku1():
-		pass
+		$RangeComponent/CollisionShape2D.shape.radius = 90
 
 func _on_button_2_pressed() -> void:
 	if unlocku2():
-		pass
+		projectile_damage_modifier = 1.5
 
 func _on_button_3_pressed() -> void:
 	if unlocku3():
-		pass
+		$ThrowTimer.wait_time = 0.5
 
 func _on_button_4_pressed() -> void:
 	if unlocku4():
-		pass
+		extra_pierce = 5

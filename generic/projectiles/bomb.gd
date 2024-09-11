@@ -2,6 +2,9 @@ extends Projectile
 class_name Bomb
 
 var explo_position: Vector2
+var explo_radius_modifier: float:
+	set(modifier):
+		$CollisionShape2D.shape.radius = 20 * modifier
 
 func _ready() -> void:
 	var tween: Tween = get_tree().create_tween()

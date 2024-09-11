@@ -8,8 +8,8 @@ signal grace_exited()
 
 func game_started() -> void:
 	# NOTE: temporary values, these should be loaded from a config file later
-	current_balance = 1000
-	current_interest = 1
+	current_balance = 9999
+	current_interest = 99
 	current_health = 50
 
 var grace_period: bool:

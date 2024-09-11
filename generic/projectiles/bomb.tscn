@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b5jm3hdcwgmw" path="res://assets/projectiles/bomb_exploph.png" id="2_oeujj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gramv"]
-radius = 22.1359
+resource_local_to_scene = true
+radius = 20.0
 
 [sub_resource type="Animation" id="Animation_15sfa"]
 length = 0.001
@@ -84,7 +85,7 @@ _data = {
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_egl6c")
-damage = 15
+damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gramv")

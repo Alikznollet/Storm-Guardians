@@ -131,7 +131,8 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aq1ks"]
-radius = 103.019
+resource_local_to_scene = true
+radius = 70.0
 
 [node name="SpearTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_b5gfy")]
 script = ExtResource("2_eypgc")

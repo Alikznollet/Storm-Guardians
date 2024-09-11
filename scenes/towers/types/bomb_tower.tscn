@@ -131,16 +131,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hd1sk"]
-radius = 69.1158
+resource_local_to_scene = true
+radius = 50.0
 
 [node name="BombTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_og5q5")]
 script = ExtResource("2_84kma")
 projectile = ExtResource("3_bwvu8")
 price = 400
-upgrade1_price = 150
+upgrade1_price = 200
 upgrade2_price = 200
-upgrade3_price = 200
-upgrade4_price = 250
+upgrade3_price = 250
+upgrade4_price = 350
 range_component = NodePath("RangeComponent")
 
 [node name="ThrowTimer" parent="." index="0"]
@@ -157,7 +158,6 @@ collision_mask = 2
 script = ExtResource("5_sbs1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_hd1sk")
 
 [node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
@@ -171,6 +171,9 @@ text = "attack speed"
 
 [node name="Label4" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4" index="0"]
 text = "bomb spread"
+
+[node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Targeting" index="0"]
+pivot_offset = Vector2(5.29353, 5)
 
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade1/Button1" to="." method="_on_button_1_pressed"]

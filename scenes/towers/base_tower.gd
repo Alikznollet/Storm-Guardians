@@ -12,6 +12,7 @@ func _ready() -> void:
 	GameState.connect("grace_exited", _disable_views)
 
 @export var projectile: PackedScene
+var projectile_damage_modifier: float = 1.00
 var can_throw: bool = true
 var target: Enemy
 
