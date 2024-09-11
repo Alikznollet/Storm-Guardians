@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjsgdd4ajr755"]
+[gd_scene load_steps=24 format=3 uid="uid://bjsgdd4ajr755"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_og5q5"]
 [ext_resource type="Script" path="res://scenes/towers/types/bomb_tower.gd" id="2_84kma"]
 [ext_resource type="PackedScene" uid="uid://dkxxhlojj0abj" path="res://generic/projectiles/bomb.tscn" id="3_bwvu8"]
-[ext_resource type="Texture2D" uid="uid://uhy1rl0wfvt0" path="res://assets/world/towers/spear/spear_tower.png" id="4_je5a2"]
 [ext_resource type="Texture2D" uid="uid://bwge2nmjy6cbu" path="res://assets/world/towers/bomb/bomb_grab.png" id="5_1qwsm"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="5_sbs1x"]
 [ext_resource type="Texture2D" uid="uid://ljw0cx5hpeqx" path="res://assets/world/towers/bomb/bomb_throw.png" id="6_mdpcn"]
@@ -138,23 +137,19 @@ radius = 69.1158
 script = ExtResource("2_84kma")
 projectile = ExtResource("3_bwvu8")
 price = 400
+upgrade1_price = 150
+upgrade2_price = 200
+upgrade3_price = 200
+upgrade4_price = 250
 
 [node name="ThrowTimer" parent="." index="0"]
 wait_time = 3.0
 one_shot = true
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("4_je5a2")
-
 [node name="Thrower" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_kvujj")
 animation = &"throw"
-
-[node name="Label" parent="." index="3"]
-offset_top = -35.0
-offset_bottom = -12.0
-text = "bomb"
 
 [node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2
@@ -164,4 +159,20 @@ script = ExtResource("5_sbs1x")
 visible = false
 shape = SubResource("CircleShape2D_hd1sk")
 
+[node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
+text = "attack range"
+
+[node name="Label2" parent="UpgradeMenuMain/UpgradeMenu/Upgrade2" index="0"]
+text = "bomb damage"
+
+[node name="Label3" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3" index="0"]
+text = "attack speed"
+
+[node name="Label4" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4" index="0"]
+text = "bomb spread"
+
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade4/Button4" to="." method="_on_button_4_pressed"]

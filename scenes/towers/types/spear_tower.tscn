@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh1wl6c05pluf"]
+[gd_scene load_steps=24 format=3 uid="uid://bh1wl6c05pluf"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_b5gfy"]
 [ext_resource type="Script" path="res://scenes/towers/types/spear_tower.gd" id="2_eypgc"]
 [ext_resource type="PackedScene" uid="uid://bhxc0vare5rua" path="res://generic/projectiles/spear.tscn" id="3_ftg6y"]
-[ext_resource type="Texture2D" uid="uid://uhy1rl0wfvt0" path="res://assets/world/towers/spear/spear_tower.png" id="4_vp5ch"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="5_iuv6b"]
 [ext_resource type="Texture2D" uid="uid://lqivrfy1rstg" path="res://assets/world/towers/spear/spear_thrower.png" id="5_kufmg"]
 [ext_resource type="Texture2D" uid="uid://dlqolrsms5mjv" path="res://assets/world/towers/spear/spear_grab.png" id="6_pfo0a"]
@@ -138,21 +137,17 @@ radius = 103.019
 script = ExtResource("2_eypgc")
 projectile = ExtResource("3_ftg6y")
 price = 200
+upgrade1_price = 150
+upgrade2_price = 200
+upgrade3_price = 200
+upgrade4_price = 250
 
 [node name="ThrowTimer" parent="." index="0"]
 one_shot = true
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("4_vp5ch")
-
 [node name="Thrower" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_gfto2")
-
-[node name="Label" parent="." index="3"]
-offset_top = -36.0
-offset_bottom = -13.0
-text = "spear"
 
 [node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2
@@ -163,4 +158,20 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_aq1ks")
 
+[node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
+text = "attack range"
+
+[node name="Label2" parent="UpgradeMenuMain/UpgradeMenu/Upgrade2" index="0"]
+text = "spear damage"
+
+[node name="Label3" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3" index="0"]
+text = "attack speed"
+
+[node name="Label4" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4" index="0"]
+text = "spear pierce"
+
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade4/Button4" to="." method="_on_button_4_pressed"]

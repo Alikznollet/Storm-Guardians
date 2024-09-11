@@ -1,10 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsvxdv7bfndbx"]
+[gd_scene load_steps=14 format=4 uid="uid://bsvxdv7bfndbx"]
 
 [ext_resource type="Script" path="res://scenes/towers/base_tower.gd" id="1_niony"]
-[ext_resource type="Texture2D" uid="uid://cvefqdvqskkkh" path="res://assets/UI/toweruiplaceholder.png" id="1_vruef"]
+[ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_bp77l"]
+[ext_resource type="Texture2D" uid="uid://cjk3r4xytly33" path="res://assets/UI/upgradebutton.png" id="3_cmtb1"]
+[ext_resource type="Texture2D" uid="uid://uhy1rl0wfvt0" path="res://assets/world/towers/spear/spear_tower.png" id="3_vrkfq"]
+[ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="4_2wn4e"]
+[ext_resource type="Texture2D" uid="uid://cfki62tnpwkmk" path="res://assets/UI/tower_selll.png" id="6_6nrra"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ffp0f"]
-font_size = 10
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yweaq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3co16"]
+font = ExtResource("4_2wn4e")
+font_size = 5
+shadow_color = Color(0.215902, 0.215902, 0.215902, 0.670588)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tdo6i"]
+font = ExtResource("4_2wn4e")
+font_size = 5
+shadow_color = Color(0.239216, 0.239216, 0.239216, 0.627451)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5krr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rwv8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0vpq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxb5"]
 
 [node name="BaseTower" type="Node2D"]
 script = ExtResource("1_niony")
@@ -12,14 +35,214 @@ script = ExtResource("1_niony")
 [node name="ThrowTimer" type="Timer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_vruef")
+texture = ExtResource("3_vrkfq")
+metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -30.0
-offset_right = 20.0
-offset_bottom = -7.0
-text = "base"
-label_settings = SubResource("LabelSettings_ffp0f")
+[node name="TowerButton" type="Button" parent="."]
+offset_left = -9.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = 9.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yweaq")
+toggle_mode = true
+flat = true
+
+[node name="UpgradeMenuMain" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Price1" type="TextureRect" parent="UpgradeMenuMain"]
+offset_left = 32.0
+offset_top = -23.0
+offset_right = 76.0
+offset_bottom = -15.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/Price1"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_3co16")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
+
+[node name="Price2" type="TextureRect" parent="UpgradeMenuMain"]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 32.0
+offset_top = -12.0
+offset_right = 76.0
+offset_bottom = -4.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/Price2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_3co16")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price3" type="TextureRect" parent="UpgradeMenuMain"]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 32.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 7.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/Price3"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_3co16")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price4" type="TextureRect" parent="UpgradeMenuMain"]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 32.0
+offset_top = 10.0
+offset_right = 76.0
+offset_bottom = 18.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/Price4"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_3co16")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeMenu" type="TileMapLayer" parent="UpgradeMenuMain"]
+position = Vector2(38, -42)
+tile_map_data = PackedByteArray("AAD+/wIAAAATAA0AAAABAAIAAAATAA0AAAD//wIAAAATAA0AAAAAAAIAAAATAA0AAAD//wMAAAATAA4AAAD//wQAAAATAA4AAAD//wUAAAATAA4AAAD//wYAAAATAA4AAAAAAAMAAAATAA4AAAAAAAQAAAATAA4AAAAAAAUAAAATAA4AAAAAAAYAAAATAA4AAAD+/wMAAAATAA4AAAD+/wUAAAATAA4AAAD+/wYAAAATAA4AAAABAAMAAAATAA4AAAABAAQAAAATAA4AAAABAAUAAAATAA4AAAABAAYAAAATAA4AAAABAAcAAAATAA8AAAAAAAcAAAATAA8AAAD//wcAAAATAA8AAAD+/wcAAAATAA8AAAD9/wIAAAASAA0AAAACAAIAAAAUAA0AAAD9/wcAAAASAA8AAAACAAcAAAAUAA8AAAACAAMAAAAUAA4AAAACAAQAAAAUAA4AAAACAAUAAAAUAA4AAAACAAYAAAAUAA4AAAD9/wMAAAASAA4AAAD9/wQAAAASAA4AAAD9/wUAAAASAA4AAAD9/wYAAAASAA4AAAABAAgAAAAVAA4AAAABAAkAAAAVAA8AAAACAAgAAAAXAA4AAAACAAkAAAAXAA8AAAD+/wQAAAATAA4AAAA=")
+tile_set = ExtResource("2_bp77l")
+
+[node name="Upgrade1" type="TextureRect" parent="UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+offset_left = -22.0
+offset_top = 19.0
+offset_right = 22.0
+offset_bottom = 27.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 1"
+label_settings = SubResource("LabelSettings_tdo6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button1" type="Button" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f5krr")
+flat = true
+
+[node name="Upgrade2" type="TextureRect" parent="UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -22.0
+offset_top = 30.0
+offset_right = 22.0
+offset_bottom = 38.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label2" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade2"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 2"
+label_settings = SubResource("LabelSettings_tdo6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="UpgradeMenuMain/UpgradeMenu/Upgrade2"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8rwv8")
+flat = true
+
+[node name="Upgrade3" type="TextureRect" parent="UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -22.0
+offset_top = 41.0
+offset_right = 22.0
+offset_bottom = 49.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label3" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 3"
+label_settings = SubResource("LabelSettings_tdo6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c0vpq")
+flat = true
+
+[node name="Upgrade4" type="TextureRect" parent="UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -22.0
+offset_top = 52.0
+offset_right = 22.0
+offset_bottom = 60.0
+texture = ExtResource("3_cmtb1")
+stretch_mode = 2
+
+[node name="Label4" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 4"
+label_settings = SubResource("LabelSettings_tdo6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button4" type="Button" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ggxb5")
+flat = true
+
+[node name="Sell" type="TextureButton" parent="UpgradeMenuMain/UpgradeMenu"]
+offset_left = 10.0
+offset_top = 64.0
+offset_right = 22.0
+offset_bottom = 75.0
+texture_normal = ExtResource("6_6nrra")
+
+[connection signal="toggled" from="TowerButton" to="." method="_on_tower_button_toggled"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Sell" to="." method="_on_sell_pressed"]

@@ -9,6 +9,7 @@ var body_inside: DraggableTower
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left_click") and available and mouse_inside:
 		_place_tower()
+		mouse_inside = false
 
 func _on_mouse_entered() -> void:
 	if body_inside and available:
@@ -34,3 +35,9 @@ func _place_tower():
 	available = false
 	$Sprite2D.visible = false
 	body_inside.stop_showing_visual()
+	tower.totalcost = tower.price
+
+func _on_child_exiting_tree(node: Node) -> void:
+	if node is BaseTower:
+		available = true
+		$Sprite2D.visible = true

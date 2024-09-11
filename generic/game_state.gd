@@ -17,10 +17,8 @@ var grace_period: bool:
 		grace_period = grace
 		if grace:
 			grace_entered.emit()
-			print(money_gained)
 			current_balance += money_gained
 			money_gained = 0
-			print(money_gained)
 		else:
 			grace_exited.emit()
 	get:

@@ -75,6 +75,10 @@ radius = 45.0
 script = ExtResource("2_hps0l")
 projectile = ExtResource("3_3g86m")
 price = 500
+upgrade1_price = 200
+upgrade2_price = 300
+upgrade3_price = 300
+upgrade4_price = 400
 
 [node name="ThrowTimer" parent="." index="0"]
 one_shot = true
@@ -87,11 +91,6 @@ position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_5wsbl")
 animation = &"attack"
 
-[node name="Label" parent="." index="3"]
-offset_top = -36.0
-offset_bottom = -13.0
-text = "fire"
-
 [node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2
 script = ExtResource("3_mes0s")
@@ -101,4 +100,20 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_xda5g")
 
+[node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
+text = "attack range"
+
+[node name="Label2" parent="UpgradeMenuMain/UpgradeMenu/Upgrade2" index="0"]
+text = "attack speed"
+
+[node name="Label3" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3" index="0"]
+text = "attack speed+"
+
+[node name="Label4" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4" index="0"]
+text = "attack speed++"
+
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade4/Button4" to="." method="_on_button_4_pressed"]
