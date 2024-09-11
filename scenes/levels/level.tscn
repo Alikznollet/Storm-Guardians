@@ -23,7 +23,7 @@ script = ExtResource("1_84apw")
 
 [node name="GraceTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 90.0
 one_shot = true
 
 [node name="Lower" type="TileMapLayer" parent="."]
@@ -41,20 +41,18 @@ script = ExtResource("2_0c63k")
 metadata/_edit_lock_ = true
 
 [node name="TowerSpots" type="Node2D" parent="."]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="TowerSpot" parent="TowerSpots" instance=ExtResource("4_shn85")]
-position = Vector2(85, 38)
 
 [node name="TowerSpot2" parent="TowerSpots" instance=ExtResource("4_shn85")]
 position = Vector2(128, 19)
 
-[node name="TowerSpot3" parent="TowerSpots" instance=ExtResource("4_shn85")]
-position = Vector2(15, 86)
+[node name="TowerSpot" parent="TowerSpots" instance=ExtResource("4_shn85")]
+position = Vector2(85, 38)
 
 [node name="TowerSpot4" parent="TowerSpots" instance=ExtResource("4_shn85")]
 position = Vector2(63, 86)
+
+[node name="TowerSpot3" parent="TowerSpots" instance=ExtResource("4_shn85")]
+position = Vector2(15, 86)
 
 [node name="TowerSpot5" parent="TowerSpots" instance=ExtResource("4_shn85")]
 position = Vector2(45, 139)
@@ -67,9 +65,6 @@ position = Vector2(172, 44)
 
 [node name="TowerSpot8" parent="TowerSpots" instance=ExtResource("4_shn85")]
 position = Vector2(220, 102)
-
-[node name="TowerSpot9" parent="TowerSpots" instance=ExtResource("4_shn85")]
-position = Vector2(268, 102)
 
 [node name="TowerSpot10" parent="TowerSpots" instance=ExtResource("4_shn85")]
 position = Vector2(268, 47)

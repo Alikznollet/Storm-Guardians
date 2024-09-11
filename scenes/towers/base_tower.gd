@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 func unlocku1() -> bool:
 	var can_buy: bool = upgrade1_price <= GameState.current_balance
 	
-	if can_buy:
+	if can_buy and !unlocked_1:
 		%Upgrade1.texture = upgradetexture_unlocked
 		unlocked_1 = true
 		
@@ -105,7 +105,7 @@ func unlocku1() -> bool:
 func unlocku2() -> bool:
 	var can_buy: bool = upgrade2_price <= GameState.current_balance
 	
-	if unlocked_1 and can_buy:
+	if unlocked_1 and can_buy and !unlocked_2:
 		%Upgrade2.texture = upgradetexture_unlocked
 		unlocked_2 = true
 		
@@ -121,7 +121,7 @@ func unlocku2() -> bool:
 func unlocku3() -> bool:
 	var can_buy: bool = upgrade3_price <= GameState.current_balance
 	
-	if unlocked_1 and unlocked_2 and can_buy:
+	if unlocked_1 and unlocked_2 and can_buy and !unlocked_3:
 		%Upgrade3.texture = upgradetexture_unlocked
 		unlocked_3 = true
 		
@@ -137,7 +137,7 @@ func unlocku3() -> bool:
 func unlocku4() -> bool:
 	var can_buy: bool = upgrade4_price <= GameState.current_balance
 	
-	if unlocked_1 and unlocked_2 and unlocked_3 and can_buy:
+	if unlocked_1 and unlocked_2 and unlocked_3 and can_buy and !unlocked_4:
 		%Upgrade4.texture = upgradetexture_unlocked
 		unlocked_4 = true
 		

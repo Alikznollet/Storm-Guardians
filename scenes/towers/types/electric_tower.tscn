@@ -121,9 +121,6 @@ text = "s"
 [node name="Label4" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4" index="0"]
 text = "attack speed"
 
-[node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Targeting" index="0"]
-pivot_offset = Vector2(5.29353, 5)
-
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade1/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade2/Button2" to="." method="_on_button_2_pressed"]

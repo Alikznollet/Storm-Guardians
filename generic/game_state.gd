@@ -30,7 +30,12 @@ var current_balance: int = 1000: # this value is temporary
 	set(new):
 		current_balance = new
 		money_label.text = str(new)
-		current_interest = current_balance / 100
+		
+		var interest = current_balance / 100
+		if interest >= 15:
+			current_interest = 15
+		else:
+			current_interest = interest
 	get:
 		return current_balance
 		
@@ -58,3 +63,5 @@ var money_gained: int
 var money_label: Label
 var interest_label: Label
 var health_label: Label
+
+var currently_opened_tower: BaseTower
