@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://cpgr2lmqf7efq"]
+
+[ext_resource type="Texture2D" uid="uid://dx81xb56ky47v" path="res://assets/UI/tutorial_yapper.png" id="1_snlwu"]
+[ext_resource type="Script" path="res://scenes/tutorial/yapper.gd" id="2_1thhj"]
+[ext_resource type="Texture2D" uid="uid://c5wjhka14p2q2" path="res://assets/UI/tutorial_yapper_handanim.png" id="2_jgg8n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4kl6"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wxun"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8whcg"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnw3p"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc1nv"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(96, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecfxi"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(120, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0ish"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(144, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pkh4"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(168, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctnro"]
+atlas = ExtResource("2_jgg8n")
+region = Rect2(192, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_did4r"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4kl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wxun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8whcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnw3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc1nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecfxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0ish")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pkh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctnro")
+}],
+"loop": true,
+"name": &"handanim",
+"speed": 14.0
+}]
+
+[node name="Yapper" type="Sprite2D"]
+process_mode = 3
+texture = ExtResource("1_snlwu")
+hframes = 2
+script = ExtResource("2_1thhj")
+
+[node name="YapperHand" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_did4r")
+animation = &"handanim"
+autoplay = "handanim"
+frame_progress = 0.106481
+offset = Vector2(2, 0)

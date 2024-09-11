@@ -11,6 +11,9 @@ func _ready() -> void:
 	_handle_mage(false)
 	$PauseMenu.visible = false
 	
+	await get_tree().create_timer(0.3).timeout
+	tutorial()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	%WaveLable.text = GameState.current_wave
@@ -41,6 +44,10 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("escape") and get_tree().paused:
 		$PauseMenu.hide()
 		get_tree().paused = false
+		
+	if Input.is_action_just_pressed("left_click") and tutorial_ongoing:
+		next.emit()
+		
 	
 func _on_grace_timer_timeout() -> void:
 	_grace_hide()
@@ -151,3 +158,26 @@ func _on_resume_pressed() -> void:
 func _on_quit_game_pressed() -> void:
 	get_tree().paused = false
 	Transition.change_scene("res://scenes/ui/main_menu.tscn")
+	
+var tutorial_ongoing: bool = false
+signal next()
+
+func tutorial():
+	tutorial_ongoing = true
+	get_tree().paused = true
+	$"Yapper Animation".play("welcome")
+	await next
+	$"Yapper Animation".play("money")
+	await next
+	$"Yapper Animation".play("interest")
+	await next
+	$"Yapper Animation".play("timer")
+	await next
+	$"Yapper Animation".play("towers")
+	await next
+	$"Yapper Animation".play("health")
+	await next
+	$"Yapper Animation".play("end")
+	await next
+	$"Yapper Animation".play("RESET")
+	get_tree().paused = false
