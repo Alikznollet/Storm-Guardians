@@ -1,8 +1,62 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpgr2lmqf7efq"]
+[gd_scene load_steps=19 format=4 uid="uid://cpgr2lmqf7efq"]
 
 [ext_resource type="Texture2D" uid="uid://dx81xb56ky47v" path="res://assets/UI/tutorial_yapper.png" id="1_snlwu"]
 [ext_resource type="Script" path="res://scenes/tutorial/yapper.gd" id="2_1thhj"]
 [ext_resource type="Texture2D" uid="uid://c5wjhka14p2q2" path="res://assets/UI/tutorial_yapper_handanim.png" id="2_jgg8n"]
+[ext_resource type="Texture2D" uid="uid://d0krn22efmljj" path="res://assets/UI/ui2.png" id="3_ppeo1"]
+[ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="4_ck3o3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_val5n"]
+texture = ExtResource("3_ppeo1")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7dycb"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_val5n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_54q4u"]
+line_spacing = 1.0
+font = ExtResource("4_ck3o3")
+font_size = 5
+shadow_color = Color(0.156863, 0.156863, 0.156863, 0.627451)
+shadow_offset = Vector2(0, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4kl6"]
 atlas = ExtResource("2_jgg8n")
@@ -85,6 +139,125 @@ process_mode = 3
 texture = ExtResource("1_snlwu")
 hframes = 2
 script = ExtResource("2_1thhj")
+
+[node name="Welcome" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAABAPv/AAAEAAAAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAACAPv/AAAEAAAAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAAAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAAAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAAAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAAAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAAAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAAAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAAAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAAAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPv/AAADAAAAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAP7/AAAEAAMAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Welcome"]
+offset_left = 1.0
+offset_top = -39.0
+offset_right = 88.0
+offset_bottom = -17.0
+text = "Hi, I'm Bert. I will be showing you how to play this game! Just left click to go to the next part."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Money" type="TileMapLayer" parent="."]
+visible = false
+scale = Vector2(-1, 1)
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAAAAAABAPr/AAAEAAAAAAACAPr/AAAEAAAAAAADAPr/AAAEAAAAAAAEAPr/AAAEAAAAAAAFAPr/AAAEAAAAAAAGAPr/AAAEAAAAAAAHAPr/AAAEAAAAAAAIAPr/AAAEAAAAAAAJAPr/AAAEAAAAAAAKAPr/AAAFAAAAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Money"]
+offset_left = 87.0
+offset_top = -45.0
+offset_right = 174.0
+offset_bottom = -18.0
+scale = Vector2(-1, 1)
+text = "Here you can see how much money you have in your bank. You can use it to buy towers or save for more interest."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Interest" type="TileMapLayer" parent="."]
+visible = false
+scale = Vector2(-1, -1)
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAEAAAABAPr/AAAEAAEAAAACAPr/AAAEAAEAAAADAPr/AAAEAAEAAAAEAPr/AAAEAAEAAAAFAPr/AAAEAAEAAAAGAPr/AAAEAAEAAAAHAPr/AAAEAAEAAAAIAPr/AAAEAAEAAAAJAPr/AAAEAAEAAAAKAPr/AAAFAAEAAAAAAPn/AAADAAAAAAAKAPn/AAAFAAAAAAAJAPn/AAAEAAAAAAAIAPn/AAAEAAAAAAAHAPn/AAAEAAAAAAAGAPn/AAAEAAAAAAAFAPn/AAAEAAAAAAAEAPn/AAAEAAAAAAADAPn/AAAEAAAAAAACAPn/AAAEAAAAAAABAPn/AAAEAAAAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Interest"]
+offset_left = 86.0
+offset_top = -19.0
+offset_right = 170.0
+offset_bottom = 15.0
+scale = Vector2(-1, -1)
+text = "Talking about interest, this meter will indicate how much extra money you will gain when you eliminate an enemy. For each 100g in your bank you will get +1."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="TileMapLayer" parent="."]
+visible = false
+scale = Vector2(-1, 1)
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAAAAAABAPr/AAAEAAAAAAACAPr/AAAEAAAAAAADAPr/AAAEAAAAAAAEAPr/AAAEAAAAAAAFAPr/AAAEAAAAAAAGAPr/AAAEAAAAAAAHAPr/AAAEAAAAAAAIAPr/AAAEAAAAAAAJAPr/AAAEAAAAAAAKAPr/AAAFAAAAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Timer"]
+offset_left = 87.0
+offset_top = -46.0
+offset_right = 174.0
+offset_bottom = -19.0
+scale = Vector2(-1, 1)
+text = "This timer displays how much time you have left to place towers and plan. You can skip this by clicking on the timer and then clicking skip."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Towers" type="TileMapLayer" parent="."]
+visible = false
+scale = Vector2(-1, 1)
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAEAAAABAPr/AAAEAAEAAAACAPr/AAAEAAEAAAADAPr/AAAEAAEAAAAEAPr/AAAEAAEAAAAFAPr/AAAEAAEAAAAGAPr/AAAEAAEAAAAHAPr/AAAEAAEAAAAIAPr/AAAEAAEAAAAJAPr/AAAEAAEAAAAKAPr/AAAFAAEAAAAKAPj/AAAFAAAAAAAAAPn/AAADAAEAAAAAAPj/AAADAAAAAAABAPj/AAAEAAAAAAACAPj/AAAEAAAAAAADAPj/AAAEAAAAAAAEAPj/AAAEAAAAAAAFAPj/AAAEAAAAAAAGAPj/AAAEAAAAAAAHAPj/AAAEAAAAAAAIAPj/AAAEAAAAAAAJAPj/AAAEAAAAAAAKAPn/AAAFAAEAAAAJAPn/AAAEAAEAAAAIAPn/AAAEAAEAAAAHAPn/AAAEAAEAAAAGAPn/AAAEAAEAAAAFAPn/AAAEAAEAAAAEAPn/AAAEAAEAAAADAPn/AAAEAAEAAAACAPn/AAAEAAEAAAABAPn/AAAEAAEAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Towers"]
+offset_left = 87.0
+offset_top = -64.0
+offset_right = 174.0
+offset_bottom = -16.0
+scale = Vector2(-1, 1)
+text = "You can buy 4 kinds of towers, each with their own specialty and upgrades. Buy a tower by clicking on the icon and then on an open spot to place it. You can also upgrade towers by clicking on them."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Health" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAAAAAABAPr/AAAEAAAAAAACAPr/AAAEAAAAAAADAPr/AAAEAAAAAAAEAPr/AAAEAAAAAAAFAPr/AAAEAAAAAAAGAPr/AAAEAAAAAAAHAPr/AAAEAAAAAAAIAPr/AAAEAAAAAAAJAPr/AAAEAAAAAAAKAPr/AAAFAAAAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Health"]
+offset_left = 1.0
+offset_top = -46.0
+offset_right = 87.0
+offset_bottom = -19.0
+text = "This number is how much health your base has left. When this hits zero you LOSE!"
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="End" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAAAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAAAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAAAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAAAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAAAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAAAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAAAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAAAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAAAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAAAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAAAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="End"]
+offset_left = 1.0
+offset_top = -42.0
+offset_right = 88.0
+offset_bottom = -15.0
+text = "That's about it. Have FUN playing Storm Guardians. See you LATER."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="YapperHand" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 0)
