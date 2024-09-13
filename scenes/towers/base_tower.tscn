@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=4 uid="uid://bsvxdv7bfndbx"]
+[gd_scene load_steps=17 format=4 uid="uid://bsvxdv7bfndbx"]
 
 [ext_resource type="Script" path="res://scenes/towers/base_tower.gd" id="1_niony"]
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_bp77l"]
 [ext_resource type="Texture2D" uid="uid://cjk3r4xytly33" path="res://assets/UI/upgradebutton.png" id="3_cmtb1"]
 [ext_resource type="AudioStream" uid="uid://jjeiil4aqxoh" path="res://assets/sfx/thud.wav" id="3_jk3ye"]
+[ext_resource type="Texture2D" uid="uid://xcmcbq4r3xhp" path="res://assets/UI/range_indicator.tres" id="3_k23ls"]
 [ext_resource type="Texture2D" uid="uid://uhy1rl0wfvt0" path="res://assets/world/towers/spear/spear_tower.png" id="3_vrkfq"]
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="4_2wn4e"]
-[ext_resource type="Texture2D" uid="uid://cfki62tnpwkmk" path="res://assets/UI/tower_selll.png" id="6_6nrra"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3co16"]
 font = ExtResource("4_2wn4e")
@@ -28,6 +28,12 @@ shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxb5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_784hk"]
+font = ExtResource("4_2wn4e")
+font_size = 5
+shadow_color = Color(0.188235, 0.188235, 0.188235, 0.603922)
+shadow_offset = Vector2(0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwm47"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mhh2u"]
@@ -44,6 +50,9 @@ script = ExtResource("1_niony")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_vrkfq")
 metadata/_edit_lock_ = true
+
+[node name="RangeIndicator" type="Sprite2D" parent="."]
+texture = ExtResource("3_k23ls")
 
 [node name="TowerButton" type="TextureButton" parent="."]
 offset_left = -9.0
@@ -145,7 +154,7 @@ vertical_alignment = 1
 
 [node name="UpgradeMenu" type="TileMapLayer" parent="UpgradeMenuMain"]
 position = Vector2(38, -42)
-tile_map_data = PackedByteArray("AAD+/wIAAAATAA0AAAABAAIAAAATAA0AAAD//wIAAAATAA0AAAAAAAIAAAATAA0AAAD//wMAAAATAA4AAAD//wQAAAATAA4AAAD//wUAAAATAA4AAAD//wYAAAATAA4AAAAAAAMAAAATAA4AAAAAAAQAAAATAA4AAAAAAAUAAAATAA4AAAAAAAYAAAATAA4AAAD+/wMAAAATAA4AAAD+/wUAAAATAA4AAAD+/wYAAAATAA4AAAABAAMAAAATAA4AAAABAAQAAAATAA4AAAABAAUAAAATAA4AAAABAAYAAAATAA4AAAABAAcAAAATAA8AAAAAAAcAAAATAA8AAAD//wcAAAATAA8AAAD+/wcAAAATAA8AAAD9/wIAAAASAA0AAAACAAIAAAAUAA0AAAD9/wcAAAASAA8AAAACAAcAAAAUAA8AAAACAAMAAAAUAA4AAAACAAQAAAAUAA4AAAACAAUAAAAUAA4AAAACAAYAAAAUAA4AAAD9/wMAAAASAA4AAAD9/wQAAAASAA4AAAD9/wUAAAASAA4AAAD9/wYAAAASAA4AAAABAAgAAAAVAA4AAAABAAkAAAAVAA8AAAACAAgAAAAXAA4AAAACAAkAAAAXAA8AAAD+/wQAAAATAA4AAAAAAAkAAAAXAA8AAAD9/wkAAAAVAA8AAAD9/wgAAAAVAA4AAAD+/wkAAAAWAA8AAAD//wkAAAAWAA8AAAAAAAgAAAAXAA4AAAD//wgAAAAWAA4AAAD+/wgAAAAWAA4AAAA=")
+tile_map_data = PackedByteArray("AAD+/wIAAAATAA0AAAABAAIAAAATAA0AAAD//wIAAAATAA0AAAAAAAIAAAATAA0AAAD//wMAAAATAA4AAAD//wQAAAATAA4AAAD//wUAAAATAA4AAAD//wYAAAATAA4AAAAAAAMAAAATAA4AAAAAAAQAAAATAA4AAAAAAAUAAAATAA4AAAAAAAYAAAATAA4AAAD+/wMAAAATAA4AAAD+/wUAAAATAA4AAAD+/wYAAAATAA4AAAABAAMAAAATAA4AAAABAAQAAAATAA4AAAABAAUAAAATAA4AAAABAAYAAAATAA4AAAABAAcAAAATAA8AAAAAAAcAAAATAA8AAAD//wcAAAATAA8AAAD+/wcAAAATAA8AAAD9/wIAAAASAA0AAAACAAIAAAAUAA0AAAD9/wcAAAASAA8AAAACAAcAAAAUAA8AAAACAAMAAAAUAA4AAAACAAQAAAAUAA4AAAACAAUAAAAUAA4AAAACAAYAAAAUAA4AAAD9/wMAAAASAA4AAAD9/wQAAAASAA4AAAD9/wUAAAASAA4AAAD9/wYAAAASAA4AAAD+/wQAAAATAA4AAAAAAAkAAAAXAA8AAAD9/wkAAAAVAA8AAAD9/wgAAAAVAA4AAAD+/wkAAAAWAA8AAAD//wkAAAAWAA8AAAAAAAgAAAAXAA4AAAD//wgAAAAWAA4AAAD+/wgAAAAWAA4AAAACAAgAAAAXAA4AAAABAAgAAAAVAA4AAAABAAkAAAAVAA8AAAACAAkAAAAXAA8AAAA=")
 tile_set = ExtResource("2_bp77l")
 
 [node name="Upgrade1" type="TextureRect" parent="UpgradeMenuMain/UpgradeMenu"]
@@ -260,7 +269,15 @@ offset_left = 10.0
 offset_top = 64.0
 offset_right = 22.0
 offset_bottom = 75.0
-texture_normal = ExtResource("6_6nrra")
+
+[node name="Label" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Sell"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 25.0
+text = "sell"
+label_settings = SubResource("LabelSettings_784hk")
 
 [node name="Targeting" type="Button" parent="UpgradeMenuMain/UpgradeMenu"]
 offset_left = -22.0

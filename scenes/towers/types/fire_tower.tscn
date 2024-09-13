@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0molxwt10pmg"]
+[gd_scene load_steps=17 format=3 uid="uid://b0molxwt10pmg"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_aubeo"]
 [ext_resource type="Script" path="res://scenes/towers/types/fire_tower.gd" id="2_hps0l"]
@@ -68,6 +68,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_mxf1i"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.604317, 0.683453, 0.708633)
+colors = PackedColorArray(1, 0, 0, 0, 0.997972, 0.412274, 0.400452, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r7qo2"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_mxf1i")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_xda5g"]
 resource_local_to_scene = true
 radius = 30.0
@@ -93,6 +104,9 @@ visible = false
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_5wsbl")
 animation = &"attack"
+
+[node name="RangeIndicator" parent="." index="3"]
+texture = SubResource("GradientTexture2D_r7qo2")
 
 [node name="RangeComponent" type="Area2D" parent="." index="4"]
 collision_mask = 2

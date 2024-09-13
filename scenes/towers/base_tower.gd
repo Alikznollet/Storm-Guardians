@@ -3,6 +3,7 @@ class_name BaseTower
 
 func _ready() -> void:
 	$UpgradeMenuMain.visible = false
+	$RangeIndicator.hide()
 	
 	$UpgradeMenuMain/Price1/Label.text = str(upgrade1_price)
 	$UpgradeMenuMain/Price2/Label.text = str(upgrade2_price)
@@ -49,14 +50,18 @@ func _on_tower_button_toggled(toggled_on: bool) -> void:
 	if GameState.grace_period:
 		if toggled_on:
 			$UpgradeMenuMain.visible = toggled_on
+			$RangeIndicator.visible = toggled_on
 			var menu_position = determine_show_spot()
 			$UpgradeMenuMain.position = menu_position
 		else:
 			$UpgradeMenuMain.visible = toggled_on
+			$RangeIndicator.visible = toggled_on
 			$UpgradeMenuMain.position = Vector2.ZERO
 			
 func _disable_views() -> void:
+	print("huh")
 	$UpgradeMenuMain.visible = false
+	$RangeIndicator.visible = false
 	$UpgradeMenuMain.position = Vector2.ZERO
 	$TowerButton.button_pressed = false
 		

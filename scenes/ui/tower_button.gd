@@ -2,6 +2,7 @@ extends TextureButton
 
 @export var tower: PackedScene
 @export var price: int
+@export var tower_visual_radius: int
 var towervisual: PackedScene = preload("res://scenes/towers/draggable_tower.tscn")
 
 signal tower_selected(tower: DraggableTower)
@@ -15,6 +16,7 @@ func _on_pressed() -> void:
 		$AudioStreamPlayer2D.play()
 		var visual: DraggableTower = towervisual.instantiate()
 		visual.set_texture(texture_normal)
+		visual.set_range(tower_visual_radius)
 		visual.tower = tower
 		tower_selected.emit(visual)
 	

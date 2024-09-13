@@ -20,6 +20,7 @@ var grace_period: bool:
 			money_gained = 0
 		else:
 			grace_exited.emit()
+			print(grace)
 	get:
 		return grace_period
 			

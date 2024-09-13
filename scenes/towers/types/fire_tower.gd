@@ -1,5 +1,17 @@
 extends BaseTower
 
+var range: int = 30: 
+	set(new):
+		$RangeComponent/CollisionShape2D.shape.radius = new
+		range = new
+		$RangeIndicator.texture.width = range * 2
+		$RangeIndicator.texture.height = range * 2
+		
+func _ready() -> void:
+	super._ready()
+	$RangeIndicator.texture.width = range * 2
+	$RangeIndicator.texture.height = range * 2
+
 func _physics_process(_delta: float) -> void:
 	target = $RangeComponent.get_target()
 	
@@ -16,7 +28,7 @@ func _on_throw_timer_timeout() -> void:
 	
 func _on_button_1_pressed() -> void:
 	if unlocku1():
-		$RangeComponent/CollisionShape2D.shape.radius = 40 # base is 30
+		range = 40
 
 # NOTE: these all have to do with attack speed (base is 1.2s wait time)
 # every upgrade shaves off 0.2

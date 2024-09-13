@@ -1,5 +1,9 @@
 extends BaseTower
 
+func _ready() -> void:
+	super._ready()
+	$RangeIndicator.texture = null
+
 func _physics_process(_delta: float) -> void:
 	target = $RangeComponent.get_target()
 	
