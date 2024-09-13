@@ -20,7 +20,6 @@ func start_wave() -> void:
 	var current_enemy: Enemy = current_wave.get_next_enemy()
 	
 	GameState.current_wave = current_wave.name
-	# GameState.wave_starting.emit()
 	
 	while current_enemy:
 		%Path.add_child(current_enemy)
@@ -28,7 +27,6 @@ func start_wave() -> void:
 		current_enemy = current_wave.get_next_enemy()
 		
 	await %Path.wave_over
-	print("wave over")
 	wave_over.emit()
 	
 	if waves.is_empty():

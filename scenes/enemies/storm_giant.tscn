@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://rrlmw1lyan8w"]
+[gd_scene load_steps=27 format=3 uid="uid://rrlmw1lyan8w"]
 
 [ext_resource type="Texture2D" uid="uid://dho21ov810rmg" path="res://assets/enemies/metal giantr/giant_death.png" id="1_1af4d"]
 [ext_resource type="Script" path="res://scenes/enemies/storm_giant.gd" id="1_2viq0"]
 [ext_resource type="Texture2D" uid="uid://bx7b6ub30qeew" path="res://assets/enemies/metal giantr/giant_walk.png" id="2_phjm0"]
 [ext_resource type="Script" path="res://generic/components/hitbox_component.gd" id="3_v0p04"]
+[ext_resource type="AudioStream" uid="uid://djq8n1s23far" path="res://assets/sfx/hitHurt.wav" id="4_g5qum"]
 [ext_resource type="Script" path="res://generic/components/pathfollow_component.gd" id="4_heb44"]
+[ext_resource type="AudioStream" uid="uid://jjeiil4aqxoh" path="res://assets/sfx/thud.wav" id="4_ldrf6"]
 [ext_resource type="LabelSettings" uid="uid://dxyu4wwedjkag" path="res://generic/other/prices.tres" id="5_bbncd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5sh3j"]
@@ -159,10 +161,22 @@ animation = &"walk"
 frame_progress = 0.736371
 metadata/_edit_lock_ = true
 
-[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_label")]
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ldrf6")
+volume_db = -10.0
+pitch_scale = 0.48
+attenuation = 2.54912
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g5qum")
+volume_db = -10.0
+pitch_scale = 0.52
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("hit_audio", "health_label")]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("3_v0p04")
+hit_audio = NodePath("../AudioStreamPlayer2D")
 health_label = NodePath("../Label")
 health = 200
 metadata/_edit_group_ = true

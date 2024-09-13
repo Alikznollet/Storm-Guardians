@@ -5,6 +5,9 @@ class_name Spear
 
 var direction: Vector2
 
+func _ready() -> void:
+	$AudioStreamPlayer2D.play()
+
 func _process(delta: float) -> void:
 	global_position += direction * speed * delta
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://beafduixkdcu0"]
+[gd_scene load_steps=6 format=3 uid="uid://beafduixkdcu0"]
 
 [ext_resource type="Script" path="res://scenes/towers/tower_spot.gd" id="1_wlugs"]
+[ext_resource type="AudioStream" uid="uid://jjeiil4aqxoh" path="res://assets/sfx/thud.wav" id="2_47c32"]
 [ext_resource type="Texture2D" uid="uid://de6ft85bmruok" path="res://assets/world/towers/spots/tower_spot.png" id="2_ne4jy"]
+[ext_resource type="AudioStream" uid="uid://noav4dvm6v1q" path="res://assets/sfx/money-pickup-2-89563.mp3" id="3_8v206"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcd1"]
 size = Vector2(16, 16)
@@ -10,6 +12,14 @@ size = Vector2(16, 16)
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("1_wlugs")
+
+[node name="Build" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_47c32")
+attenuation = 5.46414
+
+[node name="Sell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8v206")
+attenuation = 2.63902
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)

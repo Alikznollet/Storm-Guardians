@@ -29,6 +29,7 @@ func _on_area_exited(_area: Area2D) -> void:
 	body_inside = null
 	
 func _place_tower():
+	$Build.play()
 	var tower: BaseTower = body_inside.tower.instantiate()
 	add_child(tower)
 	GameState.current_balance -= tower.price
@@ -40,4 +41,5 @@ func _place_tower():
 func _on_child_exiting_tree(node: Node) -> void:
 	if node is BaseTower:
 		available = true
+		$Sell.play()
 		$Sprite2D.visible = true

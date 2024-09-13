@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://4d1pgbl6b08b"]
+[gd_scene load_steps=12 format=4 uid="uid://4d1pgbl6b08b"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_84apw"]
 [ext_resource type="Script" path="res://generic/waves/path.gd" id="2_0c63k"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvui7y0o1asn" path="res://scenes/enemies/water_bubble.tscn" id="7_7i1a0"]
 [ext_resource type="PackedScene" uid="uid://w0sm6xpyscnt" path="res://scenes/ui/hud.tscn" id="7_lyf5f"]
 [ext_resource type="PackedScene" uid="uid://bc8f35gquu73l" path="res://scenes/enemies/hasty_cloud.tscn" id="8_86v1t"]
+[ext_resource type="PackedScene" uid="uid://rrlmw1lyan8w" path="res://scenes/enemies/storm_giant.tscn" id="9_jtiae"]
 
 [sub_resource type="Curve2D" id="Curve2D_p5cak"]
 _data = {
@@ -81,21 +82,18 @@ script = ExtResource("3_nm12d")
 
 [node name="TestWave" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("8_86v1t")])
-amounts = Array[int]([1])
-spawn_time = 0.5
+enemies = Array[PackedScene]([ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0")])
+amounts = Array[int]([4, 4, 4])
 
 [node name="TestWave3" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
 enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
 amounts = Array[int]([10])
-spawn_time = 0.2
 
 [node name="TestWave4" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
 enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
 amounts = Array[int]([10])
-spawn_time = 0.2
 
 [connection signal="timeout" from="GraceTimer" to="Hud" method="_on_grace_timer_timeout"]
 [connection signal="timeout" from="GraceTimer" to="WaveManager" method="_on_grace_timer_timeout"]

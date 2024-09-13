@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvui7y0o1asn"]
+[gd_scene load_steps=23 format=3 uid="uid://cvui7y0o1asn"]
 
 [ext_resource type="Texture2D" uid="uid://bdeh0ou3nf6d1" path="res://assets/enemies/water_bubble_pop.png" id="2_jr7jw"]
 [ext_resource type="Script" path="res://scenes/enemies/water_bubble.gd" id="2_qt2uk"]
 [ext_resource type="Texture2D" uid="uid://rg1w8gqvfngd" path="res://assets/enemies/water_bubble_hover.png" id="3_8xhnd"]
 [ext_resource type="Script" path="res://generic/components/hitbox_component.gd" id="3_sc76e"]
+[ext_resource type="AudioStream" uid="uid://ctm4dhmp5bmvr" path="res://assets/sfx/pop-39222.mp3" id="4_a65fi"]
+[ext_resource type="AudioStream" uid="uid://c108sgcubwor0" path="res://assets/sfx/hitHurt (2).wav" id="4_fyrms"]
 [ext_resource type="Script" path="res://generic/components/pathfollow_component.gd" id="4_kxx5g"]
 [ext_resource type="LabelSettings" uid="uid://dxyu4wwedjkag" path="res://generic/other/prices.tres" id="6_e1vje"]
 
@@ -131,10 +133,21 @@ animation = &"hover"
 frame_progress = 0.539735
 metadata/_edit_lock_ = true
 
-[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_label")]
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a65fi")
+volume_db = -10.0
+pitch_scale = 2.39
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fyrms")
+volume_db = -10.0
+attenuation = 3.24901
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("hit_audio", "health_label")]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("3_sc76e")
+hit_audio = NodePath("../AudioStreamPlayer2D")
 health_label = NodePath("../Label")
 health = 50
 metadata/_edit_group_ = true

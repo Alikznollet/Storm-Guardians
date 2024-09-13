@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhxc0vare5rua"]
+[gd_scene load_steps=5 format=3 uid="uid://bhxc0vare5rua"]
 
 [ext_resource type="Script" path="res://generic/projectiles/spear.gd" id="1_68sps"]
 [ext_resource type="Texture2D" uid="uid://cwv6s72gq1l7e" path="res://assets/projectiles/spearph.png" id="2_b0ieb"]
+[ext_resource type="AudioStream" uid="uid://cx8701gtwnmdh" path="res://assets/sfx/spearthrow.mp3" id="3_uqqfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xohxy"]
 size = Vector2(10, 4)
@@ -23,6 +24,11 @@ texture = ExtResource("2_b0ieb")
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uqqfy")
+volume_db = -10.0
+attenuation = 3.73213
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=4 uid="uid://mmidqx2cwf8l"]
+[gd_scene load_steps=24 format=4 uid="uid://mmidqx2cwf8l"]
 
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="1_4jywj"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_xnh1i"]
 [ext_resource type="Shader" path="res://scenes/ui/main_menu.gdshader" id="2_5efyl"]
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="2_26f8l"]
+[ext_resource type="AudioStream" uid="uid://b2iar5ry6ada2" path="res://assets/sfx/button_sound.wav" id="2_eetrg"]
 [ext_resource type="LabelSettings" uid="uid://dm0xx5p44xyip" path="res://scenes/ui/button_settings_bale.tres" id="3_0qhfd"]
 [ext_resource type="Texture2D" uid="uid://j26qv8t4fgit" path="res://assets/UI/menu_background.png" id="3_h6ojc"]
 [ext_resource type="Texture2D" uid="uid://dmrpgtgv22gff" path="res://assets/UI/togglebutton_selected.png" id="4_qdhhj"]
@@ -98,6 +99,9 @@ _data = {
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_xnh1i")
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_eetrg")
 
 [node name="BG" type="Sprite2D" parent="."]
 texture_repeat = 2

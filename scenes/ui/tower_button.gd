@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	if GameState.current_balance >= price:
+		$AudioStreamPlayer2D.play()
 		var visual: DraggableTower = towervisual.instantiate()
 		visual.set_texture(texture_normal)
 		visual.tower = tower

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://doa7uhcrjxnwv"]
+[gd_scene load_steps=9 format=3 uid="uid://doa7uhcrjxnwv"]
 
 [ext_resource type="Script" path="res://generic/projectiles/fire.gd" id="1_7ufhg"]
 [ext_resource type="Texture2D" uid="uid://bpy5c6xmrmatd" path="res://assets/projectiles/fire.png" id="2_h7jds"]
+[ext_resource type="AudioStream" uid="uid://dbt8e4w2k3ffm" path="res://assets/sfx/firepuff.wav" id="2_y6qfs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1yyk"]
 resource_local_to_scene = true
@@ -94,6 +95,12 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_7ufhg")
 damage = 10
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y6qfs")
+volume_db = -10.0
+pitch_scale = 1.4
+attenuation = 1.7411
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b1yyk")

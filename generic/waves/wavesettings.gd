@@ -6,7 +6,8 @@ class_name WaveSettings
 
 @export_group("MULTIPLIERS")
 @export var health_multiplier: float = 1.00
-@export var spawn_time: float = 1.00
+@export var speed_multiplier: float = 1.00
+@export var spawn_time: float = 0.5
 
 func get_next_enemy() -> Enemy:
 	if amounts.size() != 0:

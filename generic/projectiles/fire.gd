@@ -9,4 +9,5 @@ var impact_radius: int:
 		animation = "fire_grow_big"
 
 func _ready() -> void:
+	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play(animation)

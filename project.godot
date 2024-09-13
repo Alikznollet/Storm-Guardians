@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://generic/game_state.gd"
 Transition="*res://generic/transition.tscn"
+Music="*res://generic/music.tscn"
 
 [display]
 

@@ -12,6 +12,7 @@ func _ready() -> void:
 	$PauseMenu.visible = false
 	
 	await get_tree().create_timer(0.3).timeout
+	$Rain.emitting = false
 	tutorial()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,19 +41,33 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape") and !get_tree().paused:
 		get_tree().paused = true
 		$PauseMenu.show()
-		print("paused")
 	elif Input.is_action_just_pressed("escape") and get_tree().paused:
 		$PauseMenu.hide()
 		get_tree().paused = false
 		
 	if Input.is_action_just_pressed("left_click") and tutorial_ongoing:
 		next.emit()
+		$ButtonSound.play()
 		
+		
+func _on_thunder_timer_timeout() -> void:
+	var tween: Tween = create_tween()
+	$Thunder.modulate = Color("ffffff66")
+	tween.tween_property($Thunder, "modulate", Color("ffffff00"), 0.5).set_trans(Tween.TRANS_CUBIC)
+	tween.play()
+	var rd: int = randi_range(4,15)
+	$ThunderTimer.start(rd)
+	$Thunder/Thundeer.play()
 	
 func _on_grace_timer_timeout() -> void:
 	_grace_hide()
 	
 func _grace_show() -> void:
+	$ThunderTimer.stop()
+	$Rain.emitting = false
+	$DirectionalLight2D/AnimationPlayer.play_backwards("easein")
+	$DirectionalLight2D/RainSound.stop()
+	$DirectionalLight2D/Wind.stop()
 	$AnimationPlayer.play("GraceOpen")
 	
 func _grace_hide() -> void:
@@ -63,6 +78,12 @@ func _grace_hide() -> void:
 	_handle_bomb(false)
 	_handle_mage(false)
 	$Timer/Timer/TimerButton.button_pressed = false
+	$Rain.emitting = true
+	var rd: int = randi_range(4,15)
+	$ThunderTimer.start(rd)
+	$DirectionalLight2D/AnimationPlayer.play("easein")
+	$DirectionalLight2D/RainSound.play()
+	$DirectionalLight2D/Wind.play()
 
 func _on_wave_manager_wave_over() -> void:
 	_grace_show()
@@ -140,6 +161,7 @@ func _on_electric_mouse_exited() -> void:
 		_handle_mage(false)
 
 func _on_timer_button_toggled(toggled_on: bool) -> void:
+	$ButtonSound.play()
 	var tween: Tween = get_tree().create_tween()
 	if toggled_on:
 		tween.tween_property($Timer/Confirm, "position", Vector2(0, 0), 0.3).set_trans(Tween.TRANS_CUBIC)
@@ -148,14 +170,17 @@ func _on_timer_button_toggled(toggled_on: bool) -> void:
 	tween.play()
 	
 func _on_skip_button_pressed() -> void:
+	$ButtonSound.play()
 	GameState.grace_timer.stop()
 	GameState.grace_timer.timeout.emit()
 
 func _on_resume_pressed() -> void:
+	$ButtonSound.play()
 	$PauseMenu.visible = false
 	get_tree().paused = false
 
 func _on_quit_game_pressed() -> void:
+	$ButtonSound.play()
 	get_tree().paused = false
 	Transition.change_scene("res://scenes/ui/main_menu.tscn")
 	
@@ -181,3 +206,4 @@ func tutorial():
 	await next
 	$"Yapper Animation".play("RESET")
 	get_tree().paused = false
+	tutorial_ongoing = false

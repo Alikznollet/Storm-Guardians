@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgv6ke8ver7ud"]
+
+[ext_resource type="AudioStream" uid="uid://cuwq6ysttco3u" path="res://assets/sfx/Almost in F - Tranquillity - Kevin MacLeod.mp3" id="1_uv0rq"]
+[ext_resource type="Script" path="res://music.gd" id="2_dvhtl"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_uv0rq")
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_dvhtl")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cuwq6ysttco3u"
+path="res://.godot/imported/Almost in F - Tranquillity - Kevin MacLeod.mp3-b98c827fdacc913a7ccd4aece352cb00.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Almost in F - Tranquillity - Kevin MacLeod.mp3"
+dest_files=["res://.godot/imported/Almost in F - Tranquillity - Kevin MacLeod.mp3-b98c827fdacc913a7ccd4aece352cb00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

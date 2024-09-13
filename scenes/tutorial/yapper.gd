@@ -8,6 +8,12 @@ func _ready() -> void:
 	$Towers.hide()
 	$Health.hide()
 	$End.hide()
+	
+func show_hand():
+	$YapperHand.show()
+	
+func hide_hand():
+	$YapperHand.hide()
 
 func hand_up():
 	$YapperHand.rotation_degrees = -90

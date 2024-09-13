@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://bsvxdv7bfndbx"]
+[gd_scene load_steps=16 format=4 uid="uid://bsvxdv7bfndbx"]
 
 [ext_resource type="Script" path="res://scenes/towers/base_tower.gd" id="1_niony"]
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_bp77l"]
 [ext_resource type="Texture2D" uid="uid://cjk3r4xytly33" path="res://assets/UI/upgradebutton.png" id="3_cmtb1"]
+[ext_resource type="AudioStream" uid="uid://jjeiil4aqxoh" path="res://assets/sfx/thud.wav" id="3_jk3ye"]
 [ext_resource type="Texture2D" uid="uid://uhy1rl0wfvt0" path="res://assets/world/towers/spear/spear_tower.png" id="3_vrkfq"]
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="4_2wn4e"]
 [ext_resource type="Texture2D" uid="uid://cfki62tnpwkmk" path="res://assets/UI/tower_selll.png" id="6_6nrra"]
@@ -50,6 +51,11 @@ offset_top = -12.0
 offset_right = 9.0
 offset_bottom = 9.0
 toggle_mode = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jk3ye")
+max_distance = 4730.0
+attenuation = 2.92817
 
 [node name="UpgradeMenuMain" type="Node2D" parent="."]
 z_index = 2
