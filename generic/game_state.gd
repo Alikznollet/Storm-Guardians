@@ -7,7 +7,7 @@ signal grace_entered()
 signal grace_exited()
 
 func game_started() -> void:
-	current_balance = 9999 # starting value 1000
+	current_balance = 1000 # starting value 1000
 	current_interest = 10 # starting value 10
 	current_health = 50 # starting value 50
 
