@@ -182,9 +182,9 @@ tile_set = SubResource("TileSet_7dycb")
 
 [node name="Label" type="Label" parent="Interest"]
 offset_left = 86.0
-offset_top = -19.0
+offset_top = -21.0
 offset_right = 170.0
-offset_bottom = 15.0
+offset_bottom = 13.0
 scale = Vector2(-1, -1)
 text = "Talking about interest, this meter will indicate how much extra money you will gain when you eliminate an enemy. For each 100g in your bank you will get +1."
 label_settings = SubResource("LabelSettings_54q4u")
@@ -200,9 +200,9 @@ tile_set = SubResource("TileSet_7dycb")
 
 [node name="Label" type="Label" parent="Timer"]
 offset_left = 87.0
-offset_top = -46.0
+offset_top = -45.0
 offset_right = 174.0
-offset_bottom = -19.0
+offset_bottom = -18.0
 scale = Vector2(-1, 1)
 text = "This timer displays how much time you have left to place towers and plan. You can skip this by clicking on the timer and then clicking skip."
 label_settings = SubResource("LabelSettings_54q4u")
@@ -218,9 +218,9 @@ tile_set = SubResource("TileSet_7dycb")
 
 [node name="Label" type="Label" parent="Towers"]
 offset_left = 87.0
-offset_top = -64.0
+offset_top = -62.0
 offset_right = 174.0
-offset_bottom = -16.0
+offset_bottom = -14.0
 scale = Vector2(-1, 1)
 text = "You can buy 4 kinds of towers, each with their own specialty and upgrades. Buy a tower by clicking on the icon and then on an open spot to place it. You can also upgrade towers by clicking on them."
 label_settings = SubResource("LabelSettings_54q4u")
