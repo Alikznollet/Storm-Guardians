@@ -13,7 +13,11 @@ config_version=5
 config/name="Storm Guardians"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://icon180x180.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://icon144x144.png"
 
 [autoload]
 
@@ -33,6 +37,7 @@ mouse_cursor/custom_image="res://assets/UI/cursor_ph.png"
 
 folder_colors={
 "res://assets/": "red",
+"res://exports/": "gray",
 "res://generic/": "teal",
 "res://scenes/": "orange"
 }

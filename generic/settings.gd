@@ -16,7 +16,6 @@ func load_settings() -> void:
 
 	if err == 7:
 		_create_settings()
-		print(err)
 		return
 		
 	fullscreen = config.get_value("Settings", "fullscreen")

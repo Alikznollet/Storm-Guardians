@@ -258,6 +258,5 @@ libraries = {
 [connection signal="pressed" from="Buttons/MainMenuScreen/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Buttons/MainMenuScreen/Play Game" to="." method="_on_select_level_pressed"]
 [connection signal="toggled" from="Buttons/Options/Fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="drag_ended" from="Buttons/Options/HSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="Buttons/Options/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Buttons/Options/Return" to="." method="_on_return_pressed"]
