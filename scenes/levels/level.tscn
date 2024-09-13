@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://4d1pgbl6b08b"]
+[gd_scene load_steps=14 format=4 uid="uid://4d1pgbl6b08b"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_84apw"]
 [ext_resource type="Script" path="res://generic/waves/path.gd" id="2_0c63k"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://w0sm6xpyscnt" path="res://scenes/ui/hud.tscn" id="7_lyf5f"]
 [ext_resource type="PackedScene" uid="uid://bc8f35gquu73l" path="res://scenes/enemies/hasty_cloud.tscn" id="8_86v1t"]
 [ext_resource type="PackedScene" uid="uid://rrlmw1lyan8w" path="res://scenes/enemies/storm_giant.tscn" id="9_jtiae"]
+[ext_resource type="PackedScene" uid="uid://u0t8foxejah8" path="res://scenes/enemies/bert.tscn" id="9_nby30"]
+[ext_resource type="Script" path="res://generic/waves/endlesswave.gd" id="11_efw4y"]
 
 [sub_resource type="Curve2D" id="Curve2D_p5cak"]
 _data = {
@@ -196,10 +198,22 @@ speed_multiplier = 1.5
 
 [node name="Wave 20" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
-amounts = Array[int]([100])
+enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("9_nby30")])
+amounts = Array[int]([10, 1])
 health_multiplier = 1.5
 speed_multiplier = 1.5
+
+[node name="EndlessWave" type="Node" parent="WaveManager"]
+script = ExtResource("11_efw4y")
+health_increase = 0.1
+speed_increase = 0.1
+amount_increase = 0.2
+repeat_cycle_amount = 5
+enemies = Array[PackedScene]([ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae")])
+amounts = Array[int]([5, 20, 5, 10, 10, 1, 10, 5])
+health_multiplier = 1.5
+speed_multiplier = 1.5
+spawn_time = 0.4
 
 [connection signal="timeout" from="GraceTimer" to="Hud" method="_on_grace_timer_timeout"]
 [connection signal="timeout" from="GraceTimer" to="WaveManager" method="_on_grace_timer_timeout"]

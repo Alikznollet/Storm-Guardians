@@ -823,8 +823,9 @@ max_distance = 5000.0
 process_mode = 1
 layout_mode = 3
 anchors_preset = 0
+offset_top = 16.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 56.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
