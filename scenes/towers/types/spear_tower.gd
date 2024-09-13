@@ -40,4 +40,4 @@ func _on_button_3_pressed() -> void:
 
 func _on_button_4_pressed() -> void:
 	if unlocku4():
-		extra_pierce = 5
+		extra_pierce = 3

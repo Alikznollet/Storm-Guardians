@@ -140,8 +140,8 @@ projectile = ExtResource("3_ftg6y")
 price = 200
 upgrade1_price = 150
 upgrade2_price = 200
-upgrade3_price = 200
-upgrade4_price = 250
+upgrade3_price = 300
+upgrade4_price = 350
 range_component = NodePath("RangeComponent")
 
 [node name="ThrowTimer" parent="." index="0"]

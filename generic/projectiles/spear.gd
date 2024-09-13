@@ -1,7 +1,7 @@
 extends Projectile
 class_name Spear
 
-@export var pierce: int = 10
+@export var pierce: int = 4 # base pierce is 4
 
 var direction: Vector2
 

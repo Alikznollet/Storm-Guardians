@@ -82,7 +82,7 @@ upgrade4_price = 700
 range_component = NodePath("RangeComponent")
 
 [node name="ThrowTimer" parent="." index="0"]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 
 [node name="Sprite2D" parent="." index="1"]
@@ -113,13 +113,13 @@ text = "strike damage"
 text = "strike damage+"
 
 [node name="Label3" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3" index="0"]
-text = "strike damage++"
+text = "attack speed"
 
 [node name="Button3" parent="UpgradeMenuMain/UpgradeMenu/Upgrade3" index="1"]
 text = "s"
 
 [node name="Label4" parent="UpgradeMenuMain/UpgradeMenu/Upgrade4" index="0"]
-text = "attack speed"
+text = "attack speed+"
 
 [connection signal="timeout" from="ThrowTimer" to="." method="_on_throw_timer_timeout"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Upgrade1/Button1" to="." method="_on_button_1_pressed"]

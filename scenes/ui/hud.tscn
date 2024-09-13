@@ -116,6 +116,7 @@ gradient = SubResource("Gradient_r0sto")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bmdf"]
 font = ExtResource("3_7q3s8")
+font_size = 14
 shadow_color = Color(0.203922, 0.203922, 0.203922, 0.537255)
 shadow_offset = Vector2(0, 1)
 
@@ -823,9 +824,8 @@ max_distance = 5000.0
 process_mode = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = 16.0
 offset_right = 40.0
-offset_bottom = 56.0
+offset_bottom = 40.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -1013,8 +1013,6 @@ price = 700
 process_mode = 1
 tile_map_data = PackedByteArray("AAAOABQAAAAUAA0AAAANABQAAAATAA0AAAAMABQAAAATAA0AAAALABQAAAATAA0AAAAKABQAAAATAA0AAAAJABQAAAATAA0AAAAIABQAAAATAA0AAAAOABUAAAAUAA4AAAAOABYAAAAUAA4AAAANABUAAAATAA4AAAANABYAAAATAA4AAAAMABYAAAATAA4AAAALABYAAAATAA4AAAAKABYAAAATAA4AAAAJABYAAAATAA4AAAAIABYAAAATAA4AAAAIABUAAAATAA4AAAAJABUAAAATAA4AAAAKABUAAAATAA4AAAALABUAAAATAA4AAAAMABUAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="WaveLable" type="Label" parent="WaveName"]
 unique_name_in_owner = true
@@ -1024,9 +1022,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 64.0
-offset_top = 161.0
+offset_top = 159.0
 offset_right = 119.0
-offset_bottom = 184.0
+offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "wave 1"

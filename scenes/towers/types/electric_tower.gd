@@ -17,16 +17,16 @@ func _on_throw_timer_timeout() -> void:
 	
 func _on_button_1_pressed() -> void:
 	if unlocku1():
-		projectile_damage_modifier = 1.2
+		projectile_damage_modifier = 1.8 # this gives 90
 
 func _on_button_2_pressed() -> void:
 	if unlocku2():
-		projectile_damage_modifier = 1.5
+		projectile_damage_modifier = 2.8 # this gives 140
 
 func _on_button_3_pressed() -> void:
 	if unlocku3():
-		projectile_damage_modifier = 2
+		$ThrowTimer.wait_time = 2
 
 func _on_button_4_pressed() -> void:
 	if unlocku4():
-		$ThrowTimer.wait_time = 2
+		$ThrowTimer.wait_time = 1.5

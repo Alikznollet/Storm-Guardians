@@ -68,6 +68,11 @@ func _grace_show() -> void:
 	$DirectionalLight2D/AnimationPlayer.play_backwards("easein")
 	$DirectionalLight2D/RainSound.stop()
 	$DirectionalLight2D/Wind.stop()
+	
+	$Timer/Confirm/SkipButton.disabled = false
+	$Timer/Timer/TimerButton.disabled = false
+
+
 	$AnimationPlayer.play("GraceOpen")
 	
 func _grace_hide() -> void:
@@ -84,6 +89,9 @@ func _grace_hide() -> void:
 	$DirectionalLight2D/AnimationPlayer.play("easein")
 	$DirectionalLight2D/RainSound.play()
 	$DirectionalLight2D/Wind.play()
+	
+	$Timer/Timer/TimerButton.disabled = true
+	$Timer/Confirm/SkipButton.disabled = true
 
 func _on_wave_manager_wave_over() -> void:
 	_grace_show()
