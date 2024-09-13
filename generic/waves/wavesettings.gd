@@ -13,6 +13,8 @@ func get_next_enemy() -> Enemy:
 	if amounts.size() != 0:
 		var enemypacked: PackedScene = enemies.front()
 		var enemy: Enemy = enemypacked.instantiate()
+		enemy.hitbox_component.health = enemy.hitbox_component.health * health_multiplier
+		enemy.speed = enemy.speed * speed_multiplier
 		
 		amounts[0] -= 1
 		

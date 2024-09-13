@@ -7,10 +7,9 @@ signal grace_entered()
 signal grace_exited()
 
 func game_started() -> void:
-	# NOTE: temporary values, these should be loaded from a config file later
-	current_balance = 1000
-	current_interest = 10
-	current_health = 50
+	current_balance = 1000 # starting value 1000
+	current_interest = 10 # starting value 10
+	current_health = 50 # starting value 50
 
 var grace_period: bool:
 	set(grace):
@@ -32,8 +31,8 @@ var current_balance: int = 1000: # this value is temporary
 		money_label.text = str(new)
 		
 		var interest = current_balance / 100
-		if interest >= 15:
-			current_interest = 15
+		if interest >= 10:
+			current_interest = 10
 		else:
 			current_interest = interest
 	get:

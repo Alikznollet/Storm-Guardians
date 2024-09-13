@@ -116,7 +116,6 @@ gradient = SubResource("Gradient_r0sto")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bmdf"]
 font = ExtResource("3_7q3s8")
-font_size = 18
 shadow_color = Color(0.203922, 0.203922, 0.203922, 0.537255)
 shadow_offset = Vector2(0, 1)
 
@@ -824,9 +823,8 @@ max_distance = 5000.0
 process_mode = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = 16.0
 offset_right = 40.0
-offset_bottom = 56.0
+offset_bottom = 40.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 

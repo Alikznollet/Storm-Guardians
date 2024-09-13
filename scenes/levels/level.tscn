@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://4d1pgbl6b08b"]
+[gd_scene load_steps=12 format=4 uid="uid://4d1pgbl6b08b"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_84apw"]
 [ext_resource type="Script" path="res://generic/waves/path.gd" id="2_0c63k"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvui7y0o1asn" path="res://scenes/enemies/water_bubble.tscn" id="7_7i1a0"]
 [ext_resource type="PackedScene" uid="uid://w0sm6xpyscnt" path="res://scenes/ui/hud.tscn" id="7_lyf5f"]
 [ext_resource type="PackedScene" uid="uid://bc8f35gquu73l" path="res://scenes/enemies/hasty_cloud.tscn" id="8_86v1t"]
+[ext_resource type="PackedScene" uid="uid://rrlmw1lyan8w" path="res://scenes/enemies/storm_giant.tscn" id="9_jtiae"]
 
 [sub_resource type="Curve2D" id="Curve2D_p5cak"]
 _data = {
@@ -111,33 +112,94 @@ spawn_time = 1.0
 
 [node name="Wave 6" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
-amounts = Array[int]([35, 5])
-spawn_time = 1.5
+enemies = Array[PackedScene]([ExtResource("8_86v1t"), ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
+amounts = Array[int]([20, 5, 15])
+spawn_time = 1.0
 
 [node name="Wave 7" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
-amounts = Array[int]([35, 5])
-spawn_time = 1.5
+enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("8_86v1t"), ExtResource("7_7i1a0")])
+amounts = Array[int]([40, 15, 40])
+spawn_time = 0.7
 
 [node name="Wave 8" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
-amounts = Array[int]([35, 5])
-spawn_time = 1.5
+enemies = Array[PackedScene]([ExtResource("8_86v1t")])
+amounts = Array[int]([50])
+spawn_time = 0.7
 
 [node name="Wave 9" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
-amounts = Array[int]([35, 5])
-spawn_time = 1.5
+enemies = Array[PackedScene]([ExtResource("8_86v1t"), ExtResource("7_7i1a0"), ExtResource("8_86v1t"), ExtResource("7_7i1a0")])
+amounts = Array[int]([20, 20, 20, 20])
+spawn_time = 0.7
 
 [node name="Wave 10" type="Node" parent="WaveManager"]
 script = ExtResource("4_2p31x")
-enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
-amounts = Array[int]([35, 5])
-spawn_time = 1.5
+enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t")])
+amounts = Array[int]([60, 1, 5])
+spawn_time = 0.7
+
+[node name="Wave 11" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0")])
+amounts = Array[int]([2, 10, 2, 30])
+spawn_time = 0.7
+
+[node name="Wave 12" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("8_86v1t")])
+amounts = Array[int]([4, 15, 4, 15])
+spawn_time = 0.7
+
+[node name="Wave 13" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("7_7i1a0"), ExtResource("9_jtiae")])
+amounts = Array[int]([20, 10, 20, 40, 2])
+
+[node name="Wave 14" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0"), ExtResource("8_86v1t")])
+amounts = Array[int]([20, 5, 20, 5, 20, 10])
+
+[node name="Wave 15" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t")])
+amounts = Array[int]([10, 20, 20, 10, 10])
+health_multiplier = 1.5
+
+[node name="Wave 16" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0")])
+amounts = Array[int]([30, 10, 30, 10, 40])
+health_multiplier = 1.5
+
+[node name="Wave 17" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("8_86v1t"), ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae")])
+amounts = Array[int]([30, 30, 15, 25, 7, 25, 7])
+health_multiplier = 1.5
+
+[node name="Wave 18" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0"), ExtResource("9_jtiae")])
+amounts = Array[int]([25, 5, 25, 5, 50, 5, 30, 5])
+health_multiplier = 1.5
+speed_multiplier = 1.5
+
+[node name="Wave 19" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("7_7i1a0"), ExtResource("9_jtiae"), ExtResource("8_86v1t"), ExtResource("9_jtiae"), ExtResource("7_7i1a0")])
+amounts = Array[int]([20, 20, 30, 20, 10, 30, 10, 50])
+health_multiplier = 1.5
+speed_multiplier = 1.5
+
+[node name="Wave 20" type="Node" parent="WaveManager"]
+script = ExtResource("4_2p31x")
+enemies = Array[PackedScene]([ExtResource("7_7i1a0")])
+amounts = Array[int]([100])
+health_multiplier = 1.5
+speed_multiplier = 1.5
 
 [connection signal="timeout" from="GraceTimer" to="Hud" method="_on_grace_timer_timeout"]
 [connection signal="timeout" from="GraceTimer" to="WaveManager" method="_on_grace_timer_timeout"]
