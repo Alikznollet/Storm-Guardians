@@ -4,6 +4,7 @@ class_name BaseTower
 func _ready() -> void:
 	$UpgradeMenuMain.visible = false
 	$RangeIndicator.hide()
+	$Upgradevisuals.frame = 0
 	
 	$UpgradeMenuMain/Price1/Label.text = str(upgrade1_price)
 	$UpgradeMenuMain/Price2/Label.text = str(upgrade2_price)
@@ -101,6 +102,7 @@ func unlocku1() -> bool:
 	var can_buy: bool = upgrade1_price <= GameState.current_balance
 	
 	if can_buy and !unlocked_1:
+		$Upgradevisuals.frame = 1
 		$AudioStreamPlayer2D.play()
 		%Upgrade1.texture = upgradetexture_unlocked
 		unlocked_1 = true
@@ -118,6 +120,7 @@ func unlocku2() -> bool:
 	var can_buy: bool = upgrade2_price <= GameState.current_balance
 	
 	if unlocked_1 and can_buy and !unlocked_2:
+		$Upgradevisuals.frame = 2
 		$AudioStreamPlayer2D.play()
 		%Upgrade2.texture = upgradetexture_unlocked
 		unlocked_2 = true
@@ -135,6 +138,7 @@ func unlocku3() -> bool:
 	var can_buy: bool = upgrade3_price <= GameState.current_balance
 	
 	if unlocked_1 and unlocked_2 and can_buy and !unlocked_3:
+		$Upgradevisuals.frame = 3
 		$AudioStreamPlayer2D.play()
 		%Upgrade3.texture = upgradetexture_unlocked
 		unlocked_3 = true
@@ -152,6 +156,7 @@ func unlocku4() -> bool:
 	var can_buy: bool = upgrade4_price <= GameState.current_balance
 	
 	if unlocked_1 and unlocked_2 and unlocked_3 and can_buy and !unlocked_4:
+		$Upgradevisuals.frame = 4
 		$AudioStreamPlayer2D.play()
 		%Upgrade4.texture = upgradetexture_unlocked
 		unlocked_4 = true

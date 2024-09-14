@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0molxwt10pmg"]
+[gd_scene load_steps=18 format=3 uid="uid://b0molxwt10pmg"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_aubeo"]
 [ext_resource type="Script" path="res://scenes/towers/types/fire_tower.gd" id="2_hps0l"]
 [ext_resource type="PackedScene" uid="uid://doa7uhcrjxnwv" path="res://generic/projectiles/fire.tscn" id="3_3g86m"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="3_mes0s"]
 [ext_resource type="Texture2D" uid="uid://mlqknaqsi85s" path="res://assets/world/towers/fire/fire_attack.png" id="4_7pybk"]
+[ext_resource type="Texture2D" uid="uid://c1ft6ww4qsaob" path="res://assets/world/towers/fire/fire_upgrades.png" id="5_xyj0c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jw6q5"]
 atlas = ExtResource("4_7pybk")
@@ -68,6 +69,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xda5g"]
+resource_local_to_scene = true
+radius = 30.0
+
 [sub_resource type="Gradient" id="Gradient_mxf1i"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.604317, 0.683453, 0.708633)
@@ -78,10 +83,6 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_mxf1i")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xda5g"]
-resource_local_to_scene = true
-radius = 30.0
 
 [node name="FireTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_aubeo")]
 script = ExtResource("2_hps0l")
@@ -104,9 +105,10 @@ visible = false
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_5wsbl")
 animation = &"attack"
+metadata/_edit_lock_ = true
 
-[node name="RangeIndicator" parent="." index="3"]
-texture = SubResource("GradientTexture2D_r7qo2")
+[node name="Upgradevisuals" parent="." index="3"]
+texture = ExtResource("5_xyj0c")
 
 [node name="RangeComponent" type="Area2D" parent="." index="4" node_paths=PackedStringArray("controller")]
 collision_mask = 2
@@ -117,6 +119,10 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_xda5g")
+
+[node name="RangeIndicator" parent="." index="5"]
+texture = SubResource("GradientTexture2D_r7qo2")
+metadata/_edit_lock_ = true
 
 [node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
 text = "attack range"

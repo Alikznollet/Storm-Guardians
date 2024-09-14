@@ -33,7 +33,9 @@ func start_wave() -> void:
 		await $"../Spawntimer".timeout
 		current_enemy = current_wave.get_next_enemy()
 		
-	await %Path.wave_over
+		
+	if %Path.get_child_count() != 0:
+		await %Path.wave_over
 	wave_over.emit()
 	
 	if waves.is_empty():

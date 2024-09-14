@@ -110,6 +110,7 @@ func _grace_hide() -> void:
 	
 	$Timer/Timer/TimerButton.disabled = true
 	$Timer/Confirm/SkipButton.disabled = true
+	$Timer/Confirm/SkipButton.release_focus()
 
 func _on_wave_manager_wave_over() -> void:
 	_grace_show()

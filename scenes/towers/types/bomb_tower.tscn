@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjsgdd4ajr755"]
+[gd_scene load_steps=27 format=3 uid="uid://bjsgdd4ajr755"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_og5q5"]
 [ext_resource type="Script" path="res://scenes/towers/types/bomb_tower.gd" id="2_84kma"]
 [ext_resource type="PackedScene" uid="uid://dkxxhlojj0abj" path="res://generic/projectiles/bomb.tscn" id="3_bwvu8"]
+[ext_resource type="Texture2D" uid="uid://dytan4mnfwfi2" path="res://assets/world/towers/spear/spear_tower_upgrades.png" id="4_1wpc4"]
 [ext_resource type="Texture2D" uid="uid://bwge2nmjy6cbu" path="res://assets/world/towers/bomb/bomb_grab.png" id="5_1qwsm"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="5_sbs1x"]
 [ext_resource type="Texture2D" uid="uid://ljw0cx5hpeqx" path="res://assets/world/towers/bomb/bomb_throw.png" id="6_mdpcn"]
@@ -130,6 +131,10 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hd1sk"]
+resource_local_to_scene = true
+radius = 50.0
+
 [sub_resource type="Gradient" id="Gradient_mxf1i"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.604317, 0.683453, 0.708633)
@@ -140,10 +145,6 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_mxf1i")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hd1sk"]
-resource_local_to_scene = true
-radius = 50.0
 
 [node name="BombTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_og5q5")]
 script = ExtResource("2_84kma")
@@ -159,13 +160,13 @@ range_component = NodePath("RangeComponent")
 wait_time = 3.0
 one_shot = true
 
-[node name="Thrower" type="AnimatedSprite2D" parent="." index="2"]
+[node name="Upgradevisuals" parent="." index="2"]
+texture = ExtResource("4_1wpc4")
+
+[node name="Thrower" type="AnimatedSprite2D" parent="." index="3"]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_kvujj")
 animation = &"throw"
-
-[node name="RangeIndicator" parent="." index="3"]
-texture = SubResource("GradientTexture2D_oroox")
 
 [node name="RangeComponent" type="Area2D" parent="." index="4" node_paths=PackedStringArray("controller")]
 collision_mask = 2
@@ -174,6 +175,9 @@ controller = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_hd1sk")
+
+[node name="RangeIndicator" parent="." index="5"]
+texture = SubResource("GradientTexture2D_oroox")
 
 [node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
 text = "attack range"

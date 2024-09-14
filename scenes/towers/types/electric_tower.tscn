@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://u408jl0ireji"]
+[gd_scene load_steps=18 format=3 uid="uid://u408jl0ireji"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_nb343"]
 [ext_resource type="Script" path="res://scenes/towers/types/electric_tower.gd" id="2_xthut"]
 [ext_resource type="PackedScene" uid="uid://cgbgrgqksyqg2" path="res://generic/projectiles/lightning.tscn" id="3_2p058"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="3_54ky8"]
 [ext_resource type="Texture2D" uid="uid://drfqpbfwisyak" path="res://assets/world/towers/electric/electric_attack.png" id="4_d453t"]
+[ext_resource type="Texture2D" uid="uid://dkffh743612rr" path="res://assets/world/towers/electric/electric_upgrades.png" id="5_0d3h2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exy8e"]
 atlas = ExtResource("4_d453t")
@@ -68,6 +69,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olcyu"]
+resource_local_to_scene = true
+size = Vector2(500, 500)
+
 [sub_resource type="Gradient" id="Gradient_mxf1i"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.604317, 0.683453, 0.708633)
@@ -78,10 +83,6 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_mxf1i")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_olcyu"]
-resource_local_to_scene = true
-size = Vector2(500, 500)
 
 [node name="ElectricTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_nb343")]
 script = ExtResource("2_xthut")
@@ -107,8 +108,9 @@ animation = &"attack"
 frame = 6
 frame_progress = 1.0
 
-[node name="RangeIndicator" parent="." index="3"]
-texture = SubResource("GradientTexture2D_4m6j8")
+[node name="Upgradevisuals" parent="." index="3"]
+texture = ExtResource("5_0d3h2")
+frame = 4
 
 [node name="RangeComponent" type="Area2D" parent="." index="4" node_paths=PackedStringArray("controller")]
 collision_mask = 2
@@ -121,6 +123,9 @@ metadata/_edit_lock_ = true
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_olcyu")
 debug_color = Color(1, 1, 1, 0.192157)
+
+[node name="RangeIndicator" parent="." index="5"]
+texture = SubResource("GradientTexture2D_4m6j8")
 
 [node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
 text = "strike damage"

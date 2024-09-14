@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bh1wl6c05pluf"]
+[gd_scene load_steps=27 format=3 uid="uid://bh1wl6c05pluf"]
 
 [ext_resource type="PackedScene" uid="uid://bsvxdv7bfndbx" path="res://scenes/towers/base_tower.tscn" id="1_b5gfy"]
 [ext_resource type="Script" path="res://scenes/towers/types/spear_tower.gd" id="2_eypgc"]
 [ext_resource type="PackedScene" uid="uid://bhxc0vare5rua" path="res://generic/projectiles/spear.tscn" id="3_ftg6y"]
+[ext_resource type="Texture2D" uid="uid://dytan4mnfwfi2" path="res://assets/world/towers/spear/spear_tower_upgrades.png" id="4_t3gcc"]
 [ext_resource type="Script" path="res://generic/components/range_component.gd" id="5_iuv6b"]
 [ext_resource type="Texture2D" uid="uid://lqivrfy1rstg" path="res://assets/world/towers/spear/spear_thrower.png" id="5_kufmg"]
 [ext_resource type="Texture2D" uid="uid://dlqolrsms5mjv" path="res://assets/world/towers/spear/spear_grab.png" id="6_pfo0a"]
@@ -130,6 +131,10 @@ animations = [{
 "speed": 14.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq1ks"]
+resource_local_to_scene = true
+radius = 70.0
+
 [sub_resource type="Gradient" id="Gradient_mxf1i"]
 interpolation_mode = 1
 offsets = PackedFloat32Array(0.604317, 0.683453, 0.708633)
@@ -140,10 +145,6 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_mxf1i")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_aq1ks"]
-resource_local_to_scene = true
-radius = 70.0
 
 [node name="SpearTower" node_paths=PackedStringArray("range_component") instance=ExtResource("1_b5gfy")]
 script = ExtResource("2_eypgc")
@@ -158,12 +159,13 @@ range_component = NodePath("RangeComponent")
 [node name="ThrowTimer" parent="." index="0"]
 one_shot = true
 
-[node name="Thrower" type="AnimatedSprite2D" parent="." index="2"]
+[node name="Upgradevisuals" parent="." index="2"]
+texture = ExtResource("4_t3gcc")
+hframes = 5
+
+[node name="Thrower" type="AnimatedSprite2D" parent="." index="3"]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_gfto2")
-
-[node name="RangeIndicator" parent="." index="3"]
-texture = SubResource("GradientTexture2D_jsjlg")
 
 [node name="RangeComponent" type="Area2D" parent="." index="4" node_paths=PackedStringArray("controller")]
 collision_mask = 2
@@ -174,6 +176,9 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_aq1ks")
+
+[node name="RangeIndicator" parent="." index="5"]
+texture = SubResource("GradientTexture2D_jsjlg")
 
 [node name="Label" parent="UpgradeMenuMain/UpgradeMenu/Upgrade1" index="0"]
 text = "attack range"
