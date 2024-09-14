@@ -10,6 +10,7 @@ func game_started() -> void:
 	current_balance = 1000 # starting value 1000
 	current_interest = 10 # starting value 10
 	current_health = 50 # starting value 50
+	money_gained = 0
 
 var grace_period: bool:
 	set(grace):
@@ -46,15 +47,18 @@ var current_interest: int = 1: # this value is temporary
 	get:
 		return current_interest
 		
+signal health_changed()
+		
 var current_health: int = 50: # this value is temporary
 	set(new):
+		health_changed.emit()
 		if new > 0:
 			current_health = new
 			health_label.text = str(new)
 		else:
-			# TODO: handle game ending logic here
-			# for now just closes the game
-			get_tree().quit()
+			health_label.text = "0"
+			var packedscene: PackedScene = load("res://scenes/ui/game_over.tscn")
+			get_tree().current_scene.add_child(packedscene.instantiate())
 	get:
 		return current_health
 		
@@ -64,4 +68,4 @@ var money_label: Label
 var interest_label: Label
 var health_label: Label
 
-var currently_opened_tower: BaseTower
+signal new_tower_selected(tower: BaseTower)

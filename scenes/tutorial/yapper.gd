@@ -6,6 +6,7 @@ func _ready() -> void:
 	$Interest.hide()
 	$Timer.hide()
 	$Towers.hide()
+	$Upgrade.hide()
 	$Health.hide()
 	$End.hide()
 	
@@ -43,8 +44,12 @@ func show_towers():
 	$Timer.hide()
 	$Towers.show()
 	
-func show_health():
+func show_upgrade():
 	$Towers.hide()
+	$Upgrade.show()
+	
+func show_health():
+	$Upgrade.hide()
 	$Health.show()
 	
 func show_end():

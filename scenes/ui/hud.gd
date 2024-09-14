@@ -5,6 +5,7 @@ func _ready() -> void:
 	GameState.money_label = $Balance/Money
 	GameState.interest_label = $Balance/Interest
 	GameState.health_label = $Health/HealthLabel
+	GameState.health_changed.connect(_on_base_damaged)
 	_handle_spear(false)
 	_handle_fire(false)
 	_handle_bomb(false)
@@ -38,26 +39,32 @@ func _process(_delta: float) -> void:
 		%MagePrice.modulate = Color.WHITE
 	
 	# check here wether player wants the game paused or not
-	if Input.is_action_just_pressed("escape") and !get_tree().paused:
+	if Input.is_action_just_pressed("escape") and !get_tree().paused and GameState.current_health > 0:
 		get_tree().paused = true
 		$PauseMenu.show()
-	elif Input.is_action_just_pressed("escape") and get_tree().paused:
+	elif Input.is_action_just_pressed("escape") and get_tree().paused and GameState.current_health > 0:
 		$PauseMenu.hide()
 		get_tree().paused = false
 		
-	if Input.is_action_just_pressed("left_click") and tutorial_ongoing:
+	if Input.is_action_just_pressed("left_click") and tutorial_ongoing and !get_tree().paused:
 		next.emit()
 		$ButtonSound.play()
 		
 		
 func _on_thunder_timer_timeout() -> void:
 	var tween: Tween = create_tween()
-	$Thunder.modulate = Color("ffffff66")
+	$Thunder.modulate = Color("ffffff50")
 	tween.tween_property($Thunder, "modulate", Color("ffffff00"), 0.5).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
 	var rd: int = randi_range(4,15)
 	$ThunderTimer.start(rd)
 	$Thunder/Thundeer.play()
+	
+func _on_base_damaged() -> void:
+	var tween: Tween = create_tween()
+	$Hurt.modulate = Color("ffffff50")
+	tween.tween_property($Hurt, "modulate", Color("ffffff00"), 0.5).set_trans(Tween.TRANS_CUBIC)
+	tween.play()
 	
 func _on_grace_timer_timeout() -> void:
 	_grace_hide()
@@ -145,27 +152,27 @@ func _handle_mage(open: bool) -> void:
 		tween.play()
 
 func _on_bomb_mouse_entered() -> void:
-	if GameState.grace_period:
+	if GameState.grace_period and not tutorial_ongoing:
 		_handle_bomb(true)
 
 func _on_bomb_mouse_exited() -> void:
-	if GameState.grace_period:
+	if GameState.grace_period and not tutorial_ongoing:
 		_handle_bomb(false)
 
 func _on_fire_mouse_entered() -> void:
-	if GameState.grace_period:
+	if GameState.grace_period and not tutorial_ongoing:
 		_handle_fire(true)
 
 func _on_fire_mouse_exited() -> void:
-	if GameState.grace_period:
+	if GameState.grace_period and not tutorial_ongoing:
 		_handle_fire(false)
 
 func _on_electric_mouse_entered() -> void:
-	if GameState.grace_period:
+	if GameState.grace_period and not tutorial_ongoing:
 		_handle_mage(true)
 
 func _on_electric_mouse_exited() -> void:
-	if GameState.grace_period:
+	if GameState.grace_period and not tutorial_ongoing:
 		_handle_mage(false)
 
 func _on_timer_button_toggled(toggled_on: bool) -> void:
@@ -189,15 +196,23 @@ func _on_resume_pressed() -> void:
 
 func _on_quit_game_pressed() -> void:
 	$ButtonSound.play()
+	Music._grace()
 	get_tree().paused = false
 	Transition.change_scene("res://scenes/ui/main_menu.tscn")
 	
 var tutorial_ongoing: bool = false
 signal next()
+signal tutorial_over()
 
 func tutorial():
+	$Buy/BuyButtons/Spear.disabled = true
+	$Buy/BuyButtons/Bomb.disabled = true
+	$Buy/BuyButtons/Fire.disabled = true
+	$Buy/BuyButtons/Electric.disabled = true
+	$Timer/Confirm/SkipButton.disabled = true
+	$Timer/Timer/TimerButton.disabled = true
+	
 	tutorial_ongoing = true
-	get_tree().paused = true
 	$"Yapper Animation".play("welcome")
 	await next
 	$"Yapper Animation".play("money")
@@ -208,10 +223,19 @@ func tutorial():
 	await next
 	$"Yapper Animation".play("towers")
 	await next
+	$"Yapper Animation".play("upgrade")
+	await next
 	$"Yapper Animation".play("health")
 	await next
 	$"Yapper Animation".play("end")
 	await next
 	$"Yapper Animation".play("RESET")
-	get_tree().paused = false
 	tutorial_ongoing = false
+	
+	$Buy/BuyButtons/Spear.disabled = false
+	$Buy/BuyButtons/Bomb.disabled = false
+	$Buy/BuyButtons/Fire.disabled = false
+	$Buy/BuyButtons/Electric.disabled = false
+	$Timer/Confirm/SkipButton.disabled = false
+	$Timer/Timer/TimerButton.disabled = false
+	tutorial_over.emit()

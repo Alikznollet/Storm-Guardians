@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=4 uid="uid://cpgr2lmqf7efq"]
+[gd_scene load_steps=25 format=4 uid="uid://cpgr2lmqf7efq"]
 
 [ext_resource type="Texture2D" uid="uid://dx81xb56ky47v" path="res://assets/UI/tutorial_yapper.png" id="1_snlwu"]
 [ext_resource type="Script" path="res://scenes/tutorial/yapper.gd" id="2_1thhj"]
 [ext_resource type="Texture2D" uid="uid://c5wjhka14p2q2" path="res://assets/UI/tutorial_yapper_handanim.png" id="2_jgg8n"]
 [ext_resource type="Texture2D" uid="uid://d0krn22efmljj" path="res://assets/UI/ui2.png" id="3_ppeo1"]
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="4_ck3o3"]
+[ext_resource type="Texture2D" uid="uid://cjk3r4xytly33" path="res://assets/UI/upgradebutton.png" id="5_yuvo8"]
+[ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="6_kwor3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_val5n"]
 texture = ExtResource("3_ppeo1")
@@ -57,6 +59,30 @@ font = ExtResource("4_ck3o3")
 font_size = 5
 shadow_color = Color(0.156863, 0.156863, 0.156863, 0.627451)
 shadow_offset = Vector2(0, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_okgoq"]
+font = ExtResource("4_ck3o3")
+font_size = 5
+shadow_color = Color(0.215902, 0.215902, 0.215902, 0.670588)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kodco"]
+font = ExtResource("4_ck3o3")
+font_size = 5
+shadow_color = Color(0.231373, 0.231373, 0.231373, 0.564706)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_waa6g"]
+font = ExtResource("4_ck3o3")
+font_size = 5
+shadow_color = Color(0.188235, 0.188235, 0.188235, 0.603922)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_62mer"]
+font = ExtResource("4_ck3o3")
+font_size = 9
+shadow_color = Color(0.180392, 0.180392, 0.180392, 0.705882)
+shadow_offset = Vector2(0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4kl6"]
 atlas = ExtResource("2_jgg8n")
@@ -158,16 +184,16 @@ autowrap_mode = 3
 
 [node name="Money" type="TileMapLayer" parent="."]
 visible = false
-scale = Vector2(-1, 1)
+scale = Vector2(-1, -1)
 tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAAAAAABAPr/AAAEAAAAAAACAPr/AAAEAAAAAAADAPr/AAAEAAAAAAAEAPr/AAAEAAAAAAAFAPr/AAAEAAAAAAAGAPr/AAAEAAAAAAAHAPr/AAAEAAAAAAAIAPr/AAAEAAAAAAAJAPr/AAAEAAAAAAAKAPr/AAAFAAAAAAA=")
 tile_set = SubResource("TileSet_7dycb")
 
 [node name="Label" type="Label" parent="Money"]
 offset_left = 87.0
-offset_top = -45.0
+offset_top = -19.0
 offset_right = 174.0
-offset_bottom = -18.0
-scale = Vector2(-1, 1)
+offset_bottom = 8.0
+scale = Vector2(-1, -1)
 text = "Here you can see how much money you have in your bank. You can use it to buy towers or save for more interest."
 label_settings = SubResource("LabelSettings_54q4u")
 horizontal_alignment = 1
@@ -227,6 +253,217 @@ label_settings = SubResource("LabelSettings_54q4u")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Upgrade" type="TileMapLayer" parent="."]
+visible = false
+scale = Vector2(-1, 1)
+tile_map_data = PackedByteArray("AAAAAPv/AAADAAEAAAAAAPz/AAADAAEAAAAAAP3/AAADAAIAAAABAPv/AAAEAAEAAAABAPz/AAAEAAEAAAABAP3/AAAEAAIAAAABAP7/AAAEAAMAAAACAPv/AAAEAAEAAAACAPz/AAAEAAEAAAACAP3/AAAEAAIAAAADAPv/AAAEAAEAAAADAPz/AAAEAAEAAAADAP3/AAAEAAIAAAAEAPv/AAAEAAEAAAAEAPz/AAAEAAEAAAAEAP3/AAAEAAIAAAAFAPv/AAAEAAEAAAAFAPz/AAAEAAEAAAAFAP3/AAAEAAIAAAAGAPv/AAAEAAEAAAAGAPz/AAAEAAEAAAAGAP3/AAAEAAIAAAAHAPv/AAAEAAEAAAAHAPz/AAAEAAEAAAAHAP3/AAAEAAIAAAAIAPv/AAAEAAEAAAAIAPz/AAAEAAEAAAAIAP3/AAAEAAIAAAAJAPv/AAAEAAEAAAAJAPz/AAAEAAEAAAAJAP3/AAAEAAIAAAAKAPv/AAAFAAEAAAAKAPz/AAAFAAEAAAAKAP3/AAAFAAIAAAAAAPr/AAADAAAAAAABAPr/AAAEAAAAAAACAPr/AAAEAAAAAAADAPr/AAAEAAAAAAAEAPr/AAAEAAAAAAAFAPr/AAAEAAAAAAAGAPr/AAAEAAAAAAAHAPr/AAAEAAAAAAAIAPr/AAAEAAAAAAAJAPr/AAAEAAAAAAAKAPr/AAAFAAAAAAA=")
+tile_set = SubResource("TileSet_7dycb")
+
+[node name="Label" type="Label" parent="Upgrade"]
+offset_left = 87.0
+offset_top = -56.0
+offset_right = 174.0
+offset_bottom = -8.0
+scale = Vector2(-1, 1)
+text = "In the upgrade menu you can boost the stats of your tower, change it's targeting type and sell the tower."
+label_settings = SubResource("LabelSettings_54q4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="UpgradeMenuMain" type="Node2D" parent="Upgrade"]
+z_index = 2
+position = Vector2(-12, 0)
+scale = Vector2(-1, 1)
+metadata/_edit_group_ = true
+
+[node name="Price1" type="TextureRect" parent="Upgrade/UpgradeMenuMain"]
+offset_left = 32.0
+offset_top = -23.0
+offset_right = 76.0
+offset_bottom = -15.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Upgrade/UpgradeMenuMain/Price1"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_okgoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price2" type="TextureRect" parent="Upgrade/UpgradeMenuMain"]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 32.0
+offset_top = -12.0
+offset_right = 76.0
+offset_bottom = -4.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Upgrade/UpgradeMenuMain/Price2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_okgoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price3" type="TextureRect" parent="Upgrade/UpgradeMenuMain"]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 32.0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 7.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Upgrade/UpgradeMenuMain/Price3"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_okgoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price4" type="TextureRect" parent="Upgrade/UpgradeMenuMain"]
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = 32.0
+offset_top = 10.0
+offset_right = 76.0
+offset_bottom = 18.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Upgrade/UpgradeMenuMain/Price4"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 43.0
+offset_bottom = 7.0
+text = "100"
+label_settings = SubResource("LabelSettings_okgoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeMenu" type="TileMapLayer" parent="Upgrade/UpgradeMenuMain"]
+position = Vector2(38, -42)
+tile_map_data = PackedByteArray("AAD+/wIAAAATAA0AAAABAAIAAAATAA0AAAD//wIAAAATAA0AAAAAAAIAAAATAA0AAAD//wMAAAATAA4AAAD//wQAAAATAA4AAAD//wUAAAATAA4AAAD//wYAAAATAA4AAAAAAAMAAAATAA4AAAAAAAQAAAATAA4AAAAAAAUAAAATAA4AAAAAAAYAAAATAA4AAAD+/wMAAAATAA4AAAD+/wUAAAATAA4AAAD+/wYAAAATAA4AAAABAAMAAAATAA4AAAABAAQAAAATAA4AAAABAAUAAAATAA4AAAABAAYAAAATAA4AAAABAAcAAAATAA8AAAAAAAcAAAATAA8AAAD//wcAAAATAA8AAAD+/wcAAAATAA8AAAD9/wIAAAASAA0AAAACAAIAAAAUAA0AAAD9/wcAAAASAA8AAAACAAcAAAAUAA8AAAACAAMAAAAUAA4AAAACAAQAAAAUAA4AAAACAAUAAAAUAA4AAAACAAYAAAAUAA4AAAD9/wMAAAASAA4AAAD9/wQAAAASAA4AAAD9/wUAAAASAA4AAAD9/wYAAAASAA4AAAD+/wQAAAATAA4AAAAAAAkAAAAXAA8AAAD9/wkAAAAVAA8AAAD9/wgAAAAVAA4AAAD+/wkAAAAWAA8AAAD//wkAAAAWAA8AAAAAAAgAAAAXAA4AAAD//wgAAAAWAA4AAAD+/wgAAAAWAA4AAAACAAgAAAAXAA4AAAABAAgAAAAVAA4AAAABAAkAAAAVAA8AAAACAAkAAAAXAA8AAAA=")
+tile_set = ExtResource("6_kwor3")
+
+[node name="Upgrade1" type="TextureRect" parent="Upgrade/UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+offset_left = -22.0
+offset_top = 19.0
+offset_right = 22.0
+offset_bottom = 27.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Upgrade/UpgradeMenuMain/UpgradeMenu/Upgrade1"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 1"
+label_settings = SubResource("LabelSettings_kodco")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade2" type="TextureRect" parent="Upgrade/UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -22.0
+offset_top = 30.0
+offset_right = 22.0
+offset_bottom = 38.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label2" type="Label" parent="Upgrade/UpgradeMenuMain/UpgradeMenu/Upgrade2"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 2"
+label_settings = SubResource("LabelSettings_kodco")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade3" type="TextureRect" parent="Upgrade/UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -22.0
+offset_top = 41.0
+offset_right = 22.0
+offset_bottom = 49.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label3" type="Label" parent="Upgrade/UpgradeMenuMain/UpgradeMenu/Upgrade3"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+text = "upgrade 3"
+label_settings = SubResource("LabelSettings_kodco")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade4" type="TextureRect" parent="Upgrade/UpgradeMenuMain/UpgradeMenu"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -22.0
+offset_top = 52.0
+offset_right = 22.0
+offset_bottom = 60.0
+mouse_filter = 2
+texture = ExtResource("5_yuvo8")
+stretch_mode = 2
+
+[node name="Label4" type="Label" parent="Upgrade/UpgradeMenuMain/UpgradeMenu/Upgrade4"]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 8.0
+mouse_filter = 1
+text = "upgrade 4"
+label_settings = SubResource("LabelSettings_kodco")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Upgrade/UpgradeMenuMain/UpgradeMenu"]
+offset_left = 12.0
+offset_top = 66.0
+offset_right = 52.0
+offset_bottom = 89.0
+text = "sell"
+label_settings = SubResource("LabelSettings_waa6g")
+
+[node name="Label2" type="Label" parent="Upgrade/UpgradeMenuMain/UpgradeMenu"]
+offset_left = -22.0
+offset_top = 64.0
+offset_right = 6.0
+offset_bottom = 74.0
+pivot_offset = Vector2(5.29353, 5)
+text = "first"
+label_settings = SubResource("LabelSettings_62mer")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Health" type="TileMapLayer" parent="."]
 visible = false

@@ -2,6 +2,9 @@ extends CanvasLayer
 
 var settings: Settings = Settings.new()
 
+func _ready() -> void:
+	get_tree().paused = false
+
 func _on_quit_pressed() -> void:
 	$Button.play()
 	get_tree().quit()

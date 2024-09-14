@@ -19,6 +19,7 @@ func _on_pressed() -> void:
 		visual.set_range(tower_visual_radius)
 		visual.tower = tower
 		tower_selected.emit(visual)
+		GameState.new_tower_selected.emit(null)
 	
 func disable() -> void:
 	disabled = true

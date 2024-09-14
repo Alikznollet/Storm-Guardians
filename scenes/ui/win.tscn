@@ -1,0 +1,218 @@
+[gd_scene load_steps=27 format=4 uid="uid://bh48hyxdup0os"]
+
+[ext_resource type="Script" path="res://scenes/ui/win.gd" id="1_ftr7y"]
+[ext_resource type="AudioStream" uid="uid://b2iar5ry6ada2" path="res://assets/sfx/button_sound.wav" id="2_bwdqv"]
+[ext_resource type="Texture2D" uid="uid://bcfcwxk6hys2y" path="res://assets/UI/crown.png" id="2_f4byd"]
+[ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="3_8vpmq"]
+[ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="4_y6inu"]
+[ext_resource type="LabelSettings" uid="uid://dm0xx5p44xyip" path="res://scenes/ui/button_settings_bale.tres" id="5_21bsw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8boel"]
+font = ExtResource("4_y6inu")
+font_size = 25
+shadow_color = Color(0.215686, 0.215686, 0.215686, 0.690196)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_tfjpp"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.0901961)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abwm1"]
+gradient = SubResource("Gradient_tfjpp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oegco"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7unk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exuh8"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(0, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du245"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(64, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvx0s"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(128, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w06p"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(192, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtqlc"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(256, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jrml"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(320, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdw6y"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(384, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqxti"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(448, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20ll2"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(512, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkoc2"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(576, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thnr3"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(640, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr2pu"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(704, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t35w"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(768, 0, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpa0n"]
+atlas = ExtResource("2_f4byd")
+region = Rect2(832, 0, 64, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgf4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exuh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du245")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvx0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w06p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtqlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jrml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdw6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqxti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20ll2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkoc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thnr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr2pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t35w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpa0n")
+}],
+"loop": false,
+"name": &"crown",
+"speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Win" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ftr7y")
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_bwdqv")
+pitch_scale = 1.3
+attenuation = 4.92458
+
+[node name="PauseMenu" type="TileMapLayer" parent="."]
+process_mode = 3
+z_index = 5
+position = Vector2(0, 24)
+tile_map_data = PackedByteArray("AAARAAoAAAATAA0AAAARAAsAAAATAA8AAAASAAoAAAATAA0AAAASAAsAAAATAA8AAAATAAoAAAATAA0AAAATAAsAAAATAA8AAAAUAAoAAAATAA0AAAAUAAsAAAATAA8AAAAVAAoAAAATAA0AAAAVAAsAAAATAA8AAAAWAAoAAAATAA0AAAAWAAsAAAATAA8AAAAQAA0AAAASAA0AAAAQAA4AAAASAA8AAAARAA0AAAATAA0AAAARAA4AAAATAA8AAAASAA0AAAATAA0AAAASAA4AAAATAA8AAAATAA0AAAATAA0AAAATAA4AAAATAA8AAAAUAA0AAAATAA0AAAAUAA4AAAATAA8AAAAVAA0AAAATAA0AAAAVAA4AAAATAA8AAAAWAA0AAAATAA0AAAAWAA4AAAATAA8AAAAXAA0AAAAUAA0AAAAXAA4AAAAUAA8AAAAOAAoAAAASAA0AAAAZAAoAAAAUAA0AAAAPAAoAAAATAA0AAAAQAAoAAAATAA0AAAAXAAoAAAATAA0AAAAYAAoAAAATAA0AAAAYAAsAAAATAA8AAAAXAAsAAAATAA8AAAAQAAsAAAATAA8AAAAPAAsAAAATAA8AAAAOAAsAAAASAA8AAAAZAAsAAAAUAA8AAAA=")
+tile_set = ExtResource("3_8vpmq")
+
+[node name="Label" type="Label" parent="PauseMenu"]
+offset_left = 81.0
+offset_top = 48.0
+offset_right = 239.0
+offset_bottom = 74.0
+text = "You beat Bert!"
+label_settings = SubResource("LabelSettings_8boel")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu"]
+offset_top = -24.0
+offset_right = 320.0
+offset_bottom = 156.0
+texture = SubResource("GradientTexture2D_abwm1")
+metadata/_edit_lock_ = true
+
+[node name="Endless" type="Button" parent="PauseMenu"]
+offset_left = 112.0
+offset_top = 80.0
+offset_right = 208.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("4_y6inu")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oegco")
+flat = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="PauseMenu/Endless"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 96.0
+offset_bottom = 14.0
+text = "Continue Endless"
+label_settings = ExtResource("5_21bsw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit Game" type="Button" parent="PauseMenu"]
+offset_left = 128.0
+offset_top = 104.0
+offset_right = 192.0
+offset_bottom = 120.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u7unk")
+flat = true
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="PauseMenu/Quit Game"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 66.0
+offset_bottom = 14.0
+text = "Quit Game"
+label_settings = ExtResource("5_21bsw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Crown" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 50)
+sprite_frames = SubResource("SpriteFrames_xgf4r")
+animation = &"crown"
+frame = 13
+frame_progress = 1.0
+
+[connection signal="pressed" from="PauseMenu/Endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="PauseMenu/Quit Game" to="." method="_on_quit_game_pressed"]

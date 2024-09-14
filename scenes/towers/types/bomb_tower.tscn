@@ -167,9 +167,10 @@ animation = &"throw"
 [node name="RangeIndicator" parent="." index="3"]
 texture = SubResource("GradientTexture2D_oroox")
 
-[node name="RangeComponent" type="Area2D" parent="." index="4"]
+[node name="RangeComponent" type="Area2D" parent="." index="4" node_paths=PackedStringArray("controller")]
 collision_mask = 2
 script = ExtResource("5_sbs1x")
+controller = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeComponent" index="0"]
 shape = SubResource("CircleShape2D_hd1sk")

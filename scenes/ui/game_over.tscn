@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=4 uid="uid://lx78bihv8ojb"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_fgxmi"]
+[ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="1_q7kwx"]
+[ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="2_3ppue"]
+[ext_resource type="AudioStream" uid="uid://b2iar5ry6ada2" path="res://assets/sfx/button_sound.wav" id="2_vnku6"]
+[ext_resource type="LabelSettings" uid="uid://dm0xx5p44xyip" path="res://scenes/ui/button_settings_bale.tres" id="3_h0yqa"]
+[ext_resource type="PackedScene" uid="uid://cpgr2lmqf7efq" path="res://scenes/tutorial/yapper.tscn" id="5_u33mo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fyu43"]
+font = ExtResource("2_3ppue")
+font_size = 25
+shadow_color = Color(0.215686, 0.215686, 0.215686, 0.690196)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_wndnu"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.0901961)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cfhlt"]
+gradient = SubResource("Gradient_wndnu")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0ppx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_833v3"]
+
+[node name="GameOver" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_fgxmi")
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vnku6")
+pitch_scale = 1.3
+attenuation = 4.92458
+
+[node name="PauseMenu" type="TileMapLayer" parent="."]
+process_mode = 3
+z_index = 5
+position = Vector2(0, 4)
+tile_map_data = PackedByteArray("AAARAAoAAAASAA0AAAARAAsAAAASAA8AAAASAAoAAAATAA0AAAASAAsAAAATAA8AAAATAAoAAAATAA0AAAATAAsAAAATAA8AAAAUAAoAAAATAA0AAAAUAAsAAAATAA8AAAAVAAoAAAATAA0AAAAVAAsAAAATAA8AAAAWAAoAAAAUAA0AAAAWAAsAAAAUAA8AAAAQAA0AAAASAA0AAAAQAA4AAAASAA8AAAARAA0AAAATAA0AAAARAA4AAAATAA8AAAASAA0AAAATAA0AAAASAA4AAAATAA8AAAATAA0AAAATAA0AAAATAA4AAAATAA8AAAAUAA0AAAATAA0AAAAUAA4AAAATAA8AAAAVAA0AAAATAA0AAAAVAA4AAAATAA8AAAAWAA0AAAATAA0AAAAWAA4AAAATAA8AAAAXAA0AAAAUAA0AAAAXAA4AAAAUAA8AAAA=")
+tile_set = ExtResource("1_q7kwx")
+
+[node name="Label" type="Label" parent="PauseMenu"]
+offset_left = 110.0
+offset_top = 48.0
+offset_right = 213.0
+offset_bottom = 74.0
+text = "You died!"
+label_settings = SubResource("LabelSettings_fyu43")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu"]
+offset_top = -4.0
+offset_right = 320.0
+offset_bottom = 176.0
+texture = SubResource("GradientTexture2D_cfhlt")
+metadata/_edit_lock_ = true
+
+[node name="Retry" type="Button" parent="PauseMenu"]
+offset_left = 136.0
+offset_top = 80.0
+offset_right = 184.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_3ppue")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h0ppx")
+flat = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="PauseMenu/Retry"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 14.0
+text = "Retry"
+label_settings = ExtResource("3_h0yqa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit Game" type="Button" parent="PauseMenu"]
+offset_left = 128.0
+offset_top = 104.0
+offset_right = 192.0
+offset_bottom = 120.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_833v3")
+flat = true
+metadata/_edit_group_ = true
+
+[node name="Label2" type="Label" parent="PauseMenu/Quit Game"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 66.0
+offset_bottom = 14.0
+text = "Quit Game"
+label_settings = ExtResource("3_h0yqa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yapper" parent="." instance=ExtResource("5_u33mo")]
+position = Vector2(-18, 89)
+
+[connection signal="pressed" from="PauseMenu/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="PauseMenu/Quit Game" to="." method="_on_quit_game_pressed"]

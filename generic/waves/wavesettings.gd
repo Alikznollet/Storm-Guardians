@@ -3,6 +3,7 @@ class_name WaveSettings
 
 @export var enemies: Array[PackedScene]
 @export var amounts: Array[int]
+@export var enabled: bool = true
 
 @export_group("MULTIPLIERS")
 @export var health_multiplier: float = 1.00

@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	get_tree().paused = false
 	GameState.grace_timer = %GraceTimer
 	GameState.game_started()
 	

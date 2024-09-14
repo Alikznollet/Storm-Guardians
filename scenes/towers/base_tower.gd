@@ -11,6 +11,7 @@ func _ready() -> void:
 	$UpgradeMenuMain/Price4/Label.text = str(upgrade4_price)
 	
 	GameState.connect("grace_exited", _disable_views)
+	GameState.connect("new_tower_selected", _handle_selected_tower)
 
 @export var projectile: PackedScene
 var projectile_damage_modifier: float = 1.00
@@ -25,6 +26,11 @@ var unlocked_1: bool = false
 var unlocked_2: bool = false
 var unlocked_3: bool = false
 var unlocked_4: bool = false
+
+func _handle_selected_tower(new_tower: BaseTower):
+	if not new_tower == self:
+		_disable_views()
+
 func _on_sell_pressed() -> void:
 	GameState.current_balance += totalcost * 0.6 # NOTE: 60% of money spent will be refunded
 	queue_free()
@@ -53,13 +59,13 @@ func _on_tower_button_toggled(toggled_on: bool) -> void:
 			$RangeIndicator.visible = toggled_on
 			var menu_position = determine_show_spot()
 			$UpgradeMenuMain.position = menu_position
+			GameState.new_tower_selected.emit(self)
 		else:
 			$UpgradeMenuMain.visible = toggled_on
 			$RangeIndicator.visible = toggled_on
 			$UpgradeMenuMain.position = Vector2.ZERO
 			
 func _disable_views() -> void:
-	print("huh")
 	$UpgradeMenuMain.visible = false
 	$RangeIndicator.visible = false
 	$UpgradeMenuMain.position = Vector2.ZERO
@@ -163,6 +169,8 @@ func _on_targeting_pressed() -> void:
 	var new_method: String = range_component.cycle_targeting_method()
 	if new_method == "strongest":
 		$UpgradeMenuMain/UpgradeMenu/Targeting/Label.scale = Vector2(0.6,0.6)
+	elif new_method == "closest": 
+		$UpgradeMenuMain/UpgradeMenu/Targeting/Label.scale = Vector2(0.8,0.8)
 	else:
 		$UpgradeMenuMain/UpgradeMenu/Targeting/Label.scale = Vector2.ONE
 	$UpgradeMenuMain/UpgradeMenu/Targeting/Label.text = new_method
