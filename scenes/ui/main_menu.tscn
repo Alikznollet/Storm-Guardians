@@ -232,7 +232,7 @@ layout_mode = 0
 offset_left = -86.0
 offset_right = 1.0
 offset_bottom = 15.0
-text = "Music vol."
+text = "Volume"
 label_settings = SubResource("LabelSettings_td363")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -265,6 +265,6 @@ libraries = {
 [connection signal="pressed" from="Buttons/MainMenuScreen/Play Game" to="." method="_on_select_level_pressed"]
 [connection signal="toggled" from="Buttons/Options/Fullscreen" to="." method="_on_fullscreen_toggled"]
 [connection signal="drag_ended" from="Buttons/Options/Volume" to="." method="_on_volume_drag_ended"]
-[connection signal="value_changed" from="Buttons/Options/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="value_changed" from="Buttons/Options/Volume" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="Buttons/Options/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="pressed" from="Buttons/Options/Return" to="." method="_on_return_pressed"]

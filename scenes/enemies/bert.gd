@@ -12,6 +12,8 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("hover")
 
 func _on_hitbox_component_died() -> void:
+	$HitboxComponent/CollisionShape2D.set_deferred("disabled", true)
+	$Label.hide()
 	$AnimatedSprite2D.play("death")
 	$Death.play()
 	dead = true

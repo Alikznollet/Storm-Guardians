@@ -5,6 +5,8 @@ func _ready() -> void:
 	$"Money given".hide()
 
 func _on_hitbox_component_died() -> void:
+	$HitboxComponent/CollisionShape2D.set_deferred("disabled", true)
+	$Label.hide()
 	$Death.play()
 	$AnimatedSprite2D.play("death")
 	dead = true

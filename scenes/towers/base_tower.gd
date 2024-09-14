@@ -179,3 +179,12 @@ func _on_targeting_pressed() -> void:
 	else:
 		$UpgradeMenuMain/UpgradeMenu/Targeting/Label.scale = Vector2.ONE
 	$UpgradeMenuMain/UpgradeMenu/Targeting/Label.text = new_method
+
+
+func _on_sell_mouse_entered() -> void:
+	$UpgradeMenuMain/UpgradeMenu/Sell/Label.text = str(totalcost * 0.6)
+	$UpgradeMenuMain/UpgradeMenu/Sell/Label.scale = Vector2(1.1,1.1)
+
+func _on_sell_mouse_exited() -> void:
+	$UpgradeMenuMain/UpgradeMenu/Sell/Label.text = "sell"
+	$UpgradeMenuMain/UpgradeMenu/Sell/Label.scale = Vector2(1,1)

@@ -275,12 +275,12 @@ offset_bottom = 75.0
 
 [node name="Label" type="Label" parent="UpgradeMenuMain/UpgradeMenu/Sell"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 42.0
-offset_bottom = 25.0
+offset_right = 12.0
+offset_bottom = 11.0
 text = "sell"
 label_settings = SubResource("LabelSettings_784hk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Targeting" type="Button" parent="UpgradeMenuMain/UpgradeMenu"]
 offset_left = -22.0
@@ -301,5 +301,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="toggled" from="TowerButton" to="." method="_on_tower_button_toggled"]
+[connection signal="mouse_entered" from="UpgradeMenuMain/UpgradeMenu/Sell" to="." method="_on_sell_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradeMenuMain/UpgradeMenu/Sell" to="." method="_on_sell_mouse_exited"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="UpgradeMenuMain/UpgradeMenu/Targeting" to="." method="_on_targeting_pressed"]
