@@ -132,3 +132,4 @@ volume_db = -10.0
 pitch_scale = 0.84
 max_distance = 500.0
 attenuation = 5.09824
+bus = &"Sfx"

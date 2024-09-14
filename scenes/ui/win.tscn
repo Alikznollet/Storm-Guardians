@@ -143,6 +143,7 @@ script = ExtResource("1_ftr7y")
 stream = ExtResource("2_bwdqv")
 pitch_scale = 1.3
 attenuation = 4.92458
+bus = &"Sfx"
 
 [node name="PauseMenu" type="TileMapLayer" parent="."]
 process_mode = 3

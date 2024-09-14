@@ -3,6 +3,7 @@ extends AudioStreamPlayer2D
 func _ready() -> void:
 	GameState.connect("grace_entered", _grace)
 	GameState.connect("grace_exited", _storm)
+	play()
 	
 	
 func _grace():

@@ -15,19 +15,23 @@ func load_settings() -> void:
 	var err = config.load("user://settings.cfg")
 
 	if err == 7:
+		print(err)
 		_create_settings()
 		return
-		
-	fullscreen = config.get_value("Settings", "fullscreen")
-	volume = config.get_value("Settings", "volume")
+	
+	fullscreen = config.get_value("Settings", "fullscreen", DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	volume = config.get_value("Settings", "volume", db_to_linear(AudioServer.get_bus_volume_db(bus_index)))
+	
+	
 	save_fullscreen(fullscreen)
 	save_volume(volume)
 
 func _create_settings():
 	var config: ConfigFile = ConfigFile.new()
 	config.set_value("Settings", "fullscreen", DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-	config.set_value("Settings", "volume", AudioServer.get_bus_volume_db(bus_index))
+	config.set_value("Settings", "volume", db_to_linear(AudioServer.get_bus_volume_db(bus_index)))
 	config.save("user://settings.cfg")
+	load_settings()
 	
 	
 func save_fullscreen(new_fullscreen: bool) -> void:

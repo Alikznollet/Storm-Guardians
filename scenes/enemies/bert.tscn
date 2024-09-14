@@ -243,6 +243,7 @@ metadata/_edit_lock_ = true
 stream = ExtResource("6_n5ugk")
 volume_db = -5.0
 pitch_scale = 0.5
+bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1, 0)
@@ -250,6 +251,7 @@ stream = ExtResource("7_63neg")
 volume_db = -5.0
 max_distance = 500.0
 attenuation = 3.73213
+bus = &"Sfx"
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("hit_audio", "health_label")]
 position = Vector2(0, -3)

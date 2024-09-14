@@ -6,6 +6,5 @@
 [node name="Music" type="AudioStreamPlayer2D"]
 process_mode = 3
 stream = ExtResource("1_dysay")
-autoplay = true
 parameters/looping = true
 script = ExtResource("2_dvhtl")

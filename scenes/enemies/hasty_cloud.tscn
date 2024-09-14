@@ -166,11 +166,13 @@ stream = ExtResource("4_prxsq")
 volume_db = -10.0
 pitch_scale = 0.47
 attenuation = 7.72749
+bus = &"Sfx"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_yxqhg")
 volume_db = -10.0
 attenuation = 3.86375
+bus = &"Sfx"
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("hit_audio", "health_label")]
 collision_layer = 2

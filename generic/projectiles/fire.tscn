@@ -101,6 +101,7 @@ stream = ExtResource("2_y6qfs")
 volume_db = -10.0
 pitch_scale = 1.4
 attenuation = 1.7411
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b1yyk")
