@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://w0sm6xpyscnt"]
+[gd_scene load_steps=61 format=4 uid="uid://w0sm6xpyscnt"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_84mrw"]
 [ext_resource type="TileSet" uid="uid://cs34vyt8rsjpu" path="res://scenes/ui/UI.tres" id="2_itmgn"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://db7088v7llo4e" path="res://assets/UI/healthicon.png" id="15_fboio"]
 [ext_resource type="LabelSettings" uid="uid://dm0xx5p44xyip" path="res://scenes/ui/button_settings_bale.tres" id="17_lc34k"]
 [ext_resource type="PackedScene" uid="uid://cpgr2lmqf7efq" path="res://scenes/tutorial/yapper.tscn" id="18_k8a2r"]
+[ext_resource type="Texture2D" uid="uid://bao3ylig1lbiq" path="res://assets/UI/speed_up.png" id="22_8m8k7"]
 
 [sub_resource type="Gradient" id="Gradient_by6x4"]
 offsets = PackedFloat32Array(0.227642, 0.784553)
@@ -109,7 +110,7 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_r0sto"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(5.10186e-06, 0.374969, 0.909774, 1)
+colors = PackedColorArray(0.265271, 0.53785, 0.999999, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cfx4e"]
 resource_local_to_scene = true
@@ -117,7 +118,7 @@ gradient = SubResource("Gradient_r0sto")
 
 [sub_resource type="Gradient" id="Gradient_11rle"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.981456, 0.267312, 0.299668, 1)
+colors = PackedColorArray(0.541759, 0.279417, 0.312307, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wtjmp"]
 gradient = SubResource("Gradient_11rle")
@@ -811,6 +812,88 @@ _data = {
 "welcome": SubResource("Animation_d55la")
 }
 
+[sub_resource type="Animation" id="Animation_f3wh6"]
+resource_name = "flicker"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpeedUp:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"speedup_back"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_suhqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpeedUp:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ylpme"]
+resource_name = "flickerback"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpeedUp:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"speedup_gone"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afti5"]
+_data = {
+"RESET": SubResource("Animation_suhqj"),
+"flicker": SubResource("Animation_f3wh6"),
+"flickerback": SubResource("Animation_ylpme")
+}
+
 [node name="Hud" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_84mrw")
@@ -942,9 +1025,8 @@ vertical_alignment = 1
 process_mode = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = 32.0
 offset_right = 40.0
-offset_bottom = 72.0
+offset_bottom = 40.0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -1073,6 +1155,7 @@ price = 700
 
 [node name="WaveName" type="TileMapLayer" parent="."]
 process_mode = 1
+position = Vector2(-56, 0)
 tile_map_data = PackedByteArray("AAAOABQAAAAUAA0AAAANABQAAAATAA0AAAAMABQAAAATAA0AAAALABQAAAATAA0AAAAKABQAAAATAA0AAAAJABQAAAATAA0AAAAIABQAAAATAA0AAAAOABUAAAAUAA4AAAAOABYAAAAUAA4AAAANABUAAAATAA4AAAANABYAAAATAA4AAAAMABYAAAATAA4AAAALABYAAAATAA4AAAAKABYAAAATAA4AAAAJABYAAAATAA4AAAAIABYAAAATAA4AAAAIABUAAAATAA4AAAAJABUAAAATAA4AAAAKABUAAAATAA4AAAALABUAAAATAA4AAAAMABUAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
 
@@ -1096,7 +1179,6 @@ vertical_alignment = 1
 
 [node name="Balance" type="TileMapLayer" parent="."]
 process_mode = 1
-position = Vector2(0, -20)
 tile_map_data = PackedByteArray("AAAjAAAAAAATAA4AAAAjAAEAAAATAA4AAAAkAAAAAAATAA4AAAAkAAEAAAATAA4AAAAlAAAAAAATAA4AAAAlAAEAAAATAA4AAAAmAAAAAAAUAA4AAAAmAAEAAAAUAA4AAAAmAAIAAAAUAA8AAAAlAAIAAAATAA8AAAAkAAIAAAATAA8AAAAjAAIAAAATAA8AAAAiAAIAAAATAA8AAAAiAAAAAAATAA4AAAAiAAEAAAATAA4AAAAhAAIAAAASAA8AAAAhAAAAAAASAA4AAAAhAAEAAAASAA4AAAAgAAEAAAATAA8AAAAeAAEAAAASAA8AAAAfAAEAAAATAA8AAAAeAAAAAAASAA4AAAAfAAAAAAATAA4AAAAgAAAAAAATAA4AAAA=")
 tile_set = ExtResource("2_itmgn")
 metadata/_edit_group_ = true
@@ -1166,6 +1248,10 @@ libraries = {
 "": SubResource("AnimationLibrary_gk3vg")
 }
 
+[node name="SpeedUp" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("22_8m8k7")
+
 [node name="PauseMenu" type="TileMapLayer" parent="."]
 process_mode = 3
 z_index = 5
@@ -1227,6 +1313,11 @@ position = Vector2(-36, -33)
 [node name="Yapper Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ciwyu")
+}
+
+[node name="SpeedUpAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_afti5")
 }
 
 [connection signal="timeout" from="ThunderTimer" to="." method="_on_thunder_timer_timeout"]

@@ -29,7 +29,8 @@ func start_wave() -> void:
 	
 	while current_enemy:
 		%Path.add_child(current_enemy)
-		await get_tree().create_timer(current_wave.spawn_time).timeout
+		$"../Spawntimer".start(current_wave.spawn_time)
+		await $"../Spawntimer".timeout
 		current_enemy = current_wave.get_next_enemy()
 		
 	await %Path.wave_over
@@ -71,7 +72,8 @@ func next_endless():
 	
 	while current_enemy:
 		%Path.add_child(current_enemy)
-		await get_tree().create_timer(current_wave.spawn_time).timeout
+		$"../Spawntimer".start(current_wave.spawn_time)
+		await $"../Spawntimer".timeout 
 		current_enemy = current_wave.get_next_enemy()
 		
 	await %Path.wave_over

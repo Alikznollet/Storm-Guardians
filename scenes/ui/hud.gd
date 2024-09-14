@@ -11,6 +11,7 @@ func _ready() -> void:
 	_handle_bomb(false)
 	_handle_mage(false)
 	$PauseMenu.visible = false
+	$SpeedUp.hide()
 	
 	await get_tree().create_timer(0.3).timeout
 	$Rain.emitting = false
@@ -50,10 +51,19 @@ func _process(_delta: float) -> void:
 		next.emit()
 		$ButtonSound.play()
 		
+	if Input.is_action_pressed("space") and !tutorial_ongoing and not GameState.grace_period and not get_tree().paused:
+		$SpeedUp.show()
+		$SpeedUpAnim.play("flicker")
+		Engine.time_scale = 2
+	else:
+		$SpeedUpAnim.stop()
+		$SpeedUp.hide()
+		Engine.time_scale = 1
+		
 		
 func _on_thunder_timer_timeout() -> void:
 	var tween: Tween = create_tween()
-	$Thunder.modulate = Color("ffffff50")
+	$Thunder.modulate = Color("ffffff35")
 	tween.tween_property($Thunder, "modulate", Color("ffffff00"), 0.5).set_trans(Tween.TRANS_CUBIC)
 	tween.play()
 	var rd: int = randi_range(4,15)
@@ -61,10 +71,11 @@ func _on_thunder_timer_timeout() -> void:
 	$Thunder/Thundeer.play()
 	
 func _on_base_damaged() -> void:
-	var tween: Tween = create_tween()
-	$Hurt.modulate = Color("ffffff50")
-	tween.tween_property($Hurt, "modulate", Color("ffffff00"), 0.5).set_trans(Tween.TRANS_CUBIC)
-	tween.play()
+	if GameState.current_wave != "":
+		var tween: Tween = create_tween()
+		$Hurt.modulate = Color("ffffff35")
+		tween.tween_property($Hurt, "modulate", Color("ffffff00"), 0.5).set_trans(Tween.TRANS_CUBIC)
+		tween.play()
 	
 func _on_grace_timer_timeout() -> void:
 	_grace_hide()
@@ -239,3 +250,9 @@ func tutorial():
 	$Timer/Confirm/SkipButton.disabled = false
 	$Timer/Timer/TimerButton.disabled = false
 	tutorial_over.emit()
+	
+func speedup_gone() -> void:
+	$SpeedUpAnim.play("flicker")
+	
+func speedup_back() -> void:
+	$SpeedUpAnim.play("flickerback")
