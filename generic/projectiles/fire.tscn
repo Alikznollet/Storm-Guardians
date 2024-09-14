@@ -101,10 +101,10 @@ stream = ExtResource("2_y6qfs")
 volume_db = -10.0
 pitch_scale = 1.4
 attenuation = 1.7411
-bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b1yyk")
+debug_color = Color(0.942285, 0.226431, 0.216861, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_h7jds")

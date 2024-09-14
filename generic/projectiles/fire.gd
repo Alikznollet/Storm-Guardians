@@ -6,7 +6,8 @@ var animation: String = "fire_grow"
 var impact_radius: int:
 	set(radius):
 		$CollisionShape2D.shape.radius = radius
-		animation = "fire_grow_big"
+		if radius > 30:
+			animation = "fire_grow_big"
 
 func _ready() -> void:
 	$AudioStreamPlayer2D.play()
