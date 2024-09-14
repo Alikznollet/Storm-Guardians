@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://u0t8foxejah8"]
+[gd_scene load_steps=41 format=3 uid="uid://u0t8foxejah8"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bert.gd" id="1_kpbc4"]
 [ext_resource type="Script" path="res://generic/components/hitbox_component.gd" id="2_3p5nx"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bqqdrnvd08leo" path="res://assets/enemies/bert/powezr_up.png" id="5_8vvnl"]
 [ext_resource type="AudioStream" uid="uid://piuvakl06oqx" path="res://assets/sfx/explosion.wav" id="6_n5ugk"]
 [ext_resource type="AudioStream" uid="uid://djq8n1s23far" path="res://assets/sfx/hitHurt.wav" id="7_63neg"]
-[ext_resource type="LabelSettings" uid="uid://dxyu4wwedjkag" path="res://generic/other/prices.tres" id="8_j124o"]
+[ext_resource type="LabelSettings" uid="uid://cq4op4i4xyn8m" path="res://assets/UI/hp.tres" id="10_4gwxb"]
+[ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="11_1lgo7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_23cmd"]
 atlas = ExtResource("2_xmu6r")
@@ -219,13 +220,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cgv8"]
 size = Vector2(21, 18)
 
+[sub_resource type="LabelSettings" id="LabelSettings_qypek"]
+font = ExtResource("11_1lgo7")
+font_size = 10
+font_color = Color(0.898039, 0.717647, 0.0901961, 1)
+shadow_color = Color(0.458624, 0.37183, 0.212359, 0.780392)
+shadow_offset = Vector2(0, 1)
+
 [node name="Bert" type="PathFollow2D" node_paths=PackedStringArray("marker", "hitbox_component")]
 rotates = false
 loop = false
 script = ExtResource("1_kpbc4")
 speed = 15
 damage_on_base = 50
-money_given = 100
+money_given = 1000
 marker = NodePath("Marker2D")
 hitbox_component = NodePath("HitboxComponent")
 
@@ -243,7 +251,6 @@ metadata/_edit_lock_ = true
 stream = ExtResource("6_n5ugk")
 volume_db = -5.0
 pitch_scale = 0.5
-bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(1, 0)
@@ -251,7 +258,6 @@ stream = ExtResource("7_63neg")
 volume_db = -5.0
 max_distance = 500.0
 attenuation = 3.73213
-bus = &"Sfx"
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("hit_audio", "health_label")]
 position = Vector2(0, -3)
@@ -272,14 +278,26 @@ script = ExtResource("3_5q8fn")
 controller = NodePath("..")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -34.0
-offset_right = 20.0
-offset_bottom = -11.0
+z_index = 3
+offset_left = -19.0
+offset_top = -35.0
+offset_right = 21.0
+offset_bottom = -12.0
 text = "0"
-label_settings = ExtResource("8_j124o")
+label_settings = ExtResource("10_4gwxb")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Money given" type="Label" parent="."]
+z_index = 3
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = -5.0
+text = "+0"
+label_settings = SubResource("LabelSettings_qypek")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]
 [connection signal="died" from="HitboxComponent" to="." method="_on_hitbox_component_died"]

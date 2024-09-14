@@ -9,11 +9,11 @@
 [ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="3_7q3s8"]
 [ext_resource type="AudioStream" uid="uid://b6jxdieyco2uf" path="res://assets/sfx/loud-thunder-192165.mp3" id="3_8wutv"]
 [ext_resource type="AudioStream" uid="uid://b5tskdy82e0yu" path="res://assets/sfx/smooth-cold-wind-looped-135538.mp3" id="4_2mlnk"]
-[ext_resource type="LabelSettings" uid="uid://dxyu4wwedjkag" path="res://generic/other/prices.tres" id="4_fom0d"]
 [ext_resource type="PackedScene" uid="uid://bh1wl6c05pluf" path="res://scenes/towers/types/spear_tower.tscn" id="5_64q8l"]
 [ext_resource type="Texture2D" uid="uid://do7qcr7bc56f7" path="res://assets/world/towers/spear/spear_icon.png" id="5_hdfx4"]
 [ext_resource type="Texture2D" uid="uid://buva6h73rrev0" path="res://assets/world/towers/bomb/bomb_icon.png" id="7_nki3j"]
 [ext_resource type="PackedScene" uid="uid://bjsgdd4ajr755" path="res://scenes/towers/types/bomb_tower.tscn" id="7_pwo0p"]
+[ext_resource type="LabelSettings" uid="uid://d3daefq1ivwr5" path="res://generic/other/moneygiven.tres" id="8_13522"]
 [ext_resource type="Texture2D" uid="uid://jyee3vbgq4qo" path="res://assets/world/towers/fire/fire_icon.png" id="9_qqti8"]
 [ext_resource type="PackedScene" uid="uid://b0molxwt10pmg" path="res://scenes/towers/types/fire_tower.tscn" id="9_ri6sn"]
 [ext_resource type="Texture2D" uid="uid://di6sup44a4luk" path="res://assets/world/towers/electric/electric_icon.png" id="11_2asy0"]
@@ -982,7 +982,7 @@ offset_top = 147.0
 offset_right = 303.0
 offset_bottom = 162.0
 text = "skip"
-label_settings = ExtResource("4_fom0d")
+label_settings = ExtResource("8_13522")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1046,7 +1046,7 @@ offset_top = 133.0
 offset_right = 158.0
 offset_bottom = 144.0
 text = "200"
-label_settings = ExtResource("4_fom0d")
+label_settings = ExtResource("8_13522")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1062,7 +1062,7 @@ offset_top = 133.0
 offset_right = 190.0
 offset_bottom = 144.0
 text = "400"
-label_settings = ExtResource("4_fom0d")
+label_settings = ExtResource("8_13522")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1078,7 +1078,7 @@ offset_top = 133.0
 offset_right = 222.0
 offset_bottom = 144.0
 text = "500"
-label_settings = ExtResource("4_fom0d")
+label_settings = ExtResource("8_13522")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1094,7 +1094,7 @@ offset_top = 133.0
 offset_right = 253.0
 offset_bottom = 144.0
 text = "700"
-label_settings = ExtResource("4_fom0d")
+label_settings = ExtResource("8_13522")
 horizontal_alignment = 1
 vertical_alignment = 1
 

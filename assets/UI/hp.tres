@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cq4op4i4xyn8m"]
+
+[ext_resource type="FontFile" uid="uid://0o30bdwr77j7" path="res://assets/UI/DigitalDisco.ttf" id="1_tkuda"]
+
+[resource]
+font = ExtResource("1_tkuda")
+font_size = 6
+shadow_color = Color(0.227451, 0.227451, 0.227451, 0.627451)
+shadow_offset = Vector2(0, 1)
