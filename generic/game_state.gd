@@ -3,6 +3,7 @@ extends Node
 var grace_timer: Timer
 var current_wave: String
 
+signal game_over()
 signal grace_entered()
 signal grace_exited()
 

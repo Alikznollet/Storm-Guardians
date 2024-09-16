@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgv6ke8ver7ud"]
 
-[ext_resource type="AudioStream" uid="uid://b5dj48rhvx7wy" path="res://assets/sfx/music.mp3" id="1_dysay"]
+[ext_resource type="AudioStream" uid="uid://ckj6uol3wglvg" path="res://assets/sfx/musictrimmed.mp3" id="1_3cnba"]
 [ext_resource type="Script" path="res://music.gd" id="2_dvhtl"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
 process_mode = 3
-stream = ExtResource("1_dysay")
+stream = ExtResource("1_3cnba")
 parameters/looping = true
 script = ExtResource("2_dvhtl")

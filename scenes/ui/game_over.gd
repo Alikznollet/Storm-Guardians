@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	GameState.game_over.emit()
+	
 	get_tree().paused = true
 	Music._grace()
 	$PauseMenu.modulate = Color("ffffff00")

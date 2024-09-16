@@ -4,6 +4,7 @@ class_name WaveManager
 var waves: Array[WaveSettings]
 var endless_wave: EndlessWave
 var current_wave: WaveSettings
+var game_over: bool = false
 
 signal wave_over()
 
@@ -17,7 +18,11 @@ func _ready() -> void:
 			
 	await $"../Hud".tutorial_over
 	GameState.game_started()
+	GameState.connect("game_over", _game_over)
 	_start_grace()
+	
+func _game_over() -> void:
+	game_over = true
 			
 			
 func start_wave() -> void:
@@ -56,11 +61,12 @@ func _on_grace_timer_timeout() -> void:
 func _start_endless():
 	# TODO: make a popup appear here telling the player they won and asking
 	# if they want to continue into endless mode
-	var win_screen_packed: PackedScene = load("res://scenes/ui/win.tscn")
-	var win_screen: WinScreen = win_screen_packed.instantiate()
-	get_tree().current_scene.add_child(win_screen)
-	
-	await win_screen.endless
+	if not game_over:
+		var win_screen_packed: PackedScene = load("res://scenes/ui/win.tscn")
+		var win_screen: WinScreen = win_screen_packed.instantiate()
+		get_tree().current_scene.add_child(win_screen)
+		
+		await win_screen.endless
 	
 	current_wave = endless_wave
 	_start_grace()
