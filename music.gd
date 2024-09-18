@@ -3,8 +3,6 @@ extends AudioStreamPlayer2D
 func _ready() -> void:
 	GameState.connect("grace_entered", _grace)
 	GameState.connect("grace_exited", _storm)
-	play()
-	
 	
 func _grace():
 	var tween: Tween = create_tween()
@@ -15,3 +13,8 @@ func _storm():
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "pitch_scale", 2, 1)
 	tween.play()
+
+func _on_finished() -> void:
+	await get_tree().create_timer(0.1).timeout
+	if not playing:
+		play()
