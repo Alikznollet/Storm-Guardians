@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var sped_up: bool = false
+
 func _ready() -> void:
 	_grace_show()
 	GameState.money_label = $Balance/Money
@@ -51,18 +53,19 @@ func _process(_delta: float) -> void:
 		next.emit()
 		$ButtonSound.play()
 		
-	if Input.is_action_pressed("space") and !tutorial_ongoing and not GameState.grace_period and not get_tree().paused:
-		$SpeedUp.show()
-		$SpeedUpAnim.play("flicker")
-		Engine.time_scale = 2
-	else:
-		$SpeedUpAnim.stop()
-		$SpeedUp.hide()
-		Engine.time_scale = 1
+	if Input.is_action_just_pressed("space") and !tutorial_ongoing and not GameState.grace_period and not get_tree().paused:
+		if !sped_up:
+			$SpeedUp.show()
+			$SpeedUpAnim.play("flicker")
+			Engine.time_scale = 2
+		else:
+			$SpeedUpAnim.stop()
+			$SpeedUp.hide()
+			Engine.time_scale = 1
+		sped_up = !sped_up
 		
 	if OS.is_debug_build() and Input.is_action_just_pressed("e"):
 		GameState.current_balance += 1000
-		
 		
 		
 func _on_thunder_timer_timeout() -> void:
@@ -93,7 +96,11 @@ func _grace_show() -> void:
 	
 	$Timer/Confirm/SkipButton.disabled = false
 	$Timer/Timer/TimerButton.disabled = false
-
+	
+	sped_up = false
+	$SpeedUpAnim.stop()
+	$SpeedUp.hide()
+	Engine.time_scale = 1
 
 	$AnimationPlayer.play("GraceOpen")
 	
