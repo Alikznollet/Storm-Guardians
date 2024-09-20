@@ -123,45 +123,71 @@ func _on_spear_mouse_exited() -> void:
 	if GameState.grace_period:
 		_handle_spear(false)
 		
+@export var info_opened: bool = false
+		
 func _handle_spear(open: bool) -> void:
 	if open:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceSpear, "position", Vector2(0, 0), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		$BuyInfo/Label.text = $"Buy/BuyButtons/Spear".name
+		$BuyInfo/TextureRect.texture = $"Buy/BuyButtons/Spear".texture_normal
+		$BuyInfo/Label2.text = $"Buy/BuyButtons/Spear".tower_description
+		$BuyInfo/BuyInfo2.play("open_info", 0.3)
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceSpear, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		if info_opened:
+			$BuyInfo/BuyInfo2.play("close_info", 0.3)
 
 func _handle_bomb(open: bool) -> void:
 	if open:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceBomb, "position", Vector2(0, 0), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		$BuyInfo/Label.text = $Buy/BuyButtons/Bomber.name
+		$BuyInfo/TextureRect.texture = $Buy/BuyButtons/Bomber.texture_normal
+		$BuyInfo/Label2.text = $Buy/BuyButtons/Bomber.tower_description
+		$BuyInfo/BuyInfo2.play("open_info", 0.3)
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceBomb, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		if info_opened:
+			$BuyInfo/BuyInfo2.play("close_info", 0.3)
 
 func _handle_fire(open: bool) -> void:
 	if open:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceFire, "position", Vector2(0, 0), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		$BuyInfo/Label.text = $Buy/BuyButtons/Furnace.name
+		$BuyInfo/TextureRect.texture = $Buy/BuyButtons/Furnace.texture_normal
+		$BuyInfo/Label2.text = $Buy/BuyButtons/Furnace.tower_description
+		$BuyInfo/BuyInfo2.play("open_info", 0.3)
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceFire, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		if info_opened:
+			$BuyInfo/BuyInfo2.play("close_info", 0.3)
 
 func _handle_mage(open: bool) -> void:
 	if open:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceMage, "position", Vector2(0, 0), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		$BuyInfo/Label.text = $Buy/BuyButtons/Tesla.name
+		$BuyInfo/TextureRect.texture = $Buy/BuyButtons/Tesla.texture_normal
+		$BuyInfo/Label2.text = $Buy/BuyButtons/Tesla.tower_description
+		$BuyInfo/BuyInfo2.play("open_info", 0.3)
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceMage, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
+		if info_opened:
+			$BuyInfo/BuyInfo2.play("close_info", 0.3)
 
 func _on_bomb_mouse_entered() -> void:
 	if GameState.grace_period and not tutorial_ongoing:
@@ -217,10 +243,10 @@ signal next()
 signal tutorial_over()
 
 func tutorial():
-	$Buy/BuyButtons/Spear.disabled = true
-	$Buy/BuyButtons/Bomb.disabled = true
-	$Buy/BuyButtons/Fire.disabled = true
-	$Buy/BuyButtons/Electric.disabled = true
+	$"Buy/BuyButtons/Spear".disabled = true
+	$Buy/BuyButtons/Bomber.disabled = true
+	$Buy/BuyButtons/Furnace.disabled = true
+	$Buy/BuyButtons/Tesla.disabled = true
 	$Timer/Confirm/SkipButton.disabled = true
 	$Timer/Timer/TimerButton.disabled = true
 	
@@ -244,10 +270,10 @@ func tutorial():
 	$"Yapper Animation".play("RESET")
 	tutorial_ongoing = false
 	
-	$Buy/BuyButtons/Spear.disabled = false
-	$Buy/BuyButtons/Bomb.disabled = false
-	$Buy/BuyButtons/Fire.disabled = false
-	$Buy/BuyButtons/Electric.disabled = false
+	$"Buy/BuyButtons/Spear".disabled = false
+	$Buy/BuyButtons/Bomber.disabled = false
+	$Buy/BuyButtons/Furnace.disabled = false
+	$Buy/BuyButtons/Tesla.disabled = false
 	$Timer/Confirm/SkipButton.disabled = false
 	$Timer/Timer/TimerButton.disabled = false
 	tutorial_over.emit()

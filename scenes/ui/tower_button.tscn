@@ -11,6 +11,5 @@ script = ExtResource("2_1aop0")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_cb0kf")
-bus = &"Sfx"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
