@@ -60,6 +60,10 @@ func _process(_delta: float) -> void:
 		$SpeedUp.hide()
 		Engine.time_scale = 1
 		
+	if OS.is_debug_build() and Input.is_action_just_pressed("e"):
+		GameState.current_balance += 1000
+		
+		
 		
 func _on_thunder_timer_timeout() -> void:
 	var tween: Tween = create_tween()
@@ -100,6 +104,7 @@ func _grace_hide() -> void:
 	_handle_fire(false)
 	_handle_bomb(false)
 	_handle_mage(false)
+	
 	$Timer/Timer/TimerButton.button_pressed = false
 	$Rain.emitting = true
 	var rd: int = randi_range(4,15)
@@ -123,7 +128,7 @@ func _on_spear_mouse_exited() -> void:
 	if GameState.grace_period:
 		_handle_spear(false)
 		
-@export var info_opened: bool = false
+var info_opened: bool = false
 		
 func _handle_spear(open: bool) -> void:
 	if open:
@@ -134,12 +139,14 @@ func _handle_spear(open: bool) -> void:
 		$BuyInfo/TextureRect.texture = $"Buy/BuyButtons/Spear".texture_normal
 		$BuyInfo/Label2.text = $"Buy/BuyButtons/Spear".tower_description
 		$BuyInfo/BuyInfo2.play("open_info", 0.3)
+		info_opened = true
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceSpear, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
 		if info_opened:
 			$BuyInfo/BuyInfo2.play("close_info", 0.3)
+			info_opened = false
 
 func _handle_bomb(open: bool) -> void:
 	if open:
@@ -150,12 +157,14 @@ func _handle_bomb(open: bool) -> void:
 		$BuyInfo/TextureRect.texture = $Buy/BuyButtons/Bomber.texture_normal
 		$BuyInfo/Label2.text = $Buy/BuyButtons/Bomber.tower_description
 		$BuyInfo/BuyInfo2.play("open_info", 0.3)
+		info_opened = true
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceBomb, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
 		if info_opened:
 			$BuyInfo/BuyInfo2.play("close_info", 0.3)
+			info_opened = false
 
 func _handle_fire(open: bool) -> void:
 	if open:
@@ -166,12 +175,14 @@ func _handle_fire(open: bool) -> void:
 		$BuyInfo/TextureRect.texture = $Buy/BuyButtons/Furnace.texture_normal
 		$BuyInfo/Label2.text = $Buy/BuyButtons/Furnace.tower_description
 		$BuyInfo/BuyInfo2.play("open_info", 0.3)
+		info_opened = true
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceFire, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
 		if info_opened:
 			$BuyInfo/BuyInfo2.play("close_info", 0.3)
+			info_opened = false
 
 func _handle_mage(open: bool) -> void:
 	if open:
@@ -182,12 +193,14 @@ func _handle_mage(open: bool) -> void:
 		$BuyInfo/TextureRect.texture = $Buy/BuyButtons/Tesla.texture_normal
 		$BuyInfo/Label2.text = $Buy/BuyButtons/Tesla.tower_description
 		$BuyInfo/BuyInfo2.play("open_info", 0.3)
+		info_opened = true
 	else:
 		var tween: Tween = get_tree().create_tween()
 		tween.tween_property($Buy/Prices/PriceMage, "position", Vector2(0, 16), 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.play()
 		if info_opened:
 			$BuyInfo/BuyInfo2.play("close_info", 0.3)
+			info_opened = false
 
 func _on_bomb_mouse_entered() -> void:
 	if GameState.grace_period and not tutorial_ongoing:

@@ -20,3 +20,6 @@ func _on_area_entered(area: Area2D) -> void:
 		health -= area.damage
 		if hit_audio:
 			hit_audio.play()
+			
+		if area is Bomb and health > 0:
+			get_parent().stun(area.stun_time)

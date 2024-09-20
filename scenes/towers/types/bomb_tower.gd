@@ -23,13 +23,13 @@ func _physics_process(_delta: float) -> void:
 		else:
 			$Thrower.flip_h = false
 		if can_throw:
+			can_throw = false
 			$Thrower.play("throw")
 			var bomb_projectile: Bomb = projectile.instantiate()
-			bomb_projectile.explo_position = target.marker.global_position
+			bomb_projectile.target = target
 			bomb_projectile.damage = bomb_projectile.damage * projectile_damage_modifier
 			bomb_projectile.explo_radius_modifier = spread_modifier
 			add_child(bomb_projectile)
-			can_throw = false
 			$ThrowTimer.start()
 
 func _on_throw_timer_timeout() -> void:

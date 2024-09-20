@@ -12,3 +12,11 @@ func _notification(what):
 	if (what == NOTIFICATION_PREDELETE):
 		# adds the interest money to the balance
 		GameState.money_gained += money_given + GameState.current_interest
+		
+func stun(duration: float):
+	call_deferred("_MODE", PROCESS_MODE_WHEN_PAUSED)
+	await get_tree().create_timer(duration).timeout
+	call_deferred("_MODE", PROCESS_MODE_INHERIT)
+	
+func _MODE(mode: ProcessMode):
+	process_mode = mode
