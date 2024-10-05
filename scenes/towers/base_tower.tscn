@@ -166,7 +166,6 @@ offset_left = -22.0
 offset_top = 19.0
 offset_right = 22.0
 offset_bottom = 27.0
-mouse_filter = 0
 texture = ExtResource("3_cmtb1")
 stretch_mode = 2
 
@@ -193,7 +192,6 @@ offset_left = -22.0
 offset_top = 30.0
 offset_right = 22.0
 offset_bottom = 38.0
-mouse_filter = 0
 texture = ExtResource("3_cmtb1")
 stretch_mode = 2
 

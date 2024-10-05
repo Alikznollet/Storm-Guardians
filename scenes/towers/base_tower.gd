@@ -13,6 +13,8 @@ func _ready() -> void:
 	
 	GameState.connect("grace_exited", _disable_views)
 	GameState.connect("new_tower_selected", _handle_selected_tower)
+	
+var mouse_inside_ui: bool
 
 @export var projectile: PackedScene
 var projectile_damage_modifier: float = 1.00
@@ -66,6 +68,7 @@ func _on_tower_button_toggled(toggled_on: bool) -> void:
 			$RangeIndicator.visible = toggled_on
 			$UpgradeMenuMain.position = Vector2.ZERO
 			
+			
 func _disable_views() -> void:
 	$UpgradeMenuMain.visible = false
 	$RangeIndicator.visible = false
@@ -96,7 +99,7 @@ func _process(delta: float) -> void:
 		$UpgradeMenuMain/Price4/Label.modulate = Color.RED
 	else:
 		$UpgradeMenuMain/Price4/Label.modulate = Color.WHITE
-		
+	
 
 func unlocku1() -> bool:
 	var can_buy: bool = upgrade1_price <= GameState.current_balance
